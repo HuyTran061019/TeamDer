@@ -10,6 +10,7 @@ import Hello from './Hello.jsx'
 export default class App extends React.Component {
     render() {
         return (
+            <div>
                 {/* Header of the website */}
                 <div class="jumbotron jumbotron-fluid" style={{ margin: 0, backgroundColor: 'pink  ' }} >
                     <div class="container">
