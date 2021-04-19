@@ -1,6 +1,5 @@
 import React from 'react'
 
-const url = 'http://localhost:9000/students'
 export default class StudentDetail extends React.Component{
     //Constructor for the selected student
     constructor(props) {
