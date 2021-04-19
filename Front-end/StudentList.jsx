@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
-const url = ''
+const url = 'http://localhost:9000/students'
 export default class StudentList extends React.Component {
 
     constructor(props) {
@@ -31,7 +31,7 @@ export default class StudentList extends React.Component {
         fetch(url).then(res => res.json())
             .then(json => {
 
-                var list = json.filter(s => typeof s.id !== 'undefined' && s.id !== "")
+                var list = json.filter(s => typeof s.studentId !== 'undefined' && s.studentId !== "")
                 this.setState({ students: list })
             })
     }
