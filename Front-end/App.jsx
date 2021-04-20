@@ -6,6 +6,7 @@ import StudentList from './StudentList.jsx'
 import ProjectList from './ProjectList.jsx'
 import StudentDetail from './StudentDetail.jsx'
 import Hello from './Hello.jsx'
+import ProjectDetail from './ProjectDetail.jsx'
 
 export default class App extends React.Component {
     render() {
@@ -63,6 +64,7 @@ export default class App extends React.Component {
                         <Route path='/StudentList' component={StudentList} />
                         <Route path='/ProjectList' component={ProjectList} />
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />
+                        <Route path='/ProjectDetail/:postId' component={ProjectDetail} />
                         {/* <Route path='/DifferentView' component={DifferentView} />
                         <Route path='/AdminLogin' component={AdminLogin} />
                         <Route path='/AdminManagement' component={AdminManagement} />
