@@ -52,14 +52,15 @@ var StudentSchema = new mongoose.Schema({
     })
  })
   
- app.put('/students/', function(req, res){
-    Student.findOneAndUpdate({studentId: req.body.studentId},{ studentName: req.body.studentName},{ studentYear: req.body.studentYear},
-        { description: req.body.description}, { specialtyExpertise: req.body.specialtyExpertise}, { status: req.body.status},{ birthDate: req.body.birthDate},
-        { major: req.body.major}, { studyingCourse: req.body.studyingCourse}, function(err, result){
+
+ 
+app.put('/students/', function (req, res) {
+    Student.findOneAndUpdate({ studentId: req.body.studentId }, {
+        studentName: req.body.studentName, studentyear: req.body.studentYear, description: req.body.description, specialtyExpertise: req.body.specialtyExpertise, 
+        status: req.body.status, birthDate: req.body.birthDate, major : req.body.major, studyingCourse: req.body.studyingCourse},function (err, result) {
         res.send(result)
     })
- })
-  
+})
   
  app.get('/students/search/:keyword', function(req, res){
     Student.find({name: req.params.keyword}, function(err, result){
