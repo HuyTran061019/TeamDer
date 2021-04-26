@@ -27,7 +27,6 @@ var StudentSchema = new mongoose.Schema({
 
 // Get all students
  app.get('/students', function(req, res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     Student.find({}, function(err, students){
         res.send(students)
     })
