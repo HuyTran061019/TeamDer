@@ -22,8 +22,6 @@ export default class StudentList extends React.Component {
             major: '',
             studyingCourse: '',
 
-            //Keyword
-            keyword: ''
         }
 
     }
@@ -57,18 +55,14 @@ export default class StudentList extends React.Component {
                 <div class="row">
                     <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
-                        <h1>Search For Student</h1>
-                        <div>
-                            <input type="text" name='keyword' placeholder="ID, Name, etc."
-                            onChange={this.handleChange.bind(this)}/>
-                        </div>
+                        <h1>This is a column</h1>
 
                     </div>
                     <div class="col-md-8">
                        {/* Select to see Student List or Project List */}
                         <h2>Student List </h2>
                         <div>
-                            {this.state.students.filter(s => s.studentId.includes(this.state.keyword)||s.studentName.includes(this.state.keyword)).map(filteredS => 
+                            {this.state.students.map(s =>
                                 <div class="list">
                                     <table class="table table-bordered">
                                         <thead>
@@ -85,15 +79,15 @@ export default class StudentList extends React.Component {
                                         <tbody>
                                             <tr>
 
-                                                <td>{filteredS.studentId}</td>
-                                                <td>{filteredS.studentName}</td>
-                                                <td>{filteredS.studentYear}</td>
-                                                <td>{filteredS.status}</td>
-                                                <td>{filteredS.major}</td>
-                                                <td>{filteredS.specialtyExpertise}</td>
+                                                <td>{s.studentId}</td>
+                                                <td>{s.studentName}</td>
+                                                <td>{s.studentYear}</td>
+                                                <td>{s.status}</td>
+                                                <td>{s.major}</td>
+                                                <td>{s.specialtyExpertise}</td>
 
 
-                                                <Link to={`/StudentDetail/${filteredS.studentId}`}>
+                                                <Link to={`/StudentDetail/${s.studentId}`}>
                                                     <a href="#" class="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
                                                 </Link>
 
