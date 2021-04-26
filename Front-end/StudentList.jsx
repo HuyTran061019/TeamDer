@@ -20,7 +20,7 @@ export default class StudentList extends React.Component {
             status: '',
             birthDate: '',
             major: '',
-            studyingCourse: '',
+            studyingCourse: ''
 
         }
 
@@ -73,6 +73,7 @@ export default class StudentList extends React.Component {
                                                 <th>Status</th>
                                                 <th>Major</th>
                                                 <th>Expertise</th>
+                                                <th>Detail</th>
 
                                             </tr>
                                         </thead>

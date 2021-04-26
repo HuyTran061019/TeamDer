@@ -65,10 +65,6 @@ export default class App extends React.Component {
                         <Route path='/ProjectList' component={ProjectList} />
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />
                         <Route path='/ProjectDetail/:postId' component={ProjectDetail} />
-                        {/* <Route path='/DifferentView' component={DifferentView} />
-                        <Route path='/AdminLogin' component={AdminLogin} />
-                        <Route path='/AdminManagement' component={AdminManagement} />
-                        <Route path={'/StudentDetail/:id'} component={StudentDetail} /> */}
 
                     </Switch>
 

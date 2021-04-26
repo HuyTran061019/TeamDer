@@ -1,6 +1,6 @@
 import React from 'react'
 
-const url = ''
+const url = 'http://localhost:9000/posts'
 export default class ProjectDetail extends React.Component {
     //Constructor for the selected student
     constructor(props) {
@@ -45,23 +45,22 @@ export default class ProjectDetail extends React.Component {
 
         fetch(url + "/" + this.state.Setid)
             .then(res => res.json())
-            .then(json => this.setState({ students: json }))
+            .then(json => this.setState({ posts: json }))
     }
     //render
     componentDidMount() {
         this.fetchData()
     }
-
     render() {
         return (
             <div class="container mb-3">
                 <div>
-                    {this.state.students.map(s =>
+                    {this.state.posts.map(s =>
                         <div>
-                            <h1 class="font-weight-bold" style={{ color: "red" }}> Student Detail: </h1>
+                            <h1 class="font-weight-bold" style={{ color: "red" }}> Post Detail: </h1>
                             <br />
                             {/* Project info */}
-                            <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Student Info:   </h2>
+                            <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Post Info:   </h2>
                             <div class="card mb-2" >
                                 <div class="card-body border border black" >
 

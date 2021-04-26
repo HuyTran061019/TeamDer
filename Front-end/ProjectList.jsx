@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
-const url = ''
+const url = 'http://localhost:9000/posts'
+
 export default class ProjectList extends React.Component {
 
     constructor(props) {
@@ -74,7 +75,7 @@ export default class ProjectList extends React.Component {
                     </div>
                     <div class="col-md-8">
                        {/* Select to see Student List or Project List */}
-                        <h2>Student List </h2>
+                        <h2>Project List </h2>
                         <div>
                             {this.state.posts.map(s =>
                                 <div class="list">
@@ -87,6 +88,8 @@ export default class ProjectList extends React.Component {
                                                 <th>Available Slots</th>
                                                 <th>Course Id</th>
                                                 <th>Looking For</th>
+                                                <th>Detail</th>
+
 
                                             </tr>
                                         </thead>
