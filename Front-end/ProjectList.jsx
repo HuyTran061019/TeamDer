@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
-const url = ''
+const url = 'http://localhost:9000/projects'
 export default class ProjectList extends React.Component {
 
     constructor(props) {
@@ -36,6 +36,8 @@ export default class ProjectList extends React.Component {
             lookingFor:  '',
             application: ''
 
+            //keyword
+            keyword: ''
         }
 
     }
@@ -69,14 +71,18 @@ export default class ProjectList extends React.Component {
                 <div class="row">
                     <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
-                        <h1>This is a column</h1>
+                        <h1>Search For Project</h1>
+                        <div>
+                            <input type="text" name='keyword' placeholder="Name, ID etc."
+                            onChange={this.handleChange.bind(this)}/>
+                        </div>
 
                     </div>
                     <div class="col-md-8">
                        {/* Select to see Student List or Project List */}
-                        <h2>Student List </h2>
+                        <h2>Project/Post List </h2>
                         <div>
-                            {this.state.posts.map(s =>
+                            {this.state.posts.filter(s => s.postId.includes(this.state.keyword)||s.postName.includes(this.state.keyword)).map(filteredS =>
                                 <div class="list">
                                     <table class="table table-bordered">
                                         <thead>
@@ -85,7 +91,6 @@ export default class ProjectList extends React.Component {
                                                 <th>Post Name</th>
                                                 <th>Post Status</th>
                                                 <th>Available Slots</th>
-                                                <th>Course Id</th>
                                                 <th>Looking For</th>
 
                                             </tr>
@@ -93,15 +98,14 @@ export default class ProjectList extends React.Component {
                                         <tbody>
                                             <tr>
 
-                                                <td>{s.postId}</td>
-                                                <td>{s.postName}</td>
-                                                <td>{s.postStatus}</td>
-                                                <td>{s.postAvailabeSlot}</td>
-                                                <td>{s.courseId}</td>
-                                                <td>{s.lookingFor}</td>
+                                                <td>{filteredS.postId}</td>
+                                                <td>{filteredS.postName}</td>
+                                                <td>{filteredS.postStatus}</td>
+                                                <td>{filteredS.postAvailabeSlot}</td>
+                                                <td>{filteredS.lookingFor}</td>
 
 
-                                                <Link to={`/ProjectDetail/${s.postId}`}>
+                                                <Link to={`/ProjectDetail/${filteredS.postId}`}>
                                                     <a href="#" class="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
                                                 </Link>
 
