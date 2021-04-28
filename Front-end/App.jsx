@@ -5,6 +5,7 @@ import Selection from './Selection.jsx'
 import StudentList from './StudentList.jsx'
 import ProjectList from './ProjectList.jsx'
 import StudentDetail from './StudentDetail.jsx'
+import Register from "./Register.jsx"
 import Hello from './Hello.jsx'
 import ProjectDetail from './ProjectDetail.jsx'
 
@@ -41,6 +42,11 @@ export default class App extends React.Component {
                                     User View
                 </Link>
                             </li>
+                            <li className="nav-item ml-5">
+                                <Link to="/Register" className="nav-link">
+                                    Register
+                </Link>
+                            </li>
                         </ul>
                         {/* <ul className="navbar-nav align-items-center">
                             <li className="nav-item ml-5">
@@ -59,8 +65,9 @@ export default class App extends React.Component {
 
                     {/* Go to another component */}
                     <Switch>
-                   
-                        <Route  exact path='/' component={Selection} />
+
+                        <Route exact path='/' component={Selection} />
+                        <Route path='/Register' component={Register} />
                         <Route path='/StudentList' component={StudentList} />
                         <Route path='/ProjectList' component={ProjectList} />
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />

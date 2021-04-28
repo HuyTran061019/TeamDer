@@ -26,6 +26,7 @@ var StudentSchema = new mongoose.Schema({
     birthDate:String,
     major:String,
     studyingCourse:String,
+    password: String
  })
 
 //defining project schema
@@ -140,7 +141,7 @@ var PostSchema = new mongoose.Schema({
 app.put('/students/', function (req, res) {
     Student.findOneAndUpdate({ studentId: req.body.studentId }, {
         studentName: req.body.studentName, studentyear: req.body.studentYear, description: req.body.description, specialtyExpertise: req.body.specialtyExpertise, 
-        status: req.body.status, birthDate: req.body.birthDate, major : req.body.major, studyingCourse: req.body.studyingCourse},function (err, result) {
+        status: req.body.status, birthDate: req.body.birthDate, major : req.body.major, studyingCourse: req.body.studyingCourse, password: req.body.password},function (err, result) {
         res.send(result)
     })
 })

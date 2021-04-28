@@ -21,6 +21,7 @@ export default class StudentList extends React.Component {
             birthDate: '',
             major: '',
             studyingCourse: '',
+         
 
             //Keyword
             keyword: ''
