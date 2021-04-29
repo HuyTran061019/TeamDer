@@ -83,7 +83,7 @@ export default class ProjectList extends React.Component {
                        {/* Select to see Student List or Project List */}
                         <h2>Project List </h2>
                         <div>
-                            {this.state.posts.filter(s => s.postId.includes(this.state.keyword)||s.postName.includes(this.state.keyword)).map(filteredS =>
+                            {this.state.posts.filter(s => s.postId.toLowerCase().includes(this.state.keyword.toLowerCase())||s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
                                 <div class="list">
                                     <table class="table table-bordered">
                                         <thead>
