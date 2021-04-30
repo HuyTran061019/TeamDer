@@ -17,6 +17,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^5.2.0",
+    "react-validation": "^3.0.7",
+    "validator": "^13.6.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
   }
