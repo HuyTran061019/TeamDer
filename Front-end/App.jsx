@@ -1,13 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
-import Selection from './Selection.jsx'
-import StudentList from './StudentList.jsx'
-import ProjectList from './ProjectList.jsx'
-import StudentDetail from './StudentDetail.jsx'
-import Register from "./Register.jsx"
-import Hello from './Hello.jsx'
-import ProjectDetail from './ProjectDetail.jsx'
+import Selection from './componets/Home.jsx'
+import StudentList from './componets/StudentList.jsx'
+import ProjectList from './componets/ProjectList.jsx'
+import StudentDetail from './componets/StudentDetail.jsx'
+import Register from "./componets/Register.jsx"
+import Hello from './componets/Hello.jsx'
+import ProjectDetail from './componets/ProjectDetail.jsx'
 
 export default class App extends React.Component {
     render() {
