@@ -1,49 +1,23 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
-import Selection from './components/Home.jsx'
+import Home from './components/Home.jsx'
 import StudentList from './components/StudentList.jsx'
 import ProjectList from './components/ProjectList.jsx'
 import StudentDetail from './components/StudentDetail.jsx'
+
 import Register from "./components/Register.jsx"
 import Login from "./components/Login.jsx"
 import Profile from "./components/Profile.jsx"
+import Logout from "./components/Logout.jsx"
+
 import ProjectDetail from './components/ProjectDetail.jsx'
 
-import BoardUser from './components/BoardUser.jsx'
-import BoardAdmin from './components/BoardAdmin.jsx'
 
-//BackEnd
-// import UserService from "../services/user.service";
 
 
 export default class App extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.logOut = this.logOut.bind(this);
-    
-    //     this.state = {
-    //       showModeratorBoard: false,
-    //       showAdminBoard: false,
-    //       currentUser: undefined,
-    //     };
-    //   }
-    
-    //   componentDidMount() {
-    //     const user = AuthService.getCurrentUser();
-    
-    //     if (user) {
-    //       this.setState({
-    //         currentUser: user,
-    //         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
-    //         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-    //       });
-    //     }
-    //   }
-    
-    //   logOut() {
-    //     AuthService.logout();
-    //   }
+
 
     render() {
         return (
@@ -73,7 +47,7 @@ export default class App extends React.Component {
 
                         <ul className="navbar-nav align-items-center">
                             <li className="nav-item ml-5">
-                                <Link to="/" className="nav-link">
+                                <Link to="/Home" className="nav-link">
                                     User View
                 </Link>
                             </li>
@@ -84,43 +58,19 @@ export default class App extends React.Component {
                             </li>
 
                             <li className="nav-item ml-5">
-                                <Link to="/Login" className="nav-link">
+                                <Link to="/" className="nav-link">
                                     Login
+                </Link>
+                            </li>
+
+                            <li className="nav-item ml-5">
+                                <Link to="/Profile" className="nav-link">
+                                    Profile
                 </Link>
                             </li>
 
                         </ul>
 
-                        {/* Current User is not defined */}
-{/* 
-                        {currentUser ? (
-                            <div className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to={"/Profile"} className="nav-link">
-                                        {currentUser.username}
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/Login" className="nav-link" onClick={this.logOut}>
-                                        LogOut
-                </a>
-                                </li>
-                            </div>
-                        ) : (
-                            <div className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to={"/Login"} className="nav-link">
-                                        Login
-                </Link>
-                                </li>
-
-                                <li className="nav-item">
-                                    <Link to={"/Register"} className="nav-link">
-                                        Sign Up
-                </Link>
-                                </li>
-                            </div>
-                        )} */}
                     </nav>
 
 
@@ -131,17 +81,18 @@ export default class App extends React.Component {
                     {/* Go to another component */}
                     <Switch>
 
-                        <Route exact path='/' component={Selection} />
-                        <Route path='/Register' component={Register} />
-                        <Route path='/Login' component={Login} />
+                        <Route exact path='/' component={Login} />
+
                         <Route path='/Profile' component={Profile} />
+                        <Route path='/Register' component={Register} />
+                        <Route path='/Logout' component={Logout} />
+                        <Route path='/Home' component={Home} />
                         <Route path='/StudentList' component={StudentList} />
                         <Route path='/ProjectList' component={ProjectList} />
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />
                         <Route path='/ProjectDetail/:postId' component={ProjectDetail} />
 
-                        <Route path="/user" component={BoardUser} />
-                        <Route path="/admin" component={BoardAdmin} />
+
 
                     </Switch>
 

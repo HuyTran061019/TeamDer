@@ -1,164 +1,167 @@
-import React, { Component } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
+import React from 'react'
+import { Redirect, Link } from 'react-router-dom'
 
-// import AuthService from "../services/auth.service";
+const url = 'http://localhost:9000/students'
+export default class Register extends React.Component {
 
-const required = value => {
-    if (!value) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                This field is required!
-            </div>
-        );
-    }
-};
 
-export default class Login extends Component {
     constructor(props) {
-        super(props);
-        this.handleLogin = this.handleLogin.bind(this);
-        this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
-
+        super(props)
+        //check token
+        let loggedIn = false
         this.state = {
-            username: "",
-            password: "",
-            loading: false,
-            message: ""
-        };
+
+            //Basic info
+            insertId: '',
+            insertPassword: '',
+            loggedIn,
+
+            //Basic info
+            students: [],
+
+            studentId: '',
+            studentName: '',
+            studentYear: '',
+
+            //Detail 
+            description: '',
+            specialtyExpertise: '',
+            status: '',
+            birthDate: '',
+            major: '',
+            studyingCourse: '',
+            password: ''
+
+
+
+        }
+
     }
 
-    onChangeUsername(e) {
-        this.setState({
-            username: e.target.value
-        });
+    //Read all students from list
+    fetchData() {
+        fetch(url).then(res => res.json())
+            .then(json => {
+
+                var list = json.filter(s => typeof s.studentId !== 'undefined' && s.studentId !== "")
+                this.setState({ students: list })
+            })
     }
 
-    onChangePassword(e) {
-        this.setState({
-            password: e.target.value
-        });
+
+    //render 
+    componentDidMount() {
+        this.fetchData()
     }
+
+    handleChange(e) {
+        var obj = {}
+        obj[e.target.name] = e.target.value
+        this.setState(obj)
+    }
+
+
 
     handleLogin(e) {
-        e.preventDefault();
-
-        this.setState({
-            message: "",
-            loading: true
-        });
-
-        this.form.validateAll();
-
-        if (this.checkBtn.context._errors.length === 0) {
-            AuthService.login(this.state.username, this.state.password).then(
-                () => {
-                    this.props.history.push("/Profile.jsx");
-                    window.location.reload();
-                },
-                error => {
-                    const resMessage =
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
-                        error.message ||
-                        error.toString();
-
+        e.preventDefault()
+        fetch(url).then(res => res.json())
+        for (let i = 0; i < this.state.students.length; i++) {
+            if (this.state.insertId === this.state.students[i].studentId) {
+                if (this.state.insertPassword === this.state.students[i].password) {
+                    localStorage.setItem("token",this.state.students[i].studentId)
                     this.setState({
-                        loading: false,
-                        message: resMessage
-                    });
+                        loggedIn: true
+                    })
+                    // this.props.history.push('/Selection');
+
+                } else {
+                    this.setState({ message: "Invalid name or password! Please try again. " })
+                    return false;
                 }
-            );
-        } else {
-            this.setState({
-                loading: false
-            });
+            }
+
         }
+        this.setState({ message: "Invalid ! Please try again. " })
     }
+    // login() {
+    //     if ((this.state.studentId !== "") &&(this.state.password !== "")) {
+    //         console.log(this.state);
+    //         fetch(url, {
+    //             method: 'POST',
+    //             body: JSON.stringify({ studentId: this.state.studentId, password: this.state.password })
+    //         }).then(res => res.json())
+    //            // .then(json => this.checkResult(json))
+    //         //    .then(res => res.json())
+    //         // .then(json => this.checkResult( json))
+    //         //.then(function(response) => response.json())
+    //         .then((responseData) => {
+    //         console.log(responseData);
+    //         })
+    //         //this.setState({ message: "Login Succesfully  " })
 
+    //     } else {
+    //         this.setState({ message: "Login failed " })
+    //     }
+
+
+    // }
     render() {
+        if (this.state.loggedIn) {
+            return <Redirect to="/Home" />
+        }
         return (
-            <div class="container">
+            <div class=" container mb-sm-5">
                 <div class="row">
-
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
-                        <div className="card card-container">
-                            <div class="mx-auto">
-                                <img
-                                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                                    alt="profile-img"
-                                    style={{ width: '130px', height: '120px', }}
-                                    className="profile-img-card"
-                                />
-                            </div>
 
-
-                            <Form
-                                onSubmit={this.handleLogin}
-                                ref={c => {
-                                    this.form = c;
-                                }}
-                            >
-                                <div className="form-group">
-                                    <label htmlFor="username">Username</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="username"
-                                        value={this.state.username}
-                                        onChange={this.onChangeUsername}
-                                        validations={[required]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="password">Password</label>
-                                    <Input
-                                        type="password"
-                                        className="form-control"
-                                        name="password"
-                                        value={this.state.password}
-                                        onChange={this.onChangePassword}
-                                        validations={[required]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <button
-                                        className="btn btn-primary btn-block"
-                                        disabled={this.state.loading}
-                                    >
-                                        {this.state.loading && (
-                                            <span className="spinner-border spinner-border-sm"></span>
-                                        )}
-                                        <span>Login</span>
-                                    </button>
-                                </div>
-
-                                {this.state.message && (
-                                    <div className="form-group">
-                                        <div className="alert alert-danger" role="alert">
-                                            {this.state.message}
-                                        </div>
+                        <div class="card">
+                            <br />
+                            <form class=" mb-4 pl-4  pt-2 pm-2">
+                                <h1>Login Form</h1>
+                                <div className="form-group row">
+                                    <div className="col-sm-10">
+                                        ID:
+                                        <input type="text" name="insertId" className="form-control" placeholder="Name" value={this.state.insertId} onChange={this.handleChange.bind(this)}
+                                        />
                                     </div>
-                                )}
-                                <CheckButton
-                                    style={{ display: "none" }}
-                                    ref={c => {
-                                        this.checkBtn = c;
-                                    }}
-                                />
-                            </Form>
+                                </div>
+                                <div className="form-group row">
+                                    <div className="col-sm-10">
+                                        Password:
+                                        <input type="text" name="insertPassword" className="form-control" placeholder="Password" value={this.state.insertPassword} onChange={this.handleChange.bind(this)}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <div className="col-sm-10" >
+                                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2 " onClick={this.handleLogin.bind(this)} >Log in</button>
+                                    </div>
+
+                                    <h5 style={{ color: "red" }}>{this.state.message}</h5>
+
+                                </div>
+                            </form>
+
+
+
+                        </div>
+                        {/* Register */}
+                        <div>
+                            <Link to="/Register" className="nav-link">
+                                Register
+                </Link>
                         </div>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
 
+
+
             </div>
-        );
+
+
+        )
     }
 }
+

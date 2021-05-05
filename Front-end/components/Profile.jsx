@@ -1,44 +1,105 @@
-import React, { Component } from "react";
-// import AuthService from "../services/auth.service";
+import React from 'react'
+import { Redirect, Link } from 'react-router-dom'
 
-export default class Profile extends Component {
-  constructor(props) {
-    super(props);
+const url = 'http://localhost:9000/students' 
+export default class Profile extends React.Component {
+    //Constructor for the selected student
+    constructor(props) {
+        super(props)
+        const token = localStorage.getItem("token")
+        let check = token
 
-    this.state = {
-      currentUser: AuthService.getCurrentUser()
-    };
-  }
+        let loggedIn = true
+        if (token == null) {
+            loggedIn = false
+        }
+        this.state = { 
+            loggedIn,
+            check,
+            //Basic info
+            students: [],
 
-  render() {
-    const { currentUser } = this.state;
+            studentId: '',
+            studentName: '',
+            studentYear: '',
 
-    return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>
-            <strong>{currentUser.username}</strong> Profile
-          </h3>
-        </header>
-        <p>
-          <strong>Token:</strong>{" "}
-          {currentUser.accessToken.substring(0, 20)} ...{" "}
-          {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-        </p>
-        <p>
-          <strong>Id:</strong>{" "}
-          {currentUser.id}
-        </p>
-        <p>
-          <strong>Email:</strong>{" "}
-          {currentUser.email}
-        </p>
-        <strong>Authorities:</strong>
-        <ul>
-          {currentUser.roles &&
-            currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-        </ul>
-      </div>
-    );
-  }
+            //Detail 
+            description: '',
+            specialtyExpertise: '',
+            status: '',
+            birthDate: '',
+            major: '',
+            studyingCourse: ''
+
+        }
+
+    }
+
+    fetchData() {
+        fetch(url + "/" + this.state.check)
+            .then(res => res.json())
+            .then(json => this.setState({ students: json }))
+    }
+
+    componentDidMount() {
+        this.fetchData()
+    }
+
+    render() {
+        if (this.state.loggedIn === false) {
+            return <Redirect to="/" />
+        }
+        return (
+            <div class="container mb-3">
+                <div>
+                    <div>This is the profile</div>
+                {this.state.students.map(s =>
+                        <div>
+                            <h1 class="font-weight-bold" style={{ color: "red" }}> Student Detail: </h1>
+                            <br />
+                            {/* Course info */}
+                            <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Student Info:   </h2>
+                            <div class="card mb-2" >
+                                <div class="card-body border border black" >
+
+                                    <h4 class="font-weight-bold">Student name : {s.studentName}</h4>
+                                    <h4>Student id :{s.studentId}</h4>
+                                    <h5>Year: {s.studentYear} </h5>
+                                    <h5>Birth Date: {s.birthDate} </h5>
+                                    <h5>Status: {s.status} </h5>
+
+                                </div>
+                            </div>
+                            {/* Specialty and Description info */}
+                            <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Description Detail:</h2>
+                            <div class="card mb-2" >
+                                <div class="card-body border border black" >
+                                    <h4 class="font-weight-bold">Experises : {s.specialtyExpertise}</h4>
+                                    <br />
+
+                                    <h6 class="mb-2">Description detail: {s.description}</h6>
+                                </div>
+                            </div>
+                            {/* Major and course and others */}
+                            <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Major Detail:</h2>
+                            <div class="card mb-2" >
+                                <div class="card-body border border black" >
+
+                                    <h6>Major Name :{s.major}</h6>
+                                    <br />
+                                    <h6 class>Studying Course : {s.studyingCourse}</h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    )}
+                </div>
+            </div>
+
+
+
+        )
+    }
 }
