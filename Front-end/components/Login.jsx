@@ -122,7 +122,7 @@ export default class Register extends React.Component {
                                 <div className="form-group row">
                                     <div className="col-sm-10">
                                         ID:
-                                        <input type="text" name="insertId" className="form-control" placeholder="Name" value={this.state.insertId} onChange={this.handleChange.bind(this)}
+                                        <input type="text" name="insertId" className="form-control" placeholder="ID.." value={this.state.insertId} onChange={this.handleChange.bind(this)}
                                         />
                                     </div>
                                 </div>

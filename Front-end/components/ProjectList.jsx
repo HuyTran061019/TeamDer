@@ -8,13 +8,14 @@ export default class ProjectList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+        
             posts: [],
             //Basic Info
             postId: '',
-            postName:"",
+            ownerId: '',
+            postName:'',
             postStatus:'',
-            postType:'',
-            postAvailabeSlot:'',
+            postAvailableSlot:'',
             //StudentList
             s1Id: '',
             s1Name: '',
@@ -25,17 +26,12 @@ export default class ProjectList extends React.Component {
             s3Id: '',
             s3Name: '',
             //Extra Info
-            courseId: '',
             courseName: '',
             semester: '',
-            asgName: '',
-            asgDescription: '',
-            asgPercentage: '',
-            techUsed: '',
+            //Other
             scope: '',
             description: '',
             lookingFor:  '',
-            application: '',
             //keyword
             keyword: ''
 
@@ -89,10 +85,11 @@ export default class ProjectList extends React.Component {
                                         <thead>
                                             <tr>
                                                 <th>Post ID</th>
+                                                <th>Owner ID</th>
                                                 <th>Post Name</th>
                                                 <th>Post Status</th>
                                                 <th>Available Slots</th>
-                                                <th>Course Id</th>
+                                                <th>Course Name</th>
                                                 <th>Looking For</th>
                                                 <th>Detail</th>
 
@@ -103,11 +100,13 @@ export default class ProjectList extends React.Component {
                                             <tr>
 
                                                 <td>{filteredS.postId}</td>
+                                                <td>{filteredS.ownerId}</td>
                                                 <td>{filteredS.postName}</td>
                                                 <td>{filteredS.postStatus}</td>
-                                                <td>{filteredS.postAvailabeSlot}</td>
+                                                <td>{filteredS.postAvailableSlot}</td>
+                                                <td>{filteredS.courseName}</td>
                                                 <td>{filteredS.lookingFor}</td>
-                                                <td>{filteredS.courseId}</td>
+                                        
 
 
                                                 <Link to={`/ProjectDetail/${filteredS.postId}`}>

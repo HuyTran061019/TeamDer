@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Home from './components/Home.jsx'
 import StudentList from './components/StudentList.jsx'
 import ProjectList from './components/ProjectList.jsx'
+import MyProjectList from './components/MyProjectList.jsx'
 import StudentDetail from './components/StudentDetail.jsx'
 
 import Register from "./components/Register.jsx"
@@ -89,6 +90,9 @@ export default class App extends React.Component {
                         <Route path='/Home' component={Home} />
                         <Route path='/StudentList' component={StudentList} />
                         <Route path='/ProjectList' component={ProjectList} />
+
+                        <Route path='/MyProjectList' component={MyProjectList} />
+
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />
                         <Route path='/ProjectDetail/:postId' component={ProjectDetail} />
 

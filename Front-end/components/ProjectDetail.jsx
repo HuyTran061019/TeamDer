@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect, Link } from 'react-router-dom'
 
 const url = 'http://localhost:9000/posts'
 export default class ProjectDetail extends React.Component {
@@ -10,10 +11,10 @@ export default class ProjectDetail extends React.Component {
             posts: [],
             //Basic Info
             postId: '',
-            postName: "",
-            postStatus: '',
-            postType: '',
-            postAvailabeSlot: '',
+            ownerId: '',
+            postName:'',
+            postStatus:'',
+            postAvailableSlot:'',
             //StudentList
             s1Id: '',
             s1Name: '',
@@ -24,17 +25,12 @@ export default class ProjectDetail extends React.Component {
             s3Id: '',
             s3Name: '',
             //Extra Info
-            courseId: '',
             courseName: '',
             semester: '',
-            asgName: '',
-            asgDescription: '',
-            asgPercentage: '',
-            techUsed: '',
+            //Other
             scope: '',
             description: '',
-            lookingFor: '',
-            application: ''
+            lookingFor:  '',
 
         }
 
@@ -66,9 +62,11 @@ export default class ProjectDetail extends React.Component {
 
                                     <h4 class="font-weight-bold">Post name : {s.postName}</h4>
                                     <h4>Post id :{s.postId}</h4>
-                                    <h5>Status: {s.postStatus} </h5>
-                                    <h5>Available Slot: {s.postAvailabeSlot} </h5>
-                                    <h5>Post Type: {s.postType} </h5>
+                                    <h5>Posted by: {s.ownerId} </h5>
+                                    <Link to={`/StudentDetail/${s.ownerId}`}>
+                                    <h5>Post Owner Detail </h5>
+                                                </Link>
+                                    <h5>Available Slot: {s.postAvailableSlot} </h5>
 
                                 </div>
                             </div>
@@ -108,22 +106,16 @@ export default class ProjectDetail extends React.Component {
                             <div class="card mb-2" >
                                 <div class="card-body border border black" >
                                     <h4 class="font-weight-bold">Course Name : {s.courseName}</h4>
-                                    <h5 class="font-weight-bold">Course Id : {s.courseId}</h5>
-                                    <h5 class="font-weight-bold">semester Id : {s.semester}</h5>
-                                    <br />
-                                    <h4 class="font-weight-bold">Assignment Name : {s.asgName}</h4>
-                                    <h5 class="font-weight-bold">Assignment Description: {s.asgDescription}</h5>
-                                    <h5 class="font-weight-bold">Percentage: {s.asgPercentage}</h5>
+                                    <h5 class="font-weight-bold">Semester  : {s.semester}</h5>
+                                    
                                 </div>
                             </div>
                             {/* Project Ideas */}
                             <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Project Idea:</h2>
                             <div class="card mb-2" >
                                 <div class="card-body border border black" >
-
-                                    <h6>Technology :{s.techUsed}</h6>
-                                    <h6 class> Scope : {s.scope}</h6>
-                                    <h6>application :{s.application}</h6>
+                                    <h5 class> Scope : {s.scope}</h5>
+                                    <h6 class> Scope : {s.description}</h6>
 
                                 </div>
                             </div>
@@ -131,9 +123,7 @@ export default class ProjectDetail extends React.Component {
                             <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Looking For :</h2>
                             <div class="card mb-2" >
                                 <div class="card-body border border black" >
-
                                     <h6>Criteria :{s.lookingFor}</h6>
-                                    <h6>Description :{s.description}</h6>
 
                                 </div>
                             </div>
