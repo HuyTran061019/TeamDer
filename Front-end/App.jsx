@@ -48,7 +48,7 @@ export default class App extends React.Component {
 
                         <div class="row">
                             <div class="col-md-2">
-                                <img src="https://uxwing.com/wp-content/themes/uxwing/download/10-brands-and-social-media/tinder.png" style={{ width: '130px', height: '120px' }} alt="" />
+                                <img src="https://cdn.discordapp.com/attachments/818327233163952133/840103037644701706/logo_no_border.png" style={{ width: '130px', height: '120px' }} alt="" />
                             </div>
 
                             <div class="col-md-10">

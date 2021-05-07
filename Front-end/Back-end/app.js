@@ -11,6 +11,16 @@ app.use(bodyParser.json())
 app.use(cors())
 mongoose.connect('mongodb://localhost/TeamDer')
 
+var CommentSchema = new mongoose.Schema({
+
+    commentId: String,
+    ownerId: String,
+    postId: String,
+    content: String
+
+ 
+})
+
 //defining student schema
 var StudentSchema = new mongoose.Schema({
 
@@ -54,7 +64,46 @@ var PostSchema = new mongoose.Schema({
 
 var Post = mongoose.model('Post', PostSchema)
 var Student = mongoose.model('Student', StudentSchema)
+var Comment = mongoose.model('Comment', CommentSchema)
 
+//defining Comment schema
+// Get all spost
+app.get('/comments', function (req, res) {
+    Comment.find({}, function (err, comments) {
+        res.send(comments)
+    })
+})
+
+// Get one posts
+app.get('/comments/:commentId', function (req, res) {
+    Comment.find({ commentId: req.params.commentId }, function (err, comments) {
+        res.send(comments)
+    })
+})
+
+
+app.post('/comments', function (req, res) {
+    Comment.create(req.body, function (err, comments) {
+        res.send(comments)
+    })
+})
+
+app.delete('/comments/:commentId', function (req, res) {
+    Comment.deleteOne({ commentId: req.params.commentId }, function (err, result) {
+        res.send(result)
+    })
+})
+
+app.put('/comments/', function (req, res) {
+    Comment.findOneAndUpdate({ commentId: req.body.commentId }, {
+        ownerId: req.body.ownerId, postId: req.body.postId, content: req.body.content
+    }, function (err, result) {
+        res.send(result)
+    })
+})
+
+//defining posts schema
+// Get all spost
 app.get('/posts', function (req, res) {
     Post.find({}, function (err, posts) {
         res.send(posts)
@@ -99,7 +148,7 @@ app.get('/posts/search/:keyword', function (req, res) {
 })
 
 
-//defining post schema
+//defining students schema
 // Get all students
 app.get('/students', function (req, res) {
     Student.find({}, function (err, students) {

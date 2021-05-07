@@ -16,6 +16,8 @@ export default class Logout extends Component{
                     <Link to="/" className="nav-link">
                                     Login again
                 </Link>
+
+                <div style={{  height: '500px' }}></div>
             </div>
         )
     }
