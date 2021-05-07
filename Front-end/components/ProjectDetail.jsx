@@ -49,7 +49,7 @@ export default class ProjectDetail extends React.Component {
     }
     render() {
         return (
-            <div class="container mb-3">
+            <div class="container ">
                 <div>
                     {this.state.posts.map(s =>
                         <div>

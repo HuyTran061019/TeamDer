@@ -39,7 +39,7 @@ export default class StudentDetail extends React.Component {
 
     render() {
         return (
-            <div class="container mb-3">
+            <div class="container ">
                 <div>
                 {this.state.students.map(s =>
                         <div>

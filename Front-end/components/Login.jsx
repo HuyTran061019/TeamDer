@@ -107,10 +107,10 @@ export default class Register extends React.Component {
     // }
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to="/Home" />
+            return <Redirect to="/" />
         }
         return (
-            <div class=" container mb-sm-5">
+            <div class=" container ">
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
@@ -135,14 +135,13 @@ export default class Register extends React.Component {
                                 </div>
                                 <div className="form-group row">
                                     <div className="col-sm-10" >
-                                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2 " onClick={this.handleLogin.bind(this)} >Log in</button>
+                                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2 " onClick={this.handleLogin.bind(this)}  >Log in</button>
                                     </div>
 
                                     <h5 style={{ color: "red" }}>{this.state.message}</h5>
 
                                 </div>
                             </form>
-
 
 
                         </div>
@@ -152,8 +151,10 @@ export default class Register extends React.Component {
                                 Register
                 </Link>
                         </div>
+                        <div style={{  height: '200px' }}></div>
                     </div>
                     <div class="col-md-3"></div>
+                    
                 </div>
 
 

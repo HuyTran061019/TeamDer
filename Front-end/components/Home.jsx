@@ -22,11 +22,11 @@ export default class Home extends React.Component {
 
     render() {
         if (this.state.loggedIn === false) {
-            return <Redirect to="/" />
+            return <Redirect to="/Login" />
         }
         return (
 
-            <div class="container mt-n3">
+            <div class="container " >
                 <div class="row">
                     <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
@@ -39,6 +39,7 @@ export default class Home extends React.Component {
                             </button>
 
                         </Link>
+                        <div style={{  height: '1000px' }}></div>
 
                     </div>
                     <div class="col-md-8">

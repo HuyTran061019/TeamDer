@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect, Link } from 'react-router-dom'
 
 const url = 'http://localhost:9000/students'
 export default class Register extends React.Component {
@@ -50,7 +51,23 @@ export default class Register extends React.Component {
     }
 
     save() {
-        if ((this.state.studentId !== "") &&( this.state.studentName !== "") &&(this.state.password !== "")) {
+
+        // e.preventDefault()
+        fetch(url).then(res => res.json())
+        for (let i = 0; i < this.state.students.length; i++) {
+            if (this.state.studentId === this.state.students[i].studentId) {
+                this.setState({ message: "Duplicated ID " })
+                return
+            } else  if (this.state.studentName === this.state.students[i].studentName) {
+                this.setState({ message: "Duplicated Name " })
+                return
+            }
+
+        }   
+        if( this.state.password.length <8 ){
+            this.setState({ message: "Password needs to be at least 8 letters long " })
+            return
+        }    else if ((this.state.studentId !== "") &&( this.state.studentName !== "") &&(this.state.password !== "")) {
             fetch(url, {
                 method: 'post',
                 headers: {
@@ -125,8 +142,13 @@ export default class Register extends React.Component {
                                     </div>
                                 </div>
                             </form>
-
+                        
                         </div>
+                        <div>
+                                   <Link to="/Login" className="nav-link">
+                                Login
+                </Link>
+                            </div>
                     </div>
                     <div class="col-md-3"></div>
                 </div>

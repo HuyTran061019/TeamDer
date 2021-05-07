@@ -138,10 +138,10 @@ export default class MyProjectList extends React.Component {
 
     render() {
         if (this.state.loggedIn === false) {
-            return <Redirect to="/" />
+            return <Redirect to="/Login" />
         }
         return (
-            <div class="container mt-n3">
+            <div class="container ">
                 <div class="row">
                     <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 

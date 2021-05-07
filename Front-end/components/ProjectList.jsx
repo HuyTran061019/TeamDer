@@ -64,7 +64,7 @@ export default class ProjectList extends React.Component {
 
     render() {
         return (
-                        <div class="container mt-n3">
+                        <div class="container ">
                 <div class="row">
                     <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
@@ -73,7 +73,7 @@ export default class ProjectList extends React.Component {
                             <input type="text" name='keyword' placeholder="Name, ID etc."
                             onChange={this.handleChange.bind(this)}/>
                         </div>
-
+                        <div style={{  height: '1000px' }}></div>
                     </div>
                     <div class="col-md-8">
                        {/* Select to see Student List or Project List */}
