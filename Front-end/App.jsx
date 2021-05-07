@@ -43,15 +43,15 @@ export default class App extends React.Component {
         return (
             <div>
                 {/* Header of the website */}
-                <div class="jumbotron jumbotron-fluid" style={{ margin: 0, backgroundColor: 'green  ' }} >
-                    <div class="container">
+                <div className="jumbotron jumbotron-fluid" style={{ margin: 0, backgroundColor: 'green  ' }} >
+                    <div className="container">
 
-                        <div class="row">
-                            <div class="col-md-2">
+                        <div className="row">
+                            <div className="col-md-2">
                                 <img src="https://cdn.discordapp.com/attachments/818327233163952133/840103037644701706/logo_no_border.png" style={{ width: '130px', height: '120px' }} alt="" />
                             </div>
 
-                            <div class="col-md-10">
+                            <div className="col-md-10">
                                 <br />
                                 <h1 style={{ color: 'white' }}>TeamDer</h1>
                                 <p style={{ color: 'white' }}>Where RMIT Students find best Teammates !! ( or atleast gud heh)</p>
@@ -61,7 +61,7 @@ export default class App extends React.Component {
                 </div>
                     
                             <BrowserRouter>
-                                    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+                                    <nav className="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
 
                     <ul className="navbar-nav align-items-center">
                         <li className="nav-item ml-5">
@@ -116,10 +116,10 @@ export default class App extends React.Component {
 
 
                 </BrowserRouter>
-                <div class="jumbotron jumbotron-fluid" style={{ margin: 0, backgroundColor: 'green ' }} >
-                    <div class="container ">
-                        <div class="row ">
-                            <div  style={{ color: 'white' }} class="col-md-3 pr-1" >
+                <div className="jumbotron jumbotron-fluid" style={{ margin: 0, backgroundColor: 'green ' }} >
+                    <div className="container ">
+                        <div className="row ">
+                            <div  style={{ color: 'white' }} className="col-md-3 pr-1" >
                                 <h6 >Studying at RMIT</h6>
                                 <div >Bachelor program</div>
                                 <div> Post-graduate program</div>
@@ -129,7 +129,7 @@ export default class App extends React.Component {
                                 <div> Frequently asked question</div>
 
                             </div>
-                            <div style={{ color: 'white' }} class="col-md-3 pr-1" >
+                            <div style={{ color: 'white' }} className="col-md-3 pr-1" >
                                 <h6 >About TeamDer</h6>
                                 <div >Life at RMIT</div>
                                 <div> Clubs at school</div>
@@ -137,12 +137,12 @@ export default class App extends React.Component {
                                 <div> Opportunies </div>
 
                             </div>
-                            <div  style={{ color: 'white' }} class="col-md-3 pr-1" >
+                            <div  style={{ color: 'white' }} className="col-md-3 pr-1" >
                                 <h6 >Payment method</h6>
                                 <img src="https://i0.wp.com/www.sakuramobile.jp/wp-content/themes/FoundationPress/dist/assets/images/image-payment-method-card-360x240.png?resize=360%2C240&ssl=1" alt="Payment card method" width="200px" />
 
                             </div>
-                            <div style={{ color: 'white' }} class="col-md-3 pr-1" >
+                            <div style={{ color: 'white' }} className="col-md-3 pr-1" >
                                 <h6 >Connect with us</h6>
                                 <img src="https://cdn130.picsart.com/257361938030212.png" alt="social media logo" width="200px" />
 
