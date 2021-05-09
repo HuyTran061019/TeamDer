@@ -126,25 +126,25 @@ export default class ProjectDetail extends React.Component {
 
     render() {
         return (
-            <div class="container ">
-                <div class="row">
+            <div className="container ">
+                <div className="row">
 
-                    <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
                         {/* Comments */}
                         <h1>Comment:</h1>
                         <div>
                             {this.state.comments.map(i =>
-                                <div class="card mt-2">
+                                <div className="card mt-2" key={i.commentId}>
                                     <Link to={`/StudentDetail/${i.ownerId}`}>
-                                        <div style={{ backgroundColor: 'pink' }} class="card-header">{i.ownerId}</div>
+                                        <div style={{ backgroundColor: 'pink' }} className="card-header">{i.ownerId}</div>
                                     </Link>
 
-                                    <div class="card-body">{i.content}
+                                    <div className="card-body">{i.content}
                                     <br />
                                     { i.ownerId == this.state.check?
                                     <div>
-                                         <button class="btn btn-dark mt-1  " onClick={this.delete.bind(this, i.commentId)}>Delete</button>
-                                         <button class="btn btn-dark mt-1 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this,i.commentId,i.content
+                                         <button className="btn btn-dark mt-1  " onClick={this.delete.bind(this, i.commentId)}>Delete</button>
+                                         <button className="btn btn-dark mt-1 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this,i.commentId,i.content
                                                 )}>Edit</button>
                                     </div>
                                         
@@ -162,45 +162,45 @@ export default class ProjectDetail extends React.Component {
 
 
                         <h1>Add new comment</h1>
-                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2  " data-toggle="modal" data-target="#myModal" onClick={this.add.bind(this)} >Add new </button>
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                        <button type="button" className="btn btn-primary" className=" btn btn-success mb-2  " data-toggle="modal" data-target="#myModal" onClick={this.add.bind(this)} >Add new </button>
+                        <div id="myModal" className="modal fade" role="dialog">
+                            <div className="modal-dialog">
 
                                 {/* Modeal content */}
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <div class="card mb-4 pl-4 pr-4 pt-5 pm-5" >
+                                <div className="modal-content">
+                                    <div className="modal-body">
+                                        <div className="card mb-4 pl-4 pr-4 pt-5 pm-5" >
 
-                                            Comment Id: <input class="mt-1" type="text" id="commentId" name="commentId" className="form-control" value={this.state.commentId}
+                                            Comment Id: <input className="mt-1" type="text" id="commentId" name="commentId" className="form-control" value={this.state.commentId}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Content : <input class="mt-1" type="text" id="content" name="content" className="form-control" value={this.state.content}
+                                            Content : <input className="mt-1" type="text" id="content" name="content" className="form-control" value={this.state.content}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            <button class="btn btn-success  mr-1 mt-1" onClick={this.save.bind(this)}>Save</button>
+                                            <button className="btn btn-success  mr-1 mt-1" onClick={this.save.bind(this)}>Save</button>
 
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div className="col-md-8">
                         <div>
                             {this.state.posts.map(s =>
-                                <div>
-                                    <h1 class="font-weight-bold" style={{ color: "red" }}> Post Detail: </h1>
+                                <div key={s.postId}>
+                                    <h1 className="font-weight-bold" style={{ color: "red" }}> Post Detail: </h1>
                                     <br />
                                     {/* Project info */}
-                                    <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Post Info:   </h2>
-                                    <div class="card mb-2" >
-                                        <div class="card-body border border black" >
+                                    <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Post Info:   </h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
 
-                                            <h4 class="font-weight-bold">Post name : {s.postName}</h4>
+                                            <h4 className="font-weight-bold">Post name : {s.postName}</h4>
                                             <h4>Post id :{s.postId}</h4>
                                             <h5>Posted by: {s.ownerId} </h5>
                                             <Link to={`/StudentDetail/${s.ownerId}`}>
@@ -211,8 +211,8 @@ export default class ProjectDetail extends React.Component {
                                         </div>
                                     </div>
                                     {/* List out student in Project */}
-                                    <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Student in project list:</h2>
-                                    <table class="table table-bordered">
+                                    <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Student in project list:</h2>
+                                    <table className="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Student ID</th>
@@ -242,27 +242,27 @@ export default class ProjectDetail extends React.Component {
                                         </tbody>
                                     </table>
                                     {/* Description info */}
-                                    <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Assignment Detail:</h2>
-                                    <div class="card mb-2" >
-                                        <div class="card-body border border black" >
-                                            <h4 class="font-weight-bold">Course Name : {s.courseName}</h4>
-                                            <h5 class="font-weight-bold">Semester  : {s.semester}</h5>
+                                    <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Assignment Detail:</h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
+                                            <h4 className="font-weight-bold">Course Name : {s.courseName}</h4>
+                                            <h5 className="font-weight-bold">Semester  : {s.semester}</h5>
 
                                         </div>
                                     </div>
                                     {/* Project Ideas */}
-                                    <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Project Idea:</h2>
-                                    <div class="card mb-2" >
-                                        <div class="card-body border border black" >
-                                            <h5 class> Scope : {s.scope}</h5>
-                                            <h6 class> Scope : {s.description}</h6>
+                                    <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Project Idea:</h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
+                                            <h5> Scope : {s.scope}</h5>
+                                            <h6> Scope : {s.description}</h6>
 
                                         </div>
                                     </div>
                                     {/* Criteria for teammate */}
-                                    <h2 style={{ color: "midnightblue" }} class="font-weight-bold"> Looking For :</h2>
-                                    <div class="card mb-2" >
-                                        <div class="card-body border border black" >
+                                    <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Looking For :</h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
                                             <h6>Criteria :{s.lookingFor}</h6>
 
                                         </div>
