@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Redirect, Link } from 'react-router-dom'
 const url = 'http://localhost:9000/students' 
 export default class StudentDetail extends React.Component {
     //Constructor for the selected student
@@ -41,6 +41,9 @@ export default class StudentDetail extends React.Component {
         return (
             <div className="container ">
                 <div>
+                <Link to="/StudentList" className="nav-link">
+                            <button type="button" className="btn btn-success">Student List</button>
+                        </Link>
                 {this.state.students.map(s =>
                         <div key={s.studentId}>
                             <h1 className="font-weight-bold" style={{ color: "red" }}> Student Detail: </h1>

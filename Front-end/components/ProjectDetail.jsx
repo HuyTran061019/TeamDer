@@ -130,6 +130,9 @@ export default class ProjectDetail extends React.Component {
                 <div className="row">
 
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+                    <Link to="/ProjectList" className="nav-link">
+                            <button type="button" className="btn btn-success">Project List</button>
+                        </Link>
                         {/* Comments */}
                         <h1>Comment:</h1>
                         <div>
