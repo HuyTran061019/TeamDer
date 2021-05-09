@@ -71,7 +71,7 @@ export default class StudentList extends React.Component {
                         <h2>Student List </h2>
                         <div>
                             {this.state.students.filter(s => s.studentId.toLowerCase().includes(this.state.keyword.toLowerCase())||s.studentName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                <div className="list">
+                                <div key={filteredS.studentId}>
                                     <table className="table table-bordered">
                                         <thead>
                                             <tr>

@@ -11,7 +11,7 @@ export default class Logout extends Component{
 
     render(){
         return(
-            <div class=" container ">
+            <div className=" container ">
                     <h1>You have been logged out!!</h1>
                     <Link to="/" className="nav-link">
                                     Login again
