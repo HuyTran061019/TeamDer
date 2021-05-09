@@ -19,7 +19,7 @@ export default class Profile extends React.Component {
             //Basic info
             students: [],
 
-            studentId: check,
+            studentId: '',
             studentName: '',
             studentYear: '',
 
@@ -30,7 +30,6 @@ export default class Profile extends React.Component {
             birthDate: '',
             major: '',
             studyingCourse: ''
-
         }
 
     }
@@ -48,9 +47,9 @@ export default class Profile extends React.Component {
     componentDidMount() {
         this.fetchData()
     }
-    edit(studentName, studentYear, description, specialtyExpertise, status, birthDate, major, studyingCourse) {
+    edit(studentId, studentName, studentYear, description, specialtyExpertise, status, birthDate, major, studyingCourse) {
         this.setState({
-            studentName: studentName, studentYear: studentYear, description: description, specialtyExpertise: specialtyExpertise, status: status, birthDate: birthDate, major: major ,studyingCourse: studyingCourse
+            studentId: studentId, studentName: studentName, studentYear: studentYear, description: description, specialtyExpertise: specialtyExpertise, status: status, birthDate: birthDate, major: major ,studyingCourse: studyingCourse
         })
     }
     save(){
@@ -112,7 +111,7 @@ export default class Profile extends React.Component {
                                             <h5>Birth Date: {s.birthDate} </h5>
                                             <h5>Status: {s.status} </h5>
                                         </div>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, this.state.studentName, this.state.studentYear, this.state.description, this.state.specialtyExpertise, this.state.status, this.state.birthDate, this.state.major, this.state.studyingCourse)}>EDIT</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, this.state.studentName, this.state.studentYear, this.state.description, this.state.specialtyExpertise, this.state.status, this.state.birthDate, this.state.major, this.state.studyingCourse)}>EDIT</button>
                                         <div class="modal fade" id="studentInfoModal">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -152,7 +151,7 @@ export default class Profile extends React.Component {
 
                                             <h6 class="mb-2">Description detail: {s.description}</h6>
                                         </div>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, this.state.studentName, this.state.studentYear, this.state.description, this.state.specialtyExpertise, this.state.status, this.state.birthDate, this.state.major, this.state.studyingCourse)}>EDIT</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, this.state.studentName, this.state.studentYear, this.state.description, this.state.specialtyExpertise, this.state.status, this.state.birthDate, this.state.major, this.state.studyingCourse)}>EDIT</button>
                                         <div class="modal fade" id="studentDescModal">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -187,7 +186,7 @@ export default class Profile extends React.Component {
                                             <br />
                                             <h6 class>Studying Course : {s.studyingCourse}</h6>
                                         </div>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, this.state.studentName, this.state.studentYear, this.state.description, this.state.specialtyExpertise, this.state.status, this.state.birthDate, this.state.major, this.state.studyingCourse)}>EDIT</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, this.state.studentName, this.state.studentYear, this.state.description, this.state.specialtyExpertise, this.state.status, this.state.birthDate, this.state.major, this.state.studyingCourse)}>EDIT</button>
                                         <div class="modal fade" id="majorDetailModal">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
