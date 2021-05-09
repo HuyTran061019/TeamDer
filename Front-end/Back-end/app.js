@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var app = require('express')()
 
 var cors = require('cors')
@@ -9,8 +11,28 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 app.use(cors())
-mongoose.connect('mongodb://localhost/TeamDer')
 
+const PORT = 9000
+
+//mongoose.connect('mongodb://localhost/TeamDer')
+const connectDB = async () => {
+    try{
+        await mongoose.connect(
+            `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@teamder.rmjdl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+            {
+                useCreateIndex: true,
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                useFindAndModify: false
+            }
+        )
+        console.log("MongoDB is connected")
+    }catch (error){
+        console.log(error.message)
+        process.exit(1)
+    }
+}
+connectDB()
 var CommentSchema = new mongoose.Schema({
 
     commentId: String,
@@ -208,5 +230,5 @@ app.get('/students/search/:keyword', function (req, res) {
 })
 
 
-app.listen(9000)
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
 
