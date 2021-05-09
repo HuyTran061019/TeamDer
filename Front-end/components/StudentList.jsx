@@ -55,7 +55,7 @@ export default class StudentList extends React.Component {
 
     render() {
         return (
-                        <div className="container ">
+            <div className="container ">
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
@@ -82,38 +82,32 @@ export default class StudentList extends React.Component {
                                                 <th>Major</th>
                                                 <th>Expertise</th>
                                                 <th>Detail</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-
                                                 <td>{filteredS.studentId}</td>
                                                 <td>{filteredS.studentName}</td>
                                                 <td>{filteredS.studentYear}</td>
                                                 <td>{filteredS.status}</td>
                                                 <td>{filteredS.major}</td>
                                                 <td>{filteredS.specialtyExpertise}</td>
-
-
-                                                <Link to={`/StudentDetail/${filteredS.studentId}`}>
-                                                    <a href="#" className="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
-                                                </Link>
-
+                                                <td>
+                                                    <Link to={`/StudentDetail/${filteredS.studentId}`}>
+                                                        <button type="button" className="btn btn-success">Detail</button>
+                                                    </Link>
+                                                </td>
+                                                
                                             </tr>
-
                                         </tbody>
                                     </table>
-
                                     <br />
                                 </div>
                             )}
                             <br />
                         </div>
-
                     </div>
                 </div>
-
             </div>
         )
     }

@@ -64,10 +64,9 @@ export default class ProjectList extends React.Component {
 
     render() {
         return (
-                        <div className="container ">
+            <div className="container ">
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-
                         <h1>Search For Project</h1>
                         <div>
                             <input type="text" name='keyword' placeholder="Name, ID etc."
@@ -92,13 +91,10 @@ export default class ProjectList extends React.Component {
                                                 <th>Course Name</th>
                                                 <th>Looking For</th>
                                                 <th>Detail</th>
-
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-
                                                 <td>{filteredS.postId}</td>
                                                 <td>{filteredS.ownerId}</td>
                                                 <td>{filteredS.postName}</td>
@@ -106,27 +102,21 @@ export default class ProjectList extends React.Component {
                                                 <td>{filteredS.postAvailableSlot}</td>
                                                 <td>{filteredS.courseName}</td>
                                                 <td>{filteredS.lookingFor}</td>
-                                        
-
-
-                                                <Link to={`/ProjectDetail/${filteredS.postId}`}>
-                                                    <a href="#" className="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
-                                                </Link>
-
+                                                <td>
+                                                    <Link to={`/ProjectDetail/${filteredS.postId}`}>
+                                                        <button type="button" className="btn btn-success">Detail</button>
+                                                    </Link>
+                                                </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
-
                                     <br />
                                 </div>
                             )}
                             <br />
                         </div>
-
                     </div>
                 </div>
-
             </div>
         )
     }

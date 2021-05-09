@@ -258,7 +258,7 @@ export default class MyProjectList extends React.Component {
                                                 <td>
                                                     
                                                 <Link to={`/ProjectDetail/${filteredS.postId}`}>
-                                                    <a href="#" className="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
+                                                    <button type="button" className="btn btn-success">Detail</button>
                                                 </Link>
                                                 </td>
                                                 <td>
