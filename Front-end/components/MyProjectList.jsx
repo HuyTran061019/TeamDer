@@ -226,7 +226,7 @@ export default class MyProjectList extends React.Component {
                         <h2>My Project List </h2>
                         <div>
                             {this.state.posts.filter(s => s.postId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                <div className="list">
+                                <div key={filteredS.postId}>
                                     <table className="table table-bordered">
                                         <thead>
                                             <tr>
