@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import Navbar from './Navbar.jsx'
 
 const url = 'http://localhost:9000/posts'
 
@@ -142,6 +143,7 @@ export default class MyProjectList extends React.Component {
         }
         return (
             <div className="container ">
+                <Navbar/>
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 

@@ -107,61 +107,29 @@ export default class Register extends React.Component {
     // }
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to="/" />
+            return <Redirect to="/Home" />
         }
         return (
             <div className=" container ">
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-
-                        <div className="card">
-                            <br />
-                            <form className=" mb-4 pl-4  pt-2 pm-2">
-                                <h1>Login Form</h1>
-                                <div className="form-group row">
-                                    <div className="col-sm-10">
-                                        ID:
-                                        <input type="text" name="insertId" className="form-control" placeholder="ID.." value={this.state.insertId} onChange={this.handleChange.bind(this)}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-sm-10">
-                                        Password:
-                                        <input type="text" name="insertPassword" className="form-control" placeholder="Password" value={this.state.insertPassword} onChange={this.handleChange.bind(this)}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-sm-10" >
-                                        <button type="button" className="btn btn-primary" className=" btn btn-success mb-2 " onClick={this.handleLogin.bind(this)}  >Log in</button>
-                                    </div>
-
-                                    <h5 style={{ color: "red" }}>{this.state.message}</h5>
-
-                                </div>
-                            </form>
-
-
-                        </div>
-                        {/* Register */}
-                        <div>
-                            <Link to="/Register" className="nav-link">
-                                Register
-                </Link>
-                        </div>
-                        <div style={{  height: '200px' }}></div>
+                <div>
+                    <div className="form-group">
+                        <input type="text" name="insertId" className="form-control" placeholder="ID" value={this.state.insertId} onChange={this.handleChange.bind(this)}/>
                     </div>
-                    <div className="col-md-3"></div>
-                    
+                    <div className="form-group">
+                        <input type="text" name="insertPassword" className="form-control" placeholder="Password" value={this.state.insertPassword} onChange={this.handleChange.bind(this)}/>
+                    </div>
+                    <button onClick={this.handleLogin.bind(this)} className="btn btn-success">Log in</button>
+                    <div>
+                        <h5 style={{ color: "red" }}>{this.state.message}</h5>
+                    </div>
+                    <div>
+                        Don't have an account?
+                        <Link to="/Register">
+                            <button className="btn btn-info"> Register</button>
+                        </Link>
+                    </div>
                 </div>
-
-
-
             </div>
-
-
         )
     }
 }

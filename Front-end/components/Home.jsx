@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom'
-
+import Navbar from './Navbar.jsx';
 
 
 export default class Home extends React.Component {
@@ -25,8 +25,8 @@ export default class Home extends React.Component {
             return <Redirect to="/Login" />
         }
         return (
-
             <div className="container " >
+                <Navbar/>
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 

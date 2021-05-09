@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
-
+import Navbar from './Navbar.jsx'
 const url = 'http://localhost:9000/posts'
 const url2 = 'http://localhost:9000/comments'
 export default class ProjectDetail extends React.Component {
@@ -127,6 +127,7 @@ export default class ProjectDetail extends React.Component {
     render() {
         return (
             <div className="container ">
+                <Navbar/>
                 <div className="row">
 
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >

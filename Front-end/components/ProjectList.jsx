@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
-
+import Navbar from './Navbar.jsx'
 const url = 'http://localhost:9000/posts'
 
 export default class ProjectList extends React.Component {
@@ -65,6 +65,7 @@ export default class ProjectList extends React.Component {
     render() {
         return (
             <div className="container ">
+                <Navbar/>
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
                         <h1>Search For Project</h1>
