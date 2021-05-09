@@ -110,14 +110,14 @@ export default class Register extends React.Component {
             return <Redirect to="/" />
         }
         return (
-            <div class=" container ">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
+            <div className=" container ">
+                <div className="row">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6">
 
-                        <div class="card">
+                        <div className="card">
                             <br />
-                            <form class=" mb-4 pl-4  pt-2 pm-2">
+                            <form className=" mb-4 pl-4  pt-2 pm-2">
                                 <h1>Login Form</h1>
                                 <div className="form-group row">
                                     <div className="col-sm-10">
@@ -135,7 +135,7 @@ export default class Register extends React.Component {
                                 </div>
                                 <div className="form-group row">
                                     <div className="col-sm-10" >
-                                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2 " onClick={this.handleLogin.bind(this)}  >Log in</button>
+                                        <button type="button" className="btn btn-primary" className=" btn btn-success mb-2 " onClick={this.handleLogin.bind(this)}  >Log in</button>
                                     </div>
 
                                     <h5 style={{ color: "red" }}>{this.state.message}</h5>
@@ -153,7 +153,7 @@ export default class Register extends React.Component {
                         </div>
                         <div style={{  height: '200px' }}></div>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div className="col-md-3"></div>
                     
                 </div>
 

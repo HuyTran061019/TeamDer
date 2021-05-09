@@ -64,9 +64,9 @@ export default class ProjectList extends React.Component {
 
     render() {
         return (
-                        <div class="container ">
-                <div class="row">
-                    <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+                        <div className="container ">
+                <div className="row">
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
                         <h1>Search For Project</h1>
                         <div>
@@ -75,13 +75,13 @@ export default class ProjectList extends React.Component {
                         </div>
                         <div style={{  height: '1000px' }}></div>
                     </div>
-                    <div class="col-md-8">
+                    <div className="col-md-8">
                        {/* Select to see Student List or Project List */}
                         <h2>Project List </h2>
                         <div>
                             {this.state.posts.filter(s => s.postId.toLowerCase().includes(this.state.keyword.toLowerCase())||s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                <div class="list">
-                                    <table class="table table-bordered">
+                                <div className="list">
+                                    <table className="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Post ID</th>
@@ -110,7 +110,7 @@ export default class ProjectList extends React.Component {
 
 
                                                 <Link to={`/ProjectDetail/${filteredS.postId}`}>
-                                                    <a href="#" class="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
+                                                    <a href="#" className="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
                                                 </Link>
 
                                             </tr>

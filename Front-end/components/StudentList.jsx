@@ -55,9 +55,9 @@ export default class StudentList extends React.Component {
 
     render() {
         return (
-                        <div class="container ">
-                <div class="row">
-                    <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+                        <div className="container ">
+                <div className="row">
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
                         <h1>Search For Student</h1>
                         <div>
@@ -66,13 +66,13 @@ export default class StudentList extends React.Component {
                         </div>
                         <div style={{  height: '1000px' }}></div>
                     </div>
-                    <div class="col-md-8">
+                    <div className="col-md-8">
                        {/* Select to see Student List or Project List */}
                         <h2>Student List </h2>
                         <div>
                             {this.state.students.filter(s => s.studentId.toLowerCase().includes(this.state.keyword.toLowerCase())||s.studentName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                <div class="list">
-                                    <table class="table table-bordered">
+                                <div className="list">
+                                    <table className="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Student ID</th>
@@ -97,7 +97,7 @@ export default class StudentList extends React.Component {
 
 
                                                 <Link to={`/StudentDetail/${filteredS.studentId}`}>
-                                                    <a href="#" class="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
+                                                    <a href="#" className="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
                                                 </Link>
 
                                             </tr>

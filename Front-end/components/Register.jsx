@@ -87,17 +87,17 @@ export default class Register extends React.Component {
     }
     render() {
         return (
-            <div class=" container mb-sm-5">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
+            <div className=" container mb-sm-5">
+                <div className="row">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6">
 
-                        <div class="card">
+                        <div className="card">
                             <br />
 
                             {/* Admin login form */}
-                            <h2 class=" pl-4">Register Form</h2>
-                            <form class=" mb-4 pl-4  pt-2 pm-2">
+                            <h2 className=" pl-4">Register Form</h2>
+                            <form className=" mb-4 pl-4  pt-2 pm-2">
 
                                 <div className="form-group row">
                                     <div className="col-sm-10">
@@ -123,17 +123,17 @@ export default class Register extends React.Component {
                                 </div>
                                 <div className="form-group row">
                                     <div className="col-sm-10" >
-                                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2  " onClick={this.save.bind(this)} data-toggle="modal" data-target="#myModal" >Register</button>
-                                        <div id="myModal" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
+                                        <button type="button" className="btn btn-primary" className=" btn btn-success mb-2  " onClick={this.save.bind(this)} data-toggle="modal" data-target="#myModal" >Register</button>
+                                        <div id="myModal" className="modal fade" role="dialog">
+                                            <div className="modal-dialog">
 
                                                 {/* Modeal content */}
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
+                                                <div className="modal-content">
+                                                    <div className="modal-body">
                                                         <p style={{ color: "blue" }}>{this.state.message}</p>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <div className="modal-footer">
+                                                        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
 
@@ -150,7 +150,7 @@ export default class Register extends React.Component {
                 </Link>
                             </div>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div className="col-md-3"></div>
                 </div>
 
             </div>

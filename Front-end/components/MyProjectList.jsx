@@ -141,9 +141,9 @@ export default class MyProjectList extends React.Component {
             return <Redirect to="/Login" />
         }
         return (
-            <div class="container ">
-                <div class="row">
-                    <div class="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+            <div className="container ">
+                <div className="row">
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
                         <h1>Search For Project</h1>
                         <div>
@@ -151,83 +151,83 @@ export default class MyProjectList extends React.Component {
                                 onChange={this.handleChange.bind(this)} />
                         </div>
                         <h1>Add new post</h1>
-                        <button type="button" className="btn btn-primary" class=" btn btn-success mb-2  " data-toggle="modal" data-target="#myModal" onClick={this.add.bind(this)} >Add new </button>
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                        <button type="button" className="btn btn-primary" className=" btn btn-success mb-2  " data-toggle="modal" data-target="#myModal" onClick={this.add.bind(this)} >Add new </button>
+                        <div id="myModal" className="modal fade" role="dialog">
+                            <div className="modal-dialog">
 
                                 {/* Modeal content */}
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <div class="card mb-4 pl-4 pr-4 pt-5 pm-5" >
+                                <div className="modal-content">
+                                    <div className="modal-body">
+                                        <div className="card mb-4 pl-4 pr-4 pt-5 pm-5" >
 
                                             <h3>Post Management</h3>
-                                            Post Id: <input class="mt-1" type="text" id="postId" name="postId" className="form-control" value={this.state.postId}
+                                            Post Id: <input className="mt-1" type="text" id="postId" name="postId" className="form-control" value={this.state.postId}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
                                    
-                                            Post Name: <input class="mt-1" type="text" id="postName" name="postName" className="form-control" value={this.state.postName}
+                                            Post Name: <input className="mt-1" type="text" id="postName" name="postName" className="form-control" value={this.state.postName}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Post Status: <input class="mt-1" type="text" id="postStatus" name="postStatus" className="form-control" value={this.state.postStatus}
+                                            Post Status: <input className="mt-1" type="text" id="postStatus" name="postStatus" className="form-control" value={this.state.postStatus}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Available Slot: <input class="mt-1" type="text" id="postAvailableSlot" name="postAvailableSlot" className="form-control" value={this.state.postAvailableSlot}
+                                            Available Slot: <input className="mt-1" type="text" id="postAvailableSlot" name="postAvailableSlot" className="form-control" value={this.state.postAvailableSlot}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 1 ID : <input class="mt-1" type="text" id="s1Id" name="s1Id" className="form-control" value={this.state.s1Id}
+                                            Student 1 ID : <input className="mt-1" type="text" id="s1Id" name="s1Id" className="form-control" value={this.state.s1Id}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 1 Name : <input class="mt-1" type="text" id="s1Name" name="s1Name" className="form-control" value={this.state.s1Name}
+                                            Student 1 Name : <input className="mt-1" type="text" id="s1Name" name="s1Name" className="form-control" value={this.state.s1Name}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 2 ID : <input class="mt-1" type="text" id="s2Id" name="s2Id" className="form-control" value={this.state.s2Id}
+                                            Student 2 ID : <input className="mt-1" type="text" id="s2Id" name="s2Id" className="form-control" value={this.state.s2Id}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 2 Name : <input class="mt-1" type="text" id="s2Name" name="s2Name" className="form-control" value={this.state.s2Name}
+                                            Student 2 Name : <input className="mt-1" type="text" id="s2Name" name="s2Name" className="form-control" value={this.state.s2Name}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 3 ID : <input class="mt-1" type="text" id="s3Id" name="s3Id" className="form-control" value={this.state.s3Id}
+                                            Student 3 ID : <input className="mt-1" type="text" id="s3Id" name="s3Id" className="form-control" value={this.state.s3Id}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 3 Name : <input class="mt-1" type="text" id="s3Name" name="s3Name" className="form-control" value={this.state.s3Name}
+                                            Student 3 Name : <input className="mt-1" type="text" id="s3Name" name="s3Name" className="form-control" value={this.state.s3Name}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Course  Name : <input class="mt-1" type="text" id="courseName" name="courseName" className="form-control" value={this.state.courseName}
+                                            Course  Name : <input className="mt-1" type="text" id="courseName" name="courseName" className="form-control" value={this.state.courseName}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Semester : <input class="mt-1" type="text" id="semester" name="semester" className="form-control" value={this.state.semester}
+                                            Semester : <input className="mt-1" type="text" id="semester" name="semester" className="form-control" value={this.state.semester}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Scope : <input class="mt-1" type="text" id="scope" name="scope" className="form-control" value={this.state.scope}
+                                            Scope : <input className="mt-1" type="text" id="scope" name="scope" className="form-control" value={this.state.scope}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Description : <input class="mt-1" type="text" id="description" name="description" className="form-control" value={this.state.description}
+                                            Description : <input className="mt-1" type="text" id="description" name="description" className="form-control" value={this.state.description}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Looking For : <input class="mt-1" type="text" id="lookingFor" name="lookingFor" className="form-control" value={this.state.lookingFor}
+                                            Looking For : <input className="mt-1" type="text" id="lookingFor" name="lookingFor" className="form-control" value={this.state.lookingFor}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
 
-                                            <button class="btn btn-success  mr-1 mt-1" onClick={this.save.bind(this)}>Save</button>
+                                            <button className="btn btn-success  mr-1 mt-1" onClick={this.save.bind(this)}>Save</button>
                                             <br />
 
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div className="col-md-8">
                         {/* Select to see Student List or Project List */}
                         <h2>My Project List </h2>
                         <div>
                             {this.state.posts.filter(s => s.postId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                <div class="list">
-                                    <table class="table table-bordered">
+                                <div className="list">
+                                    <table className="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Post ID</th>
@@ -258,17 +258,17 @@ export default class MyProjectList extends React.Component {
                                                 <td>
                                                     
                                                 <Link to={`/ProjectDetail/${filteredS.postId}`}>
-                                                    <a href="#" class="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
+                                                    <a href="#" className="btn btn-primary mt-2 mr-2 ml-2">Detail</a>
                                                 </Link>
                                                 </td>
                                                 <td>
 
-                                                    <button class="btn btn-dark mb-2 mr-2 ml-2" onClick={this.delete.bind(this, filteredS.postId)}>Delete</button>
+                                                    <button className="btn btn-dark mb-2 mr-2 ml-2" onClick={this.delete.bind(this, filteredS.postId)}>Delete</button>
                                                 </td>
 
                                                 <td>
 
-                                                    <button class="btn btn-dark mb-2 mr-2 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, filteredS.postId, filteredS.postName
+                                                    <button className="btn btn-dark mb-2 mr-2 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, filteredS.postId, filteredS.postName
                                                 , filteredS.postStatus, filteredS.postAvailableSlot, filteredS.s1Id, filteredS.s1Name
                                                     , filteredS.s2Id, filteredS.s2Name, filteredS.s3Id, filteredS.s3Name, filteredS.courseName, filteredS.semester, filteredS.scope,
                                                     filteredS.description, filteredS.lookingFor)}>Edit</button>
