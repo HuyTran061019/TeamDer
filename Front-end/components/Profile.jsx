@@ -124,22 +124,22 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="modal-body">
                                                         <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                                            Student Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={s.studentName}
+                                                            Student Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={this.state.studentName}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
-                                                            Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={s.studentYear}
+                                                            Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={this.state.studentYear}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
-                                                            Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={s.birthDate}
+                                                            Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={this.state.birthDate}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
-                                                            Contact Mail: <input className="mt-1" type="text" id="contactMail" name="contactMail" className="form-control" value={s.contactMail}
+                                                            Contact Mail: <input className="mt-1" type="text" id="contactMail" name="contactMail" className="form-control" value={this.state.contactMail}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
-                                                            Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={s.phoneNumber}
+                                                            Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={this.state.phoneNumber}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
-                                                            Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={s.status}
+                                                            Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={this.state.status}
                                                             onChange={this.handleChange.bind(this)} />
                                                         </div>
                                                     
@@ -170,11 +170,11 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="modal-body">
                                                         <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                                            Expertises: <input className="mt-1" type="text" id="specialtyExpertise" name="specialtyExpertise" className="form-control" value={s.specialtyExpertise}
+                                                            Expertises: <input className="mt-1" type="text" id="specialtyExpertise" name="specialtyExpertise" className="form-control" value={this.state.specialtyExpertise}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
                                                             Description Detail:
-                                                            <textarea name="description" value={s.description}
+                                                            <textarea name="description" value={this.state.description}
                                                             onChange={this.handleChange.bind(this)} cols="30" rows="5"></textarea>
                                                         </div>
                                                     
@@ -205,11 +205,11 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="modal-body">
                                                         <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                                            Major Name: <input className="mt-1" type="text" id="major" name="major" className="form-control" value={s.major}
+                                                            Major Name: <input className="mt-1" type="text" id="major" name="major" className="form-control" value={this.state.major}
                                                             onChange={this.handleChange.bind(this)} />
                                                             <br />
                                                             Studying Course:
-                                                            <textarea name="studyingCourse" value={s.studyingCourse}
+                                                            <textarea name="studyingCourse" value={this.state.studyingCourse}
                                                             onChange={this.handleChange.bind(this)} cols="30" rows="5"></textarea>
                                                         </div>
                                                     
