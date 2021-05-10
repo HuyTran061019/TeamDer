@@ -81,7 +81,7 @@ export default class App extends React.Component {
                         <Route exact path='/' component={Landing} />
                         <Route path='/Home' component={Home} />
                         <Route path='/Profile' component={Profile} />
-                        <Route path='/Admin' component={AdminPage} />
+                        <Route path='/AdminPage' component={AdminPage} />
                         <Route path='/Register' render={props => <AuthPage {...props} authRoute='/Register'/>} />
                         <Route path='/Logout' component={Logout} />
                         <Route path='/Login' render={props => <AuthPage {...props} authRoute='/Login'/>} />

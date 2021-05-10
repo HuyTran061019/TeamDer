@@ -1,9 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import Navbar from './Navbar.jsx';
 
 
 const url = 'http://localhost:9000/students'
-export default class StudentList extends React.Component {
+export default class AdminPage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -64,10 +65,13 @@ export default class StudentList extends React.Component {
     }
     render() {
         return (
-            <div className="container ">
+            <div>
+                  <Navbar/>
+       
+            <div class="container ">
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-                        <h1 style={{color:"red"}} > Welcome Admin </h1>
+                        <h1 style={{color:"red"}} > Admin </h1>
                         <h2>Search For Student</h2>
                         <div>
                             <input type="text" name='keyword' placeholder="ID, Name, etc."
@@ -116,6 +120,7 @@ export default class StudentList extends React.Component {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

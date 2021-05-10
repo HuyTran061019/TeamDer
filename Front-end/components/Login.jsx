@@ -65,8 +65,7 @@ export default class Register extends React.Component {
     handleLogin(e) {
         e.preventDefault()
         if( this.state.insertId === "A" && this.state.insertPassword ==="A"){
-            // return <Redirect to="/AdminPage" />
-            this.props.history.push('/AdminPage.jsx');
+            location.replace("/AdminPage")
         }else{
             fetch(url).then(res => res.json())
         for (let i = 0; i < this.state.students.length; i++) {
