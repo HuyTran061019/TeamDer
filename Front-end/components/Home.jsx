@@ -25,8 +25,9 @@ export default class Home extends React.Component {
             return <Redirect to="/Login" />
         }
         return (
-            <div className="container " >
-                <Navbar/>
+            <div>
+                        <Navbar/>
+                 <div className="container " >
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
 
@@ -56,6 +57,8 @@ export default class Home extends React.Component {
                 </div>
 
             </div>
+            </div>
+           
         )
     }
 }

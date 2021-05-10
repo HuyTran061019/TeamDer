@@ -64,7 +64,11 @@ export default class Register extends React.Component {
 
     handleLogin(e) {
         e.preventDefault()
-        fetch(url).then(res => res.json())
+        if( this.state.insertId === "A" && this.state.insertPassword ==="A"){
+            // return <Redirect to="/AdminPage" />
+            this.props.history.push('/AdminPage.jsx');
+        }else{
+            fetch(url).then(res => res.json())
         for (let i = 0; i < this.state.students.length; i++) {
             if (this.state.insertId === this.state.students[i].studentId) {
                 if (this.state.insertPassword === this.state.students[i].password) {
@@ -82,6 +86,8 @@ export default class Register extends React.Component {
 
         }
         this.setState({ message: "Invalid ! Please try again. " })
+        }
+        
     }
     // login() {
     //     if ((this.state.studentId !== "") &&(this.state.password !== "")) {
@@ -111,7 +117,13 @@ export default class Register extends React.Component {
         }
         return (
             <div className=" container ">
-                <div>
+                  <div className="row">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6">
+                        <br />
+                        <h1>Login Form </h1>
+
+                    <div>
                     <div className="form-group">
                         <input type="text" name="insertId" className="form-control" placeholder="ID" value={this.state.insertId} onChange={this.handleChange.bind(this)}/>
                     </div>
@@ -123,12 +135,18 @@ export default class Register extends React.Component {
                         <h5 style={{ color: "red" }}>{this.state.message}</h5>
                     </div>
                     <div>
-                        Don't have an account?
+                        Don't have an account ? 
                         <Link to="/Register">
-                            <button className="btn btn-info"> Register</button>
+                            <button className="btn btn-info ml-2"> Register</button>
                         </Link>
                     </div>
                 </div>
+                <br />
+                    </div>
+
+                    <div className="col-md-3"></div>
+         
+            </div>
             </div>
         )
     }

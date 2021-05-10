@@ -14,8 +14,7 @@ const AuthPage = ({authRoute}) => {
         <div className='landing'>
             <div className='dark-overlay'>
                 <div className='landing-inner'>
-                    <h1>TeamDer</h1>
-                    <h4>A place to find greate team-8</h4>
+                  
                     {body}
                 </div>
             </div>

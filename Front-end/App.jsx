@@ -7,6 +7,7 @@ import StudentList from './components/StudentList.jsx'
 import ProjectList from './components/ProjectList.jsx'
 import MyProjectList from './components/MyProjectList.jsx'
 import StudentDetail from './components/StudentDetail.jsx'
+import AdminPage from './components/AdminPage.jsx'
 
 import Profile from "./components/Profile.jsx"
 import Logout from "./components/Logout.jsx"
@@ -80,6 +81,7 @@ export default class App extends React.Component {
                         <Route exact path='/' component={Landing} />
                         <Route path='/Home' component={Home} />
                         <Route path='/Profile' component={Profile} />
+                        <Route path='/Admin' component={AdminPage} />
                         <Route path='/Register' render={props => <AuthPage {...props} authRoute='/Register'/>} />
                         <Route path='/Logout' component={Logout} />
                         <Route path='/Login' render={props => <AuthPage {...props} authRoute='/Login'/>} />
@@ -88,6 +90,7 @@ export default class App extends React.Component {
                         <Route path='/MyProjectList' component={MyProjectList} />
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />
                         <Route path='/ProjectDetail/:postId' component={ProjectDetail} />
+                    
                     </Switch>
                 </BrowserRouter>
 

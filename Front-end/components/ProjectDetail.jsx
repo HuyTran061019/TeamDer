@@ -126,8 +126,11 @@ export default class ProjectDetail extends React.Component {
 
     render() {
         return (
+            <div>
+
+       <Navbar/>
             <div className="container ">
-                <Navbar/>
+              
                 <div className="row">
 
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
@@ -283,7 +286,7 @@ export default class ProjectDetail extends React.Component {
 
             </div>
 
-
+            </div>
 
         )
     }

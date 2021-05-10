@@ -92,7 +92,7 @@ export default class Register extends React.Component {
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
 
-                        <div className="card">
+                        <div>
                             <br />
 
                             {/* Admin login form */}
@@ -145,10 +145,11 @@ export default class Register extends React.Component {
                         
                         </div>
                         <div>
-                                   <Link to="/Login" className="nav-link">
-                                Login
-                </Link>
-                            </div>
+                        Already have an account ?: 
+                        <Link to="/Login">
+                            <button className="btn btn-info ml-2 pt-2"> Login</button>
+                        </Link>
+                    </div>
                     </div>
                     <div className="col-md-3"></div>
                 </div>

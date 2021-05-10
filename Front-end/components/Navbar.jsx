@@ -6,7 +6,7 @@ function Navbar(){
                 <nav className="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
                     <ul className="navbar-nav align-items-center">
                         <li className="nav-item ml-5">
-                            <Link to="/Home">User View</Link>
+                            <Link to="/Home" className="nav-link">User View</Link>
                         </li>
                         <li className="nav-item ml-5">
                             <Link to="/Profile" className="nav-link">

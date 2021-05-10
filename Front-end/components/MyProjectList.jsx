@@ -142,10 +142,14 @@ export default class MyProjectList extends React.Component {
             return <Redirect to="/Login" />
         }
         return (
-            <div className="container ">
-                <Navbar/>
+        <div>       
+            <Navbar/>
+             <div className="container ">
                 <div className="row">
                     <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+                    <Link to="/Profile" className="nav-link">
+                            <button type="button" className="btn btn-success"> Profile</button>
+                        </Link>
 
                         <h1>Search For Project</h1>
                         <div>
@@ -293,6 +297,8 @@ export default class MyProjectList extends React.Component {
                 </div>
 
             </div>
+        </div>
+           
         )
     }
 }
