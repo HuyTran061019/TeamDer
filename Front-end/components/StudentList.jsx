@@ -57,26 +57,19 @@ export default class StudentList extends React.Component {
         return (
             <div>
                 <Navbar />
-
                 <div className="container ">
-
                     <div className="row">
-                        <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-
-                            <h1>Search For Student</h1>
-                            <div>
-                                <input type="text" name='keyword' placeholder="ID, Name, etc."
-                                    onChange={this.handleChange.bind(this)} />
-                            </div>
-                            <div style={{ height: '1000px' }}></div>
+                        <div className="col-md-4">
+                            <h3>Search For Student:</h3>
+                            <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Enter Name or ID" onChange={this.handleChange.bind(this)} />
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-8 card border-success mb-3 px-0">
                             {/* Select to see Student List or Project List */}
-                            <h2>Student List </h2>
+                            <h2 className="card-header">Student List </h2>
                             <div>
                                 {this.state.students.filter(s => s.studentId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.studentName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
                                     <div key={filteredS.studentId}>
-                                        <table className="table table-bordered">
+                                        <table className="table table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Student ID</th>
@@ -89,7 +82,7 @@ export default class StudentList extends React.Component {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr className='table-active'>
                                                     <td>{filteredS.studentId}</td>
                                                     <td>{filteredS.studentName}</td>
                                                     <td>{filteredS.studentYear}</td>

@@ -84,7 +84,7 @@ export default class Register extends React.Component {
             }
 
         }
-        this.setState({ message: "Invalid ! Please try again. " })
+        this.setState({ message: "Invalid! Please try again. " })
         }
         
     }
@@ -115,37 +115,34 @@ export default class Register extends React.Component {
             return <Redirect to="/Home" />
         }
         return (
-            <div className=" container ">
-                  <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <br />
-                        <h1>Login Form </h1>
-
-                    <div>
-                    <div className="form-group">
-                        <input type="text" name="insertId" className="form-control" placeholder="ID" value={this.state.insertId} onChange={this.handleChange.bind(this)}/>
-                    </div>
-                    <div className="form-group">
-                        <input type="text" name="insertPassword" className="form-control" placeholder="Password" value={this.state.insertPassword} onChange={this.handleChange.bind(this)}/>
-                    </div>
-                    <button onClick={this.handleLogin.bind(this)} className="btn btn-success">Log in</button>
-                    <div>
-                        <h5 style={{ color: "red" }}>{this.state.message}</h5>
-                    </div>
-                    <div>
-                        Don't have an account ? 
-                        <Link to="/Register">
-                            <button className="btn btn-info ml-2"> Register</button>
-                        </Link>
+            <div className="row">
+                <div className="col-md-3"></div>
+                <div className="col-md-6 card border-success px-0">
+                    <p className='card-header pt-2'>Enter your ID and Password to login</p>
+                    <div className='card-body'>
+                        <div className="form-group">
+                            <label> User ID</label>
+                            <input type="text" name="insertId" className="form-control" placeholder="Enter User ID" value={this.state.insertId} onChange={this.handleChange.bind(this)}/>
+                        </div>
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input type="text" name="insertPassword" className="form-control" placeholder="Enter Password" value={this.state.insertPassword} onChange={this.handleChange.bind(this)}/>
+                        </div>
+                        <div>
+                            <button onClick={this.handleLogin.bind(this)} className="btn btn-success mb-3">Log in</button>
+                        </div>
+                        <div>
+                            <h6 className='text-warning'>{this.state.message}</h6>
+                        </div>
+                        <div>
+                            Don't have an account ? 
+                            <Link to="/Register">
+                                <button className="btn btn-info ml-2"> Register</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-                <br />
-                    </div>
-
-                    <div className="col-md-3"></div>
-         
-            </div>
+                <div className="col-md-3"></div>
             </div>
         )
     }

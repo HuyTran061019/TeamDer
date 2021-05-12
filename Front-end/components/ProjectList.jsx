@@ -66,25 +66,19 @@ export default class ProjectList extends React.Component {
         return (
             <div>
                 <Navbar />
-
                 <div className="container ">
-
                     <div className="row">
-                        <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-                            <h1>Search For Project</h1>
-                            <div>
-                                <input type="text" name='keyword' placeholder="Name, ID etc."
-                                    onChange={this.handleChange.bind(this)} />
-                            </div>
-                            <div style={{ height: '1000px' }}></div>
+                        <div className="col-md-4">
+                            <h3>Search For Project</h3>
+                            <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Enter project ID or Name" onChange={this.handleChange.bind(this)} />
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-8 card border-success mb-3 px-0">
                             {/* Select to see Student List or Project List */}
-                            <h2>Project List </h2>
+                            <h2 className="card-header">Project List </h2>
                             <div>
                                 {this.state.posts.filter(s => s.postId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
                                     <div key={filteredS.postId}>
-                                        <table className="table table-bordered">
+                                        <table className="table table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Post ID</th>
@@ -98,7 +92,7 @@ export default class ProjectList extends React.Component {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr className='table-active'>
                                                     <td>{filteredS.postId}</td>
                                                     <td>{filteredS.ownerId}</td>
                                                     <td>{filteredS.postName}</td>

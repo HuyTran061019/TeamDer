@@ -26,39 +26,26 @@ export default class Home extends React.Component {
         }
         return (
             <div>
-                        <Navbar/>
-                 <div className="container " >
-                <div className="row">
-                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-
-                        <h1>This is a column</h1>
-                        <div> Welcome student with ID: {this.state.check}</div>
-
-                        <Link to="/Logout" className="nav-link">
-                            <button>
-                                Log Out
-                            </button>
-
-                        </Link>
-                        <div style={{  height: '1000px' }}></div>
-
-                    </div>
-                    <div className="col-md-8">
-                        {/* Select to see Student List or Project List */}
-                        <h2>Please select what to search: </h2>
-                        <Link to="/StudentList" className="nav-link">
-                            <button type="button" className="btn btn-success">Student List</button>
-                        </Link>
-                        <Link to="/ProjectList" className="nav-link">
-                            <button type="button" className="btn btn-success">Project List</button>
-                        </Link>
-
+                <Navbar/>
+                <div className="container " >
+                    <div className="row">
+                        <div className="col-md-4" >
+                            <h3 > Welcome student with ID: {this.state.check}</h3>
+                            <div style={{  height: '100px' }}></div>
+                        </div>
+                        <div className="col-md-8 card border-success mb-3 px-0">
+                            {/* Select to see Student List or Project List */}
+                            <h2 className='card-header'>Please select what to search: </h2>
+                            <Link to="/StudentList" className="nav-link">
+                                <button type="button" className="btn btn-success">Student List</button>
+                            </Link>
+                            <Link to="/ProjectList" className="nav-link">
+                                <button type="button" className="btn btn-success">Project List</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-
             </div>
-            </div>
-           
         )
     }
 }

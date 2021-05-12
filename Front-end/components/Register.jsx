@@ -87,76 +87,52 @@ export default class Register extends React.Component {
     }
     render() {
         return (
-            <div className=" container mb-sm-5">
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-
-                        <div>
-                            <br />
-
-                            {/* Admin login form */}
-                            <h2 className=" pl-4">Register Form</h2>
-                            <form className=" mb-4 pl-4  pt-2 pm-2">
-
-                                <div className="form-group row">
-                                    <div className="col-sm-10">
-                                        Id:
-                                    <input type="text" name="studentId" className="form-control" placeholder="Id" value={this.state.studentId} onChange={this.handleChange.bind(this)}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="form-group row">
-                                    <div className="col-sm-10">
-                                        Name:
-                                    <input type="text" name="studentName" className="form-control" placeholder="Name" value={this.state.studentName} onChange={this.handleChange.bind(this)}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-sm-10">
-                                        Password:
-                                    <input type="text" name="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleChange.bind(this)}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-sm-10" >
-                                        <button type="button" className="btn btn-primary" className=" btn btn-success mb-2  " onClick={this.save.bind(this)} data-toggle="modal" data-target="#myModal" >Register</button>
-                                        <div id="myModal" className="modal fade" role="dialog">
-                                            <div className="modal-dialog">
-
-                                                {/* Modeal content */}
-                                                <div className="modal-content">
-                                                    <div className="modal-body">
-                                                        <p style={{ color: "blue" }}>{this.state.message}</p>
-                                                    </div>
-                                                    <div className="modal-footer">
-                                                        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        
+            <div className="row">
+                <div className="col-md-3"></div>
+                <div className="col-md-6 card border-info px-0">
+                    <div className='card-header'>
+                        <h5>Register</h5>
+                        <p className='font-weight-normal mb-0'>It is quick and easy</p>
+                    </div>
+                    <div className='card-body'>
+                        <div className="form-group">
+                            <label>User ID</label>
+                            <input type="text" name="studentId" className="form-control" placeholder="Register for User ID" value={this.state.studentId} onChange={this.handleChange.bind(this)}/>
+                        </div>
+                        <div className="form-group">
+                            <label>User Name</label>
+                            <input type="text" name="studentName" className="form-control" placeholder="Enter User Name" value={this.state.studentName} onChange={this.handleChange.bind(this)}/>
+                        </div>
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input type="text" name="password" className="form-control" placeholder="Register for Password" value={this.state.password} onChange={this.handleChange.bind(this)}/>
                         </div>
                         <div>
-                        Already have an account ?: 
-                        <Link to="/Login">
-                            <button className="btn btn-info ml-2 pt-2"> Login</button>
-                        </Link>
+                            <button type="button" className=" btn btn-info mb-2  " onClick={this.save.bind(this)} data-toggle="modal" data-target="#myModal" >Register</button>
+                        </div>
+                        <div>
+                            Already have an account? 
+                            <Link to="/Login">
+                                <button className="btn btn-success ml-2 pt-2"> Login</button>
+                            </Link>
+                        </div>
                     </div>
-                    </div>
-                    <div className="col-md-3"></div>
                 </div>
-
+                <div id="myModal" className="modal fade" role="dialog">
+                    <div className="modal-dialog">
+                        {/* Modeal content */}
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                <h5 className='text-danger'><strong>{this.state.message}</strong></h5>
+                            </div>
+                            <div className="modal-footer p-0">
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-3"></div>
             </div>
-
-
         )
     }
 }

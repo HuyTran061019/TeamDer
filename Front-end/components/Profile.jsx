@@ -77,172 +77,146 @@ export default class Profile extends React.Component {
         return (
             <div>
                 <Navbar />
-
                 <div className="container ">
-
-                    <div>
-                        <div className="row">
-                            <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-
-                                <h1>This is a column</h1>
-                                <div> Welcome student with ID: {this.state.check}</div>
-
-                                <Link to="/MyProjectList" className="nav-link">
-                                    <button>
-                                        My Posts
-                            </button>
-
-                                </Link>
-
-                                <Link to="/Logout" className="nav-link">
-                                    <button>
-                                        Log Out
-                            </button>
-
-                                </Link>
-
-                            </div>
-                            <div className="col-md-8">
-
-                                {this.state.students.map(s =>
-                                    <div key={s.studentId}>
-                                        <h1 className="font-weight-bold" style={{ color: "red" }}> Student Detail: </h1>
-                                        <br />
-                                        {/* Course info */}
-                                        <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Student Info:   </h2>
-                                        <div className="card mb-2" >
-                                            <div className="card-body border border black" >
-                                                <h4 className="font-weight-bold">Student name : {s.studentName}</h4>
-                                                <h4>Student id :{s.studentId}</h4>
-                                                <h5>Year: {s.studentYear} </h5>
-                                                <h5>Birth Date: {s.birthDate} </h5>
-                                                <h5>Contact Mail: {s.contactMail} </h5>
-                                                <h5>Phone Number: {s.phoneNumber} </h5>
-                                                <h5>Status: {s.status} </h5>
-                                            </div>
-                                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
-                                                s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>EDIT</button>
-                                            <div className="modal fade" id="studentInfoModal">
-                                                <div className="modal-dialog">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title">Student Information</h5>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                                                Student Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={this.state.studentName}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={this.state.studentYear}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={this.state.birthDate}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Contact Mail: <input className="mt-1" type="text" id="contactMail" name="contactMail" className="form-control" value={this.state.contactMail}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={this.state.phoneNumber}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={this.state.status}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                            </div>
-
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" className="btn btn-primary" onClick={this.save.bind(this)}>Save changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <h3> Welcome student with ID: {this.state.check}</h3>
+                            <Link to="/MyProjectList" className="nav-link">
+                                <button className="btn btn-success">My Posts</button>
+                            </Link>
+                        </div>
+                        
+                        <div className="col-md-8">
+                            {this.state.students.map(s =>
+                                <div key={s.studentId}>
+                                    <h1 className="font-weight-bold"> Student Detail: </h1>
+                                    <h2 className="font-weight-bold text-muted"> Student Info:   </h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
+                                            <h4 className="font-weight-bold ">Student name : {s.studentName}</h4>
+                                            <h4>Student id :{s.studentId}</h4>
+                                            <h5>Year: {s.studentYear} </h5>
+                                            <h5>Birth Date: {s.birthDate} </h5>
+                                            <h5>Contact Mail: {s.contactMail} </h5>
+                                            <h5>Phone Number: {s.phoneNumber} </h5>
+                                            <h5>Status: {s.status} </h5>
                                         </div>
-                                        {/* Specialty and Description info */}
-                                        <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Description Detail:</h2>
-                                        <div className="card mb-2" >
-                                            <div className="card-body border border black" >
-                                                <h4 className="font-weight-bold">Experises : {s.specialtyExpertise}</h4>
-                                                <br />
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
+                                            s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>EDIT</button>
+                                    </div>
+                                    {/* Specialty and Description info */}
+                                    <h2 className="font-weight-bold text-muted"> Description Detail:</h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
+                                            <h4 className="font-weight-bold">Experises : {s.specialtyExpertise}</h4>
+                                            <br />
 
-                                                <h6 className="mb-2">Description detail: {s.description}</h6>
-                                            </div>
-                                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
-                                                s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>EDIT</button>
-                                            <div className="modal fade" id="studentDescModal">
-                                                <div className="modal-dialog">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title">Student Description</h5>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                                                Expertises: <input className="mt-1" type="text" id="specialtyExpertise" name="specialtyExpertise" className="form-control" value={this.state.specialtyExpertise}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Description Detail:
-                                                            <textarea name="description" value={this.state.description}
-                                                                    onChange={this.handleChange.bind(this)} cols="30" rows="5"></textarea>
-                                                            </div>
-
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" className="btn btn-primary" onClick={this.save.bind(this)}>Save changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <h6 className="mb-2">Description detail: {s.description}</h6>
                                         </div>
-                                        {/* Major and course and others */}
-                                        <h2 style={{ color: "midnightblue" }} className="font-weight-bold"> Major Detail:</h2>
-                                        <div className="card mb-2" >
-                                            <div className="card-body border border black" >
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
+                                            s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>EDIT</button>
+                                    </div>
+                                    {/* Major and course and others */}
+                                    <h2 className="font-weight-bold text-muted"> Major Detail:</h2>
+                                    <div className="card mb-2" >
+                                        <div className="card-body border border black" >
 
-                                                <h6>Major Name :{s.major}</h6>
-                                                <br />
-                                                <h6>Studying Course : {s.studyingCourse}</h6>
-                                            </div>
-                                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
-                                                s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>EDIT</button>
-                                            <div className="modal fade" id="majorDetailModal">
-                                                <div className="modal-dialog">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title">Major Detail</h5>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                                                Major Name: <input className="mt-1" type="text" id="major" name="major" className="form-control" value={this.state.major}
-                                                                    onChange={this.handleChange.bind(this)} />
-                                                                <br />
-                                                            Studying Course:
-                                                            <textarea name="studyingCourse" value={this.state.studyingCourse}
-                                                                    onChange={this.handleChange.bind(this)} cols="30" rows="5"></textarea>
-                                                            </div>
-
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" className="btn btn-primary" onClick={this.save.bind(this)}>Save changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <h6>Major Name: {s.major}</h6>
+                                            <br />
+                                            <h6>Studying Course: {s.studyingCourse}</h6>
+                                        </div>
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
+                                            s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>EDIT</button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                        <div className="modal fade" id="studentInfoModal">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Student Information</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                            Student Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={this.state.studentName}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={this.state.studentYear}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={this.state.birthDate}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Contact Mail: <input className="mt-1" type="text" id="contactMail" name="contactMail" className="form-control" value={this.state.contactMail}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={this.state.phoneNumber}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={this.state.status}
+                                                onChange={this.handleChange.bind(this)} />
                                         </div>
 
                                     </div>
-
-
-                                )}
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-primary" onClick={this.save.bind(this)}>Save changes</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div className="modal fade" id="studentDescModal">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Student Description</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                            Expertises: <input className="mt-1" type="text" id="specialtyExpertise" name="specialtyExpertise" className="form-control" value={this.state.specialtyExpertise}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Description Detail:
+                                        <textarea name="description" value={this.state.description}
+                                                onChange={this.handleChange.bind(this)} cols="30" rows="5"></textarea>
+                                        </div>
 
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-primary" onClick={this.save.bind(this)}>Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modal fade" id="majorDetailModal">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Major Detail</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                            Major Name: <input className="mt-1" type="text" id="major" name="major" className="form-control" value={this.state.major}
+                                                onChange={this.handleChange.bind(this)} />
+                                            <br />
+                                        Studying Course:
+                                        <textarea name="studyingCourse" value={this.state.studyingCourse}
+                                                onChange={this.handleChange.bind(this)} cols="30" rows="5"></textarea>
+                                        </div>
+
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-primary" onClick={this.save.bind(this)}>Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
-
         )
     }
 }

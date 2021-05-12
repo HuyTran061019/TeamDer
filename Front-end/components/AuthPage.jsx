@@ -11,13 +11,8 @@ const AuthPage = ({authRoute}) => {
             
     )
     return (
-        <div className='landing'>
-            <div className='dark-overlay'>
-                <div className='landing-inner'>
-                  
-                    {body}
-                </div>
-            </div>
+        <div className='container mb-sm-3'>
+            {body}
         </div>
     )
 }
