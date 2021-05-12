@@ -94,23 +94,22 @@ export default class App extends React.Component {
                 <div className="container card bg-secondary mt-3">
                     <div className="row">
                         <div className="col-md-3 pr-0" >
-                            <h5 className='card-header mb-3 '>Studying at RMIT</h5>
-                            <div>Bachelor program</div>
-                            <div> Post-graduate program</div>
-                            <div> International student</div>
-                            <div> Exchange to RMIT Melbourne</div>
-                            <div> Scholarship</div>
-                            <div> Frequently asked question</div>
+                            <a href="https://www.rmit.edu.vn/study-at-rmit"><h5 className='card-header mb-2' >Studying at RMIT</h5></a>
+                            <a href="https://www.rmit.edu.vn/study-at-rmit/undergraduate-programs"><div>Bachelor program</div></a>
+                            <a href="https://www.rmit.edu.vn/study-at-rmit/postgraduate-programs"><div> Postgraduate programs</div></a>
+                            <a href="https://www.rmit.edu.vn/study-at-rmit/international-students"><div> International student</div></a>
+                            <a href="https://www.rmit.edu.vn/study-at-rmit/global-experiences/cross-campus-to-rmit-melbourne"><div> Exchange to RMIT Melbourne</div></a>
+                            <a href="https://www.rmit.edu.vn/study-at-rmit/scholarships"><div> Scholarship</div></a>
                         </div>
                         <div className="col-md-3 px-0" >
-                            <h5 className='card-header mb-3'>About TeamDer</h5>
+                            <h5 className='card-header mb-2'>About TeamDer</h5>
                             <div >Life at RMIT</div>
                             <div> Clubs at school</div>
                             <div> Student support</div>
                             <div> Opportunies </div>
                         </div>
                         <div className="col-md-3 px-0" >
-                            <h5 className='card-header mb-3'>Payment method</h5>
+                            <h5 className='card-header mb-2'>Payment method</h5>
                             <img src="https://i0.wp.com/www.sakuramobile.jp/wp-content/themes/FoundationPress/dist/assets/images/image-payment-method-card-360x240.png?resize=360%2C240&ssl=1" alt="Payment card method" width="200px"/>
                         </div>
                         <div className="col-md-3 pl-0" >
