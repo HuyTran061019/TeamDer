@@ -146,7 +146,7 @@ export default class MyProjectList extends React.Component {
             <Navbar/>
              <div className="container ">
                 <div className="row">
-                    <div className="col-md-4" >
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
                     <Link to="/Profile" className="nav-link">
                             <button type="button" className="btn btn-success"> Profile</button>
                         </Link>

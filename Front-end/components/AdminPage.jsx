@@ -70,8 +70,8 @@ export default class AdminPage extends React.Component {
        
             <div class="container ">
                 <div className="row">
-                    <div className="col-md-4" >
-                        <h1 style={{color:"yellow"}} > Admin </h1>
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
+                        <h1 style={{color:"red"}} > Admin </h1>
                         <h2>Search For Student</h2>
                         <div>
                             <input type="text" name='keyword' placeholder="ID, Name, etc."

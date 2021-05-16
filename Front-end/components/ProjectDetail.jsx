@@ -133,7 +133,7 @@ export default class ProjectDetail extends React.Component {
               
                 <div className="row">
 
-                    <div className="col-md-4"  >
+                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
                     <Link to="/ProjectList" className="nav-link">
                             <button type="button" className="btn btn-success">Project List</button>
                         </Link>
@@ -185,7 +185,7 @@ export default class ProjectDetail extends React.Component {
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
                                             <button className="btn btn-success  mr-1 mt-1" onClick={this.save.bind(this)}>Save</button>
-                                            <br />
+
                                         </div>
                                     </div>
                                     <div className="modal-footer">
