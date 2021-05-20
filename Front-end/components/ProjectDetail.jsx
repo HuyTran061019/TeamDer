@@ -3,6 +3,7 @@ import { Redirect, Link } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 const url = 'http://localhost:9000/posts'
 const url2 = 'http://localhost:9000/comments'
+const url3 = 'http://localhost:9000/notifications'
 export default class ProjectDetail extends React.Component {
     //Constructor for the selected student
     constructor(props) {
@@ -89,6 +90,17 @@ export default class ProjectDetail extends React.Component {
                 })
             }).then(res => res.json())
                 .then(json => this.fetchData2())
+             
+            fetch(url3, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    notiToUserId: JSON.stringify(this.state.posts.map(s => s.ownerId)).substring(2, JSON.stringify(this.state.posts.map(s => s.ownerId)).length-2), commentedStudentId: this.state.ownerId, content: this.state.content
+                })
+            }).then(res => res.json())
         }
         else {
             fetch(url2, {
@@ -148,6 +160,7 @@ export default class ProjectDetail extends React.Component {
                             <div className='card-body'>
                                 {this.state.comments.map(i =>
                                     <div className="card mt-2" key={i.commentId}>
+                                        <h1>{i._id}</h1>
                                         <div className="card-header bg-info mb-2">
                                             <Link to={`/StudentDetail/${i.ownerId}`}>
                                                 {i.ownerId}
@@ -193,7 +206,7 @@ export default class ProjectDetail extends React.Component {
                                 {/* Modeal content */}
                                 <div className="modal-content">
                                     <div className="modal-body">
-                                        <div className="card mb-4 pl-4 pr-4 pt-5 pm-5" >
+                                        <div className="card mb-4 pl-4 pr-4 pm-5" >
 
                                             Comment Id: <input className="mt-1" type="text" id="commentId" name="commentId" className="form-control" value={this.state.commentId}
                                                 onChange={this.handleChange.bind(this)} />

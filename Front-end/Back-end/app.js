@@ -42,6 +42,11 @@ var CommentSchema = new mongoose.Schema({
 
  
 })
+var NotificationSchema = new mongoose.Schema({
+    notiToUserId: String,
+    commentedStudentId: String,
+    content: String
+})
 
 //defining student schema
 var StudentSchema = new mongoose.Schema({
@@ -90,6 +95,19 @@ var PostSchema = new mongoose.Schema({
 var Post = mongoose.model('Post', PostSchema)
 var Student = mongoose.model('Student', StudentSchema)
 var Comment = mongoose.model('Comment', CommentSchema)
+var Notification = mongoose.model('Notification', NotificationSchema)
+
+app.get('/notifications', function (req, res) {
+    Notification.find({}, function (err, notifications) {
+        res.send(notifications)
+    })
+})
+app.post('/notifications', function (req, res) {
+    Notification.create(req.body, function (err, notification) {
+        res.send(notification)
+    })
+    console.log(req.body)
+})
 
 //defining Comment schema
 // Get all spost

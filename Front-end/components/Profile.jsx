@@ -3,6 +3,7 @@ import { Redirect, Link } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 
 const url = 'http://localhost:9000/students'
+const url2 = 'http://localhost:9000/notifications'
 export default class Profile extends React.Component {
     //Constructor for the selected student
     constructor(props) {
@@ -33,7 +34,13 @@ export default class Profile extends React.Component {
             status: '',
             birthDate: '',
             major: '',
-            studyingCourse: ''
+            studyingCourse: '',
+
+            //Noti
+            notis: [],
+            notiToUserId: '',
+            commentedStudentId: '',
+            content: ''
         }
 
     }
@@ -47,9 +54,19 @@ export default class Profile extends React.Component {
             .then(res => res.json())
             .then(json => this.setState({ students: json }))
     }
+    fetchData2() {
+        fetch(url2).then(res => res.json())
+            .then(json => {
+                var list = json.filter(s => s.notiToUserId == this.state.check)
+                this.setState({ notis: list })
+            })
+    }
+
+
 
     componentDidMount() {
         this.fetchData()
+        this.fetchData2()
     }
     edit(studentId, studentName, studentYear, contactMail, phoneNumber, description, specialtyExpertise, status, birthDate, major, studyingCourse) {
         this.setState({
@@ -80,8 +97,7 @@ export default class Profile extends React.Component {
                 <div className="container ">
                     <div className="row">
                         <div className="col-md-4">
-                            <h3> Welcome student with ID: {this.state.check}</h3>
-                            <div className='card align-middle text-center mt-3 mb-3'>
+                            <div className='card align-middle text-center mb-3'>
                                 <h4>Uploaded Posts</h4>
                                 <Link to="/MyProjectList" className="nav-link pl-0">
                                     <button className="btn btn-success font-weight-bold">
@@ -92,6 +108,28 @@ export default class Profile extends React.Component {
                                         My Post
                                     </button>
                                 </Link>
+                            </div>
+                            <div className='card'>
+                                <h4 className='card-header bg-warning text-center'>
+                                    Notification
+                                </h4>
+                                <div className='card-body'>
+                                    {this.state.notis.map(i => 
+                                        <div className="card mt-1" key={i.notiToUserIdId}>
+                                            <div className="card-header bg-info mb-2 text-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bell-fill" viewBox="0 0 16 16">
+                                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                                                </svg>
+                                            </div>
+                                            <h4 className='d-inline text-white ml-2'>
+                                                <Link className='mr-2' to={`/StudentDetail/${i.commentedStudentId}`}>
+                                                    {i.commentedStudentId}
+                                                </Link>
+                                                commented on your post: "{i.content}""
+                                            </h4>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                         
