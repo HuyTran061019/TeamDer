@@ -61,7 +61,7 @@ export default class ProjectDetail extends React.Component {
         fetch(url2).then(res => res.json())
             .then(json => {
 
-                var list = json.filter(s => typeof s.commentId !== 'undefined' && s.commentId !== "" && s.postId == this.state.Setid)
+                var list = json.filter(s => typeof s._id !== 'undefined' && s._id !== "" && s.postId == this.state.Setid)
                 this.setState({ comments: list })
             })
     }
@@ -85,7 +85,7 @@ export default class ProjectDetail extends React.Component {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    commentId: this.state.commentId, ownerId: this.state.check, postId: this.state.Setid, content: this.state.content
+                    ownerId: this.state.check, postId: this.state.Setid, content: this.state.content
 
                 })
             }).then(res => res.json())
@@ -118,10 +118,10 @@ export default class ProjectDetail extends React.Component {
 
     }
 
-
-    delete(commentId) {
+    /*Delete Comment*/
+    delete(_id) {
         if (confirm('Do you want to delete?')) {
-            fetch(url2 + "/" + commentId, {
+            fetch(url2 + "/" + _id, {
                 method: 'delete',
             }).then(res => res.json())
                 .then(json => this.fetchData2())
@@ -129,11 +129,14 @@ export default class ProjectDetail extends React.Component {
 
     }
     add() {
-        this.setState({ commentId: '', ownerId: this.state.check, postId: this.state.Setid, content: '', addNew: true })
+        this.setState({ ownerId: this.state.check, postId: this.state.Setid, content: '', addNew: true })
     }
 
-    edit(commentId, content) {
-        this.setState({ commentId: commentId, ownerId: this.state.check, postId: this.state.Setid, content: content, addNew: false })
+    edit(content) {
+        this.setState({ ownerId: this.state.check, postId: this.state.Setid, content: content, addNew: false })
+    }
+    updateCommentId(_id){
+        this.state.commentId = _id
     }
 
     render() {
@@ -159,25 +162,24 @@ export default class ProjectDetail extends React.Component {
                             <h4 className='card-header bg-success'>Comment</h4>
                             <div className='card-body'>
                                 {this.state.comments.map(i =>
-                                    <div className="card mt-2" key={i.commentId}>
-                                        <h1>{i._id}</h1>
+                                    <div className="card mt-2" key={i._id}>
                                         <div className="card-header bg-info mb-2">
                                             <Link to={`/StudentDetail/${i.ownerId}`}>
                                                 {i.ownerId}
                                             </Link>
                                         </div>
-                                        
+                                        {this.updateCommentId(i._id)}
                                         <div className="card-body py-0 font-weight-bold">
                                             {i.content}
                                             { i.ownerId == this.state.check?
                                             <div className='mt-3 text-center'>
-                                                <button className='btn btn-secondary font-weight-bold' data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this,i.commentId,i.content
+                                                <button className='btn btn-secondary font-weight-bold' data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, i.content
                                                 )}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                         <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                     </svg>Edit
                                                 </button>
-                                                <button className="btn btn-warning ml-2 font-weight-bold" onClick={this.delete.bind(this, i.commentId)}>
+                                                <button className="btn btn-warning ml-2 font-weight-bold" onClick={this.delete.bind(this, i._id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash2-fill mr-1" viewBox="0 0 16 16">
                                                         <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"/>
                                                     </svg>Delete
@@ -207,14 +209,8 @@ export default class ProjectDetail extends React.Component {
                                 <div className="modal-content">
                                     <div className="modal-body">
                                         <div className="card mb-4 pl-4 pr-4 pm-5" >
-
-                                            Comment Id: <input className="mt-1" type="text" id="commentId" name="commentId" className="form-control" value={this.state.commentId}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
                                             Content : <input className="mt-1" type="text" id="content" name="content" className="form-control" value={this.state.content}
                                                 onChange={this.handleChange.bind(this)} />
-                                            
-
                                         </div>
                                     </div>
                                     <div className="modal-footer">

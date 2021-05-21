@@ -5,6 +5,7 @@ var app = require('express')()
 var cors = require('cors')
 
 var mongoose = require('mongoose')
+var ObjectId = require('mongodb').ObjectID;
 
 var bodyParser = require('body-parser')
 
@@ -35,7 +36,6 @@ const connectDB = async () => {
 connectDB()
 var CommentSchema = new mongoose.Schema({
 
-    commentId: String,
     ownerId: String,
     postId: String,
     content: String
@@ -106,7 +106,7 @@ app.post('/notifications', function (req, res) {
     Notification.create(req.body, function (err, notification) {
         res.send(notification)
     })
-    console.log(req.body)
+    //console.log(req.body)
 })
 
 //defining Comment schema
@@ -132,13 +132,13 @@ app.post('/comments', function (req, res) {
 })
 
 app.delete('/comments/:commentId', function (req, res) {
-    Comment.deleteOne({ commentId: req.params.commentId }, function (err, result) {
+    Comment.deleteOne({ "_id": ObjectId(req.params.commentId)  }, function (err, result) {
         res.send(result)
     })
 })
 
 app.put('/comments/', function (req, res) {
-    Comment.findOneAndUpdate({ commentId: req.body.commentId }, {
+    Comment.findByIdAndUpdate({ "_id": ObjectId(req.body.commentId) }, {
         ownerId: req.body.ownerId, postId: req.body.postId, content: req.body.content
     }, function (err, result) {
         res.send(result)
