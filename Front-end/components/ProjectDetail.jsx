@@ -208,10 +208,9 @@ export default class ProjectDetail extends React.Component {
                                 {/* Modeal content */}
                                 <div className="modal-content">
                                     <div className="modal-body">
-                                        <div className="card mb-4 pl-4 pr-4 pm-5" >
-                                            Content : <input className="mt-1" type="text" id="content" name="content" className="form-control" value={this.state.content}
-                                                onChange={this.handleChange.bind(this)} />
-                                        </div>
+                                        <h4>Comment:</h4>
+                                        <input className="mt-1" type="text" id="content" name="content" className="form-control" value={this.state.content}
+                                        onChange={this.handleChange.bind(this)} />
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-default" data-dismiss="modal">
