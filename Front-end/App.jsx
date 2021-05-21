@@ -86,7 +86,7 @@ export default class App extends React.Component {
                         <Route path='/ProjectList' component={ProjectList} />
                         <Route path='/MyProjectList' component={MyProjectList} />
                         <Route path='/StudentDetail/:studentId' component={StudentDetail} />
-                        <Route path='/ProjectDetail/:postId' component={ProjectDetail} />
+                        <Route path='/ProjectDetail/:_id' component={ProjectDetail} />
                     
                     </Switch>
                 </BrowserRouter>

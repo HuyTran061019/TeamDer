@@ -12,7 +12,7 @@ export default class ProjectDetail extends React.Component {
         let check = token
         this.state = {
             check,
-            Setid: this.props.match.params.postId,
+            Setid: this.props.match.params._id,
             posts: [],
             //Basic Info
             postId: '',
@@ -50,8 +50,6 @@ export default class ProjectDetail extends React.Component {
     }
     //fetch data of the chosen student 
     fetchData() {
-
-
         fetch(url + "/" + this.state.Setid)
             .then(res => res.json())
             .then(json => this.setState({ posts: json }))
@@ -142,8 +140,7 @@ export default class ProjectDetail extends React.Component {
     render() {
         return (
             <div>
-
-       <Navbar/>
+            <Navbar/>
             <div className="container ">
                 <div className="row">
                     <div className="col-md-4">
@@ -231,7 +228,7 @@ export default class ProjectDetail extends React.Component {
                     <div className="col-md-8">
                         <div>
                             {this.state.posts.map(s =>
-                                <div key={s.postId} className='card border-success'>
+                                <div key={s._id} className='card border-success'>
                                     <div className="card-header mb-3">
                                         <h1>Post Detail</h1>
                                     </div>

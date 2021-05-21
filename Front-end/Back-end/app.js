@@ -69,7 +69,6 @@ var StudentSchema = new mongoose.Schema({
 
 //defining project schema
 var PostSchema = new mongoose.Schema({
-    postId: String,
     ownerId: String,
     postName: String,
 
@@ -154,8 +153,8 @@ app.get('/posts', function (req, res) {
 })
 
 // Get one posts
-app.get('/posts/:postId', function (req, res) {
-    Post.find({ postId: req.params.postId }, function (err, posts) {
+app.get('/posts/:_id', function (req, res) {
+    Post.find({ "_id": ObjectId(req.params._id)  }, function (err, posts) {
         res.send(posts)
     })
 })
@@ -168,17 +167,14 @@ app.post('/posts', function (req, res) {
 })
 
 app.delete('/posts/:postId', function (req, res) {
-    Post.deleteOne({ postId: req.params.postId }, function (err, result) {
+    Post.deleteOne({ "_id": ObjectId(req.params.postId) }, function (err, result) {
         res.send(result)
     })
 })
 
 app.put('/posts/', function (req, res) {
-    Post.findOneAndUpdate({ postId: req.body.postId }, {
-        ownerId: req.body.ownerId, postName: req.body.postName, postStatus: req.body.postStatus, postAvailableSlot: req.body.postAvailableSlot,
-        s1Id: req.body.s1Id, s1Name: req.body.s1Name, s2Id: req.body.s2Id, s2Name: req.body.s2Name, s3Id: req.body.s3Id, s3Name: req.body.s3Name,
-        courseName: req.body.courseName, semester: req.body.semester,
-        scope: req.body.scope, description: req.body.description, lookingFor: req.body.lookingFor
+    Post.findByIdAndUpdate({ "_id": ObjectId(req.body.postId) }, {
+        ownerId: req.body.ownerId, postName: req.body.postName, postStatus: req.body.postStatus, postAvailableSlot: req.body.postAvailableSlot, s1Id: req.body.s1Id, s1Name: req.body.s1Name, s2Id: req.body.s2Id, s2Name: req.body.s2Name, s3Id: req.body.s3Id, s3Name: req.body.s3Name, courseName: req.body.courseName, semester: req.body.semester, scope: req.body.scope, description: req.body.description, lookingFor: req.body.lookingFor
     }, function (err, result) {
         res.send(result)
     })
