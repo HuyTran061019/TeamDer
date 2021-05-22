@@ -38,8 +38,8 @@ export default class Profile extends React.Component {
 
             //Noti
             notis: [],
-            notiToUserId: '',
-            commentedStudentId: '',
+            receivedUserId: '',
+            commenterId: '',
             content: ''
         }
 
@@ -57,7 +57,7 @@ export default class Profile extends React.Component {
     fetchData2() {
         fetch(url2).then(res => res.json())
             .then(json => {
-                var list = json.filter(s => s.notiToUserId == this.state.check)
+                var list = json.filter(s => s.receivedUserId == this.state.check)
                 this.setState({ notis: list })
             })
     }
@@ -72,6 +72,15 @@ export default class Profile extends React.Component {
         this.setState({
             studentId: studentId, studentName: studentName, studentYear: studentYear, contactMail: contactMail, phoneNumber: phoneNumber, description: description, specialtyExpertise: specialtyExpertise, status: status, birthDate: birthDate, major: major, studyingCourse: studyingCourse
         })
+    }
+    delete(_id) {
+        if (confirm('Do you want to delete?')) {
+            fetch(url2 + "/" + _id, {
+                method: 'delete',
+            }).then(res => res.json())
+                .then(json => this.fetchData2())
+        }
+
     }
     save() {
         fetch(url, {
@@ -115,18 +124,26 @@ export default class Profile extends React.Component {
                                 </h4>
                                 <div className='card-body'>
                                     {this.state.notis.map(i => 
-                                        <div className="card mt-1" key={i.notiToUserIdId}>
+                                        <div className="card mt-1 text-center" key={i.receivedUserId}>
                                             <div className="card-header bg-info mb-2 text-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bell-fill" viewBox="0 0 16 16">
                                                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
                                                 </svg>
                                             </div>
-                                            <h4 className='d-inline text-white ml-2'>
-                                                <Link className='mr-2' to={`/StudentDetail/${i.commentedStudentId}`}>
-                                                    {i.commentedStudentId}
+                                            <h5 className='d-inline text-white ml-2'>
+                                                <Link className='mr-2' to={`/StudentDetail/${i.commenterId}`}>
+                                                    {i.commenterId}
                                                 </Link>
-                                                commented on your post: "{i.content}""
-                                            </h4>
+                                                commented on your &nbsp;
+                                                <Link className='mr-2' to={`/ProjectDetail/${i.postId}`}>
+                                                post.
+                                                </Link>
+                                            </h5>
+                                            <button className="btn btn-danger mx-5 font-weight-bold mb-1" onClick={this.delete.bind(this, i._id)}>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash2-fill mr-1" viewBox="0 0 16 16">
+                                                        <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"/>
+                                                    </svg>Delete
+                                                </button>
                                         </div>
                                     )}
                                 </div>

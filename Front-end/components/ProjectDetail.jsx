@@ -96,7 +96,7 @@ export default class ProjectDetail extends React.Component {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    notiToUserId: JSON.stringify(this.state.posts.map(s => s.ownerId)).substring(2, JSON.stringify(this.state.posts.map(s => s.ownerId)).length-2), commentedStudentId: this.state.ownerId, content: this.state.content
+                    receivedUserId: JSON.stringify(this.state.posts.map(s => s.ownerId)).substring(2, JSON.stringify(this.state.posts.map(s => s.ownerId)).length-2), postId: this.state.postId ,commenterId: this.state.ownerId, content: this.state.content
                 })
             }).then(res => res.json())
         }
@@ -124,6 +124,7 @@ export default class ProjectDetail extends React.Component {
             }).then(res => res.json())
                 .then(json => this.fetchData2())
         }
+
 
     }
     add() {

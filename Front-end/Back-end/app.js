@@ -43,8 +43,9 @@ var CommentSchema = new mongoose.Schema({
  
 })
 var NotificationSchema = new mongoose.Schema({
-    notiToUserId: String,
-    commentedStudentId: String,
+    receivedUserId: String,
+    postId: String,
+    commenterId: String,
     content: String
 })
 
@@ -106,6 +107,11 @@ app.post('/notifications', function (req, res) {
         res.send(notification)
     })
     //console.log(req.body)
+})
+app.delete('/notifications/:notiId', function (req, res) {
+    Notification.deleteOne({ "_id": ObjectId(req.params.notiId)  }, function (err, result) {
+        res.send(result)
+    })
 })
 
 //defining Comment schema
