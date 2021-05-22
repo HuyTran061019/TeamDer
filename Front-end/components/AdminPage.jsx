@@ -70,42 +70,39 @@ export default class AdminPage extends React.Component {
        
             <div class="container ">
                 <div className="row">
-                    <div className="col-md-4" style={{ backgroundColor: 'lightgrey' }} >
-                        <h1 style={{color:"red"}} > Admin </h1>
-                        <h2>Search For Student</h2>
-                        <div>
-                            <input type="text" name='keyword' placeholder="ID, Name, etc."
-                                onChange={this.handleChange.bind(this)} />
-                        </div>
+                    <div className="col-md-4" >
+                        <h2 className='text-primary'>Welcome Administrator!</h2>
+                        <h3>Search For Student</h3>
+                        <input className='form-control form-control-lg' type="text" name='keyword' placeholder="ID, Name, etc." onChange={this.handleChange.bind(this)} />
                         <div style={{ height: '1000px' }}></div>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-8 card border-success mb-3 px-0">
                         {/* Select to see Student List or Project List */}
-                        <h2>Student List </h2>
+                        <h2 className="card-header">Student List </h2>
                         <div>
                             {this.state.students.filter(s => s.studentId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.studentName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
                                 <div key={filteredS.studentId}>
                                     <table className="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Student ID</th>
-                                                <th>Student Name</th>
-                                                <th>Student Year</th>
-                                                <th>Status</th>
-                                                <th>Major</th>
-                                                <th>Expertise</th>
-                                                <th>Delete</th>
+                                                <th className="align-middle text-center">Student ID</th>
+                                                <th className="align-middle text-center">Student Name</th>
+                                                <th className="align-middle text-center">Student Year</th>
+                                                <th className="align-middle text-center">Status</th>
+                                                <th className="align-middle text-center">Major</th>
+                                                <th className="align-middle text-center">Expertise</th>
+                                                <th className="align-middle text-center">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>{filteredS.studentId}</td>
-                                                <td>{filteredS.studentName}</td>
-                                                <td>{filteredS.studentYear}</td>
-                                                <td>{filteredS.status}</td>
-                                                <td>{filteredS.major}</td>
-                                                <td>{filteredS.specialtyExpertise}</td>
-                                                <td>
+                                            <tr className='table-active'>
+                                                <td className="align-middle text-center">{filteredS.studentId}</td>
+                                                <td className="align-middle text-center">{filteredS.studentName}</td>
+                                                <td className="align-middle text-center">{filteredS.studentYear}</td>
+                                                <td className="align-middle text-center">{filteredS.status}</td>
+                                                <td className="align-middle text-center">{filteredS.major}</td>
+                                                <td className="align-middle text-center">{filteredS.specialtyExpertise}</td>
+                                                <td className="align-middle text-center">
                                                     
                                                 <button type="button" class="btn btn-danger"onClick={this.delete.bind(this, filteredS.studentId)}>Delete</button>
                                                 </td>
