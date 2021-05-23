@@ -238,7 +238,6 @@ export default class ProjectDetail extends React.Component {
                                             <h3>Post Information</h3>
                                             <hr className = 'mt-0'/>
                                             <h4 className="text-muted">Post Name: <h4 className='d-inline text-white'>{s.postName}</h4></h4>
-                                            <h4 className="text-muted">Post ID: <h4 className='d-inline text-white'>{s.postId}</h4></h4>
                                             <h4 className="text-muted">Posted by: <h4 className='d-inline text-white'>{s.ownerId}</h4> </h4>
                                             <h4 className="text-muted">Post Owner Detail: <Link className='d-inline text-white' to={`/StudentDetail/${s.ownerId}`}>Link</Link></h4>
                                             <h4 className="text-muted">Available Slot: <h4 className='d-inline text-white'>{s.postAvailableSlot}</h4></h4>
