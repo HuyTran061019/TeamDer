@@ -71,7 +71,7 @@ export default class AdminPage extends React.Component {
             <div class="container ">
                 <div className="row">
                     <div className="col-md-4" >
-                        <h2 className='text-primary'>Welcome Administrator!</h2>
+                        <h2 >Welcome Administrator!</h2>
                         <h3>Search For Student</h3>
                         <input className='form-control form-control-lg' type="text" name='keyword' placeholder="ID, Name, etc." onChange={this.handleChange.bind(this)} />
                         <div style={{ height: '1000px' }}></div>
