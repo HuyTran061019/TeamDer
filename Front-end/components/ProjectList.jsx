@@ -70,14 +70,14 @@ export default class ProjectList extends React.Component {
                     <div className="row">
                         <div className="col-md-4">
                             <h3>Search For Project</h3>
-                            <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Project Name" onChange={this.handleChange.bind(this)} />
+                            <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Project Name or Project Owner ID" onChange={this.handleChange.bind(this)} />
                         </div>
                         <div className="col-md-8 card border-success mb-3 px-0">
                             {/* Select to see Student List or Project List */}
                             <h2 className="card-header">Project List </h2>
                             <div>
-                                {this.state.posts.map(s =>
-                                    <div key={s._id}>
+                            {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
+                                    <div key={filteredS._id}>
                                         <table className="table table-hover">
                                             <thead>
                                                 <tr>
@@ -92,14 +92,14 @@ export default class ProjectList extends React.Component {
                                             </thead>
                                             <tbody>
                                                 <tr className='table-active'>
-                                                    <td className="align-middle text-center">{s.ownerId}</td>
-                                                    <td className="align-middle text-center">{s.postName}</td>
-                                                    <td className="align-middle text-center">{s.postStatus}</td>
-                                                    <td className="align-middle text-center">{s.postAvailableSlot}</td>
-                                                    <td className="align-middle text-center">{s.courseName}</td>
-                                                    <td className="align-middle text-center">{s.lookingFor}</td>
+                                                    <td className="align-middle text-center">{filteredS.ownerId}</td>
+                                                    <td className="align-middle text-center">{filteredS.postName}</td>
+                                                    <td className="align-middle text-center">{filteredS.postStatus}</td>
+                                                    <td className="align-middle text-center">{filteredS.postAvailableSlot}</td>
+                                                    <td className="align-middle text-center">{filteredS.courseName}</td>
+                                                    <td className="align-middle text-center">{filteredS.lookingFor}</td>
                                                     <td className="align-middle text-center">
-                                                        <Link to={`/ProjectDetail/${s._id}`}>
+                                                        <Link to={`/ProjectDetail/${filteredS._id}`}>
                                                             <button type="button" className="btn btn-success">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-lg" viewBox="0 0 16 16">
                                                                 <path d="m10.277 5.433-4.031.505-.145.67.794.145c.516.123.619.309.505.824L6.101 13.68c-.34 1.578.186 2.32 1.423 2.32.959 0 2.072-.443 2.577-1.052l.155-.732c-.35.31-.866.434-1.206.434-.485 0-.66-.34-.536-.939l1.763-8.278zm.122-3.673a1.76 1.76 0 1 1-3.52 0 1.76 1.76 0 0 1 3.52 0z"/>
