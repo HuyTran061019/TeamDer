@@ -41,14 +41,14 @@ export default class App extends React.Component {
         return (
             <div>
                 {/* Header of the website */}
-                <div className='container-fluid card text-white bg-secondary mb-2'>
+                <div className='container-fluid card text-white bg-secondary mb-2 pt-5'>
                     <div className="row display-flex align-items-center">
-                        <div className="col-md-2">
-                            <img className='float-right'src="https://cdn.discordapp.com/attachments/818327233163952133/840103037644701706/logo_no_border.png" style={{ width: '130px', height: '120px' }} alt="" />
+                        <div className="col-md-2 text-center">
+                            <img src="https://cdn.discordapp.com/attachments/818327233163952133/840103037644701706/logo_no_border.png" style={{ width: '130px', height: '120px' }} alt="" />
                         </div>
-                        <div className="col-md-10 font-weight-bold">
-                            <h1 className='card-title'>TeamDer</h1>
-                            <p className='card-text'><em>A place to find great RMIT teammates</em></p>
+                        <div className="col-md-10 font-weight-bold text-center">
+                            <h1 className='card-title text-md-left'>TeamDer</h1>
+                            <p className='card-text text-md-left'><em>A place to find great RMIT teammates</em></p>
                         </div>
                     </div>
                 </div>
@@ -91,30 +91,35 @@ export default class App extends React.Component {
                     </Switch>
                 </BrowserRouter>
 
-                <div className="container card bg-secondary mt-3">
-                    <div className="row">
-                        <div className="col-md-3 pr-0" >
-                            <a href="https://www.rmit.edu.vn/study-at-rmit"><h5 className='card-header mb-2' >Studying at RMIT</h5></a>
+                <div className="container mt-3">
+                    <div className="row text-center">
+                        <div className="card col-md-3 px-0" >
+                            <a href="https://www.rmit.edu.vn/study-at-rmit"><h5 className='card-header bg-secondary' >Studying at RMIT</h5></a>
                             <a href="https://www.rmit.edu.vn/study-at-rmit/undergraduate-programs"><div>Bachelor program</div></a>
                             <a href="https://www.rmit.edu.vn/study-at-rmit/postgraduate-programs"><div> Postgraduate programs</div></a>
                             <a href="https://www.rmit.edu.vn/study-at-rmit/international-students"><div> International student</div></a>
                             <a href="https://www.rmit.edu.vn/study-at-rmit/global-experiences/cross-campus-to-rmit-melbourne"><div> Exchange to RMIT Melbourne</div></a>
                             <a href="https://www.rmit.edu.vn/study-at-rmit/scholarships"><div> Scholarship</div></a>
                         </div>
-                        <div className="col-md-3 px-0" >
-                            <h5 className='card-header mb-2'>About TeamDer</h5>
+                        <div className="card col-md-3 px-0" >
+                            <h5 className='card-header bg-secondary'>About TeamDer</h5>
                             <div >Life at RMIT</div>
                             <div> Clubs at school</div>
                             <div> Student support</div>
                             <div> Opportunies </div>
                         </div>
-                        <div className="col-md-3 px-0" >
-                            <h5 className='card-header mb-2'>Payment method</h5>
-                            <img src="https://i0.wp.com/www.sakuramobile.jp/wp-content/themes/FoundationPress/dist/assets/images/image-payment-method-card-360x240.png?resize=360%2C240&ssl=1" alt="Payment card method" width="200px"/>
+                        <div className="card col-md-3 px-0" >
+                            <h5 className='card-header bg-secondary'>Payment method</h5>
+                            <div>
+                                <img className='w-50' src="https://i0.wp.com/www.sakuramobile.jp/wp-content/themes/FoundationPress/dist/assets/images/image-payment-method-card-360x240.png?resize=360%2C240&ssl=1" alt="Payment card method" width="200px"/>
+                            </div>
+                            
                         </div>
-                        <div className="col-md-3 pl-0" >
-                            <h5 className='card-header mb-3'>Connect with us</h5>
-                            <img src="https://cdn130.picsart.com/257361938030212.png" alt="social media logo" width="200px" />
+                        <div className="card col-md-3 px-0" >
+                            <h5 className='card-header bg-secondary'>Connect with us</h5>
+                            <div>
+                                <img src="https://cdn130.picsart.com/257361938030212.png" alt="social media logo" width="200px" />
+                            </div>
                         </div>
                     </div>
                 </div>

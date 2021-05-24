@@ -29,11 +29,11 @@ export default class Home extends React.Component {
                 <Navbar/>
                 <div className="container " >
                     <div className="row">
-                        <div className="col-md-4" >
+                        <div className="col-md-4 text-center" >
                             <h3 > Welcome student with ID: {this.state.check}</h3>
                             <div style={{  height: '100px' }}></div>
                         </div>
-                        <div className="col-md-8 card border-success mb-3 px-0">
+                        <div className="col-md-8 card border-success mb-3 px-0 text-center text-md-start">
                             {/* Select to see Student List or Project List */}
                             <h2 className='card-header'>Please select what to search: </h2>
                             <Link to="/StudentList" className="nav-link">

@@ -68,7 +68,7 @@ export default class ProjectList extends React.Component {
                 <Navbar />
                 <div className="container ">
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-4 mb-3">
                             <h3>Search For Project</h3>
                             <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Project Name or Project Owner ID" onChange={this.handleChange.bind(this)} />
                         </div>
@@ -77,7 +77,7 @@ export default class ProjectList extends React.Component {
                             <h2 className="card-header">Project List </h2>
                             <div>
                             {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                    <div key={filteredS._id}>
+                                    <div className='table-responsive' key={filteredS._id}>
                                         <table className="table table-hover">
                                             <thead>
                                                 <tr>

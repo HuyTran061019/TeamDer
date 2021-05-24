@@ -142,14 +142,7 @@ export default class MyProjectList extends React.Component {
             <div className="container ">
                 <div className="row">
                     <div className="col-md-4" >
-                        <div className='card border-info mb-5'>
-                            <h2 className='card-header'>Search For Project</h2>
-                            <div className='card-body'>
-                                <input className='w-100 form-control' type="text" name='keyword' placeholder="Project Name"
-                                onChange={this.handleChange.bind(this)} />
-                            </div>
-                        </div>
-                        <div className='card border-info mb-5 align-middle text-center'>
+                        <div className='card border-info mb-2 align-middle text-center'>
                             <h2 className='card-header'>Add new post</h2>
                             <div className='card-body'>
                                 <button type="button" className="btn btn-success mb-2 font-weight-bold" data-toggle="modal" data-target="#myModal" onClick={this.add.bind(this)}>
@@ -160,8 +153,13 @@ export default class MyProjectList extends React.Component {
                                 </button>
                             </div>
                         </div>
-                            
-
+                        <div className='card border-info mb-2'>
+                            <h2 className='card-header'>Search For Project</h2>
+                            <div className='card-body'>
+                                <input className='w-100 form-control' type="text" name='keyword' placeholder="Project Name"
+                                onChange={this.handleChange.bind(this)} />
+                            </div>
+                        </div>
                         
                         <div id="myModal" className="modal fade" role="dialog">
                             <div className="modal-dialog">
@@ -169,7 +167,7 @@ export default class MyProjectList extends React.Component {
                                 {/* Modeal content */}
                                 <div className="modal-content">
                                     <div className="modal-body">
-                                        <div className="card mb-4 pl-4 pr-4 pt-5 pm-5" >
+                                        <div className="card mb-4 pl-4 pr-4 pt-5 pm-5 overflow-auto" >
 
                                             <h3 className='text-muted'>Post Management</h3>
                                    

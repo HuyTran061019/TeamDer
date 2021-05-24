@@ -59,7 +59,7 @@ export default class StudentList extends React.Component {
                 <Navbar />
                 <div className="container ">
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-4 mb-3">
                             <h3>Search For Student:</h3>
                             <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Enter Name or ID" onChange={this.handleChange.bind(this)} />
                         </div>
@@ -68,7 +68,7 @@ export default class StudentList extends React.Component {
                             <h2 className="card-header">Student List </h2>
                             <div>
                                 {this.state.students.filter(s => s.studentId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.studentName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                    <div key={filteredS.studentId}>
+                                    <div className='table-responsive' key={filteredS.studentId}>
                                         <table className="table table-hover">
                                             <thead>
                                                 <tr>

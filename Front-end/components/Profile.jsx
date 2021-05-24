@@ -118,7 +118,7 @@ export default class Profile extends React.Component {
                                     </button>
                                 </Link>
                             </div>
-                            <div className='card'>
+                            <div className='card mb-3'>
                                 <h4 className='card-header bg-warning text-center'>
                                     Notification
                                 </h4>
@@ -130,20 +130,23 @@ export default class Profile extends React.Component {
                                                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
                                                 </svg>
                                             </div>
-                                            <h5 className='d-inline text-white ml-2'>
-                                                <Link className='mr-2' to={`/StudentDetail/${i.commenterId}`}>
+                                            <h5 className='d-inline text-white ml-2 text-center'>
+                                                <Link className='mr-1' to={`/StudentDetail/${i.commenterId}`}>
                                                     {i.commenterId}
                                                 </Link>
                                                 commented on your &nbsp;
-                                                <Link className='mr-2' to={`/ProjectDetail/${i.postId}`}>
-                                                post.
+                                                <Link className='mr-1' to={`/ProjectDetail/${i.postId}`}>
+                                                post
                                                 </Link>
                                             </h5>
-                                            <button className="btn btn-danger mx-5 font-weight-bold mb-1" onClick={this.delete.bind(this, i._id)}>
+                                            <div>
+                                                <button className="btn btn-danger font-weight-bold mb-1" onClick={this.delete.bind(this, i._id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash2-fill mr-1" viewBox="0 0 16 16">
                                                         <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"/>
-                                                    </svg>Delete
+                                                    </svg>
                                                 </button>
+                                            </div>
+                                            
                                         </div>
                                     )}
                                 </div>
@@ -160,17 +163,17 @@ export default class Profile extends React.Component {
                                         <div className="card-body">
                                             <h3> Student Information</h3>
                                             <hr className = 'mt-0' />
-                                            <h4  className='text-muted'>Student Name: <h4 className='d-inline text-white'>{s.studentName}</h4></h4>
-                                            <h4 className='text-muted'>Student ID: <h4 className='d-inline text-white'>{s.studentId}</h4></h4>
-                                            <h4 className='text-muted'>Year: <h4 className='d-inline text-white'>{s.studentYear}</h4> </h4>
-                                            <h4 className='text-muted'>Birth Date: <h4 className='d-inline text-white'>{s.birthDate}</h4> </h4>
-                                            <h4 className='text-muted'>Contact Mail: <h4 className='d-inline text-white'>{s.contactMail}</h4> </h4>
-                                            <h4 className='text-muted'>Phone Number: <h4 className='d-inline text-white'>{s.phoneNumber}</h4> </h4>
-                                            <h4 className='text-muted'>Status: <h4 className='d-inline text-white'>{s.status} </h4></h4>
+                                            <div className='text-muted h4'>Student Name: <div className='d-inline h4 text-white'>{s.studentName}</div></div>
+                                            <div className='text-muted h4'>Student ID: <div className='d-inline h4 text-white'>{s.studentId}</div></div>
+                                            <div className='text-muted h4'>Year: <div className='d-inline h4 text-white'>{s.studentYear}</div> </div>
+                                            <div className='text-muted h4'>Birth Date: <div className='d-inline h4 text-white'>{s.birthDate}</div> </div>
+                                            <div className='text-muted h4'>Contact Mail: <div className='d-inline h4 text-white'>{s.contactMail}</div> </div>
+                                            <div className='text-muted h4'>Phone Number: <div className='d-inline h4 text-white'>{s.phoneNumber}</div> </div>
+                                            <div className='text-muted h4'>Status: <div className='d-inline text-white h4'>{s.status} </div></div>
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-25 m-1 font-weight-bold" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
                                             s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
@@ -184,12 +187,12 @@ export default class Profile extends React.Component {
                                         <div className="card-body" >
                                             <h3> Description Detail</h3>
                                             <hr className='mt-0'/>
-                                            <h4 className="text-muted">Experises: <h4 className='d-inline text-white'>{s.specialtyExpertise}</h4></h4>
-                                            <h4 className="text-muted"> Description: <h4 className='d-inline text-white'>{s.description}</h4></h4>
+                                            <div className="text-muted h4">Experises: <div className='d-inline h4 text-white'>{s.specialtyExpertise}</div></div>
+                                            <div className="text-muted h4"> Description: <div className='d-inline h4 text-white'>{s.description}</div></div>
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-25 m-1 font-weight-bold" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>EDIT
@@ -203,12 +206,12 @@ export default class Profile extends React.Component {
                                         <div className="card-body" >
                                             <h3> Major Detail</h3>
                                             <hr className='mt-0'/>
-                                            <h4 className= 'text-muted'>Major Name: <h4 className='d-inline text-white'>{s.major}</h4> </h4>
-                                            <h4 className= 'text-muted'>Studying Course: <h4 className='d-inline text-white'>{s.studyingCourse}</h4> </h4>
+                                            <div className= 'text-muted h4'>Major Name: <div className='d-inline h4 text-white'>{s.major}</div> </div>
+                                            <div className= 'text-muted h4'>Studying Course: <div className='d-inline h4 text-white'>{s.studyingCourse}</div> </div>
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-25 m-1 font-weight-bold" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>EDIT
@@ -226,37 +229,37 @@ export default class Profile extends React.Component {
                                         <h2 className="modal-title text-success">Student Information</h2>
                                     </div>
                                     <div className="modal-body text-muted font-weight-bold h4">
-                                        <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                        <div className="card mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
                                             Student Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={this.state.studentName}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                        Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={this.state.studentYear}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                        Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={this.state.birthDate}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                        Contact Mail: <input className="mt-1" type="text" id="contactMail" name="contactMail" className="form-control" value={this.state.contactMail}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                        Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={this.state.phoneNumber}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                        Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={this.state.status}
-                                                onChange={this.handleChange.bind(this)} />
+                                            Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={this.state.studentYear}
+                                                    onChange={this.handleChange.bind(this)} />
+                                                <br />
+                                            Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={this.state.birthDate}
+                                                    onChange={this.handleChange.bind(this)} />
+                                                <br />
+                                            Contact Mail: <input className="mt-1" type="text" id="contactMail" name="contactMail" className="form-control" value={this.state.contactMail}
+                                                    onChange={this.handleChange.bind(this)} />
+                                                <br />
+                                            Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={this.state.phoneNumber}
+                                                    onChange={this.handleChange.bind(this)} />
+                                                <br />
+                                            Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={this.state.status}
+                                                    onChange={this.handleChange.bind(this)} />
                                         </div>
 
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg mr-1" viewBox="0 0 16 16">
-                                            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                                        </svg>Close
-                                        </button>
                                         <button type="button" className="btn btn-success" onClick={this.save.bind(this)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-lg mr-1" viewBox="0 0 16 16">
                                                 <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
                                             </svg>Save Changes
+                                        </button>
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg mr-1" viewBox="0 0 16 16">
+                                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                                            </svg>Close
                                         </button>
                                     </div>
                                 </div>
@@ -269,7 +272,7 @@ export default class Profile extends React.Component {
                                         <h2 className="modal-title text-success">Student Description</h2>
                                     </div>
                                     <div className="modal-body text-muted font-weight-bold h4">
-                                        <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                        <div className="card mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
                                             Expertises: <input className="mt-1" type="text" id="specialtyExpertise" name="specialtyExpertise" className="form-control" value={this.state.specialtyExpertise}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
@@ -280,15 +283,15 @@ export default class Profile extends React.Component {
 
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg mr-1" viewBox="0 0 16 16">
-                                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                                            </svg>Close
-                                        </button>
                                         <button type="button" className="btn btn-success" onClick={this.save.bind(this)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-lg mr-1" viewBox="0 0 16 16">
                                                 <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
                                             </svg>Save Changes
+                                        </button>
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg mr-1" viewBox="0 0 16 16">
+                                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                                            </svg>Close
                                         </button>
                                     </div>
                                 </div>
@@ -301,7 +304,7 @@ export default class Profile extends React.Component {
                                         <h2 className="modal-title text-success">Major Detail</h2>
                                     </div>
                                     <div className="modal-body text-muted font-weight-bold h4">
-                                        <div className="card mb-4 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                        <div className="card mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
                                             Major Name: <input className="mt-1" type="text" id="major" name="major" className="form-control" value={this.state.major}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
@@ -312,15 +315,15 @@ export default class Profile extends React.Component {
 
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg mr-1" viewBox="0 0 16 16">
-                                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                                            </svg>Close
-                                        </button>
                                         <button type="button" className="btn btn-success" onClick={this.save.bind(this)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-lg mr-1" viewBox="0 0 16 16">
                                                 <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
                                             </svg>Save Changes
+                                        </button>
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg mr-1" viewBox="0 0 16 16">
+                                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                                            </svg>Close
                                         </button>
                                     </div>
                                 </div>
