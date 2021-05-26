@@ -162,7 +162,7 @@ export default class Profile extends React.Component {
                                         <div className="card-body">
                                             <h3> Student Information</h3>
                                             <hr className = 'mt-0' />
-                                            <div className='text-muted h4'>Student Name: <div className='d-inline h4 text-white'>{s.studentName}</div></div>
+                                            <div className='text-muted h4'>Name: <div className='d-inline h4 text-white'>{s.studentName}</div></div>
                                             <div className='text-muted h4'>Student ID: <div className='d-inline h4 text-white'>{s.studentId}</div></div>
                                             <div className='text-muted h4'>Year: <div className='d-inline h4 text-white'>{s.studentYear}</div> </div>
                                             <div className='text-muted h4'>Birth Date: <div className='d-inline h4 text-white'>{s.birthDate}</div> </div>
@@ -183,10 +183,10 @@ export default class Profile extends React.Component {
                                     {/* Specialty and Description info */}
                                     <div className="card mx-3 mb-3" >
                                         <div className="card-body" >
-                                            <h3> Description Detail</h3>
+                                            <h3> More Detail</h3>
                                             <hr className='mt-0'/>
                                             <div className="text-muted h4">Experises: <div className='d-inline h4 text-white'>{s.specialtyExpertise}</div></div>
-                                            <div className="text-muted h4"> Description: <div className='d-inline h4 text-white'>{s.description}</div></div>
+                                            <div className="text-muted h4">Description: <div className='d-inline h4 text-white'>{s.description}</div></div>
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
@@ -227,12 +227,16 @@ export default class Profile extends React.Component {
                                         <h2 className="modal-title text-success">Student Information</h2>
                                     </div>
                                     <div className="modal-body text-muted font-weight-bold h4">
-                                        <div className="card mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
-                                            Student Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={this.state.studentName}
-                                                onChange={this.handleChange.bind(this)} />
+                                        <div className="mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                            Name: <input className="mt-1" type="text" id="studentName" name="studentName" className="form-control" value={this.state.studentName} onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student Year: <input className="mt-1" type="text" id="studentYear" name="studentYear" className="form-control" value={this.state.studentYear}
-                                                    onChange={this.handleChange.bind(this)} />
+                                            Year: 
+                                                <select className="mt-1 form-select" id="studentYear" name="studentYear" value={this.state.studentYear} onChange={this.handleChange.bind(this)}>
+                                                    <option className="text-dark" value='Freshman'>Freshman</option>
+                                                    <option className="text-dark" value='Sophomore'>Sophomore</option>
+                                                    <option className="text-dark" value='Junior'>Junior</option>
+                                                    <option className="text-dark" value='Senior'>Senior</option>
+                                                </select>
                                                 <br />
                                             Birth Date: <input className="mt-1" type="date" id="birthDate" name="birthDate" className="form-control" value={this.state.birthDate}
                                                     onChange={this.handleChange.bind(this)} />
@@ -267,15 +271,15 @@ export default class Profile extends React.Component {
                                         <h2 className="modal-title text-success">Student Description</h2>
                                     </div>
                                     <div className="modal-body text-muted font-weight-bold h4">
-                                        <div className="card mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                        <div className="mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
                                             Expertises: <input className="mt-1" type="text" id="specialtyExpertise" name="specialtyExpertise" className="form-control" value={this.state.specialtyExpertise}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                        Description Detail:
-                                        <textarea name="description" value={this.state.description}
-                                                onChange={this.handleChange.bind(this)} cols="30" rows="5" className="bg-secondary"></textarea>
+                                            Description:
+                                            <textarea name="description" value={this.state.description}
+                                                    onChange={this.handleChange.bind(this)} cols="30" rows="5" className="bg-secondary">
+                                            </textarea>
                                         </div>
-
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-success" onClick={this.save.bind(this)}>
@@ -299,7 +303,7 @@ export default class Profile extends React.Component {
                                         <h2 className="modal-title text-success">Major Detail</h2>
                                     </div>
                                     <div className="modal-body text-muted font-weight-bold h4">
-                                        <div className="card mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
+                                        <div className="mb-1 pl-4 pr-4 pt-2 pm-5 pb-3" >
                                             Major Name: <input className="mt-1" type="text" id="major" name="major" className="form-control" value={this.state.major}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />

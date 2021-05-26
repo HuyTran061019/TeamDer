@@ -72,8 +72,8 @@ export default class StudentList extends React.Component {
                                             <thead>
                                                 <tr>
                                                     <th className="align-middle text-center">Student ID</th>
-                                                    <th className="align-middle text-center">Student Name</th>
-                                                    <th className="align-middle text-center">Student Year</th>
+                                                    <th className="align-middle text-center">Name</th>
+                                                    <th className="align-middle text-center">Year</th>
                                                     <th className="align-middle text-center">Major</th>
                                                     <th className="align-middle text-center">Expertise</th>
                                                     <th className="align-middle text-center">Detail</th>
