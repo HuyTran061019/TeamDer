@@ -75,7 +75,7 @@ export default class ProjectList extends React.Component {
                     </div>
 
                     <div className='card border-secondary mx-4 mb-3'>
-                        {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postTitle.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
+                        {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) && s.postStatus == 'Available' || s.postTitle.toLowerCase().includes(this.state.keyword.toLowerCase()) && s.postStatus == 'Available').map(filteredS =>
                             <div className='card my-3 mx-3 text-center text-md-start' key={filteredS._id}>
                                 <div className='card-header text-dark'>
                                     <h5>{filteredS.postTitle}</h5>
