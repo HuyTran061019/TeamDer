@@ -68,7 +68,7 @@ export default class StudentList extends React.Component {
                             <div>
                                 {this.state.students.filter(s => s.studentId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.studentName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
                                     <div className='table-responsive' key={filteredS.studentId}>
-                                        <table className="table table-hover">
+                                        <table className="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th className="align-middle text-center">Student ID</th>

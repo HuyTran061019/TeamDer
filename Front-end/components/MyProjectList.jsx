@@ -24,7 +24,7 @@ export default class MyProjectList extends React.Component {
             //Basic Info
             postId: '',
             ownerId: '',
-            postName: '',
+            postTitle: '',
             postStatus: '',
             postAvailableSlot: '',
             //StudentList
@@ -83,7 +83,7 @@ export default class MyProjectList extends React.Component {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    ownerId: this.state.check, postName: this.state.postName, postStatus: this.state.postStatus,
+                    ownerId: this.state.check, postTitle: this.state.postTitle, postStatus: this.state.postStatus,
                     postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, scope: this.state.scope,
                     description: this.state.description, lookingFor: this.state.lookingFor
                 })
@@ -98,7 +98,7 @@ export default class MyProjectList extends React.Component {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    postId: this.state.postId, ownerId: this.state.check, postName: this.state.postName, postStatus: this.state.postStatus, postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, scope: this.state.scope, description: this.state.description, lookingFor: this.state.lookingFor
+                    postId: this.state.postId, ownerId: this.state.check, postTitle: this.state.postTitle, postStatus: this.state.postStatus, postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, scope: this.state.scope, description: this.state.description, lookingFor: this.state.lookingFor
                 })
             }).then(res => res.json())
                 .then(json => this.fetchData())
@@ -119,13 +119,13 @@ export default class MyProjectList extends React.Component {
     //Start to add
     add() {
         this.setState({
-            ownerId: this.state.check, postName: '', postStatus: '', postAvailableSlot: '', s1Id: '', s1Name: '', s2Id: '', s2Name: '', s3Id: '', s3Name: '', courseName: '', semester: '', scope: '', description: '', lookingFor: '', addNew: true
+            ownerId: this.state.check, postTitle: '', postStatus: '', postAvailableSlot: '', s1Id: '', s1Name: '', s2Id: '', s2Name: '', s3Id: '', s3Name: '', courseName: '', semester: '', scope: '', description: '', lookingFor: '', addNew: true
         })
     }
     //Start to edit
-    edit(_id, postName, postStatus, postAvailableSlot, s1Id, s1Name, s2Id, s2Name, s3Id, s3Name, courseName, semester, scope, description, lookingFor) {
+    edit(_id, postTitle, postStatus, postAvailableSlot, s1Id, s1Name, s2Id, s2Name, s3Id, s3Name, courseName, semester, scope, description, lookingFor) {
         this.setState({
-            postName: postName, postStatus: postStatus, postAvailableSlot: postAvailableSlot, s1Id: s1Id, s1Name: s1Name, s2Id: s2Id, s2Name: s2Name, s3Id: s3Id, s3Name: s3Name, courseName: courseName, semester: semester, scope: scope, description: description, lookingFor: lookingFor, addNew: false
+            postTitle: postTitle, postStatus: postStatus, postAvailableSlot: postAvailableSlot, s1Id: s1Id, s1Name: s1Name, s2Id: s2Id, s2Name: s2Name, s3Id: s3Id, s3Name: s3Name, courseName: courseName, semester: semester, scope: scope, description: description, lookingFor: lookingFor, addNew: false
         })
         this.updatePostId(_id)
     }
@@ -172,7 +172,7 @@ export default class MyProjectList extends React.Component {
 
                                             <h3 className='text-muted'>Post Management</h3>
                                    
-                                            Post Name: <input className="mt-1" type="text" id="postName" name="postName" className="form-control" value={this.state.postName}
+                                            Post Title: <input className="mt-1" type="text" id="postTitle" name="postTitle" className="form-control" value={this.state.postTitle}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
                                             Post Status: <input className="mt-1" type="text" id="postStatus" name="postStatus" className="form-control" value={this.state.postStatus}
@@ -241,12 +241,12 @@ export default class MyProjectList extends React.Component {
                         </div>
                         
                         <div>
-                            {this.state.posts.filter(s => s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS => 
+                            {this.state.posts.filter(s => s.postTitle.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS => 
                                 <div key={filteredS._id} className='table-responsive mt-3'>
                                     <table className="table table-bordered mb-1">
                                         <thead>
                                             <tr>
-                                                <th className="align-middle text-center">Post Name</th>
+                                                <th className="align-middle text-center">Post Title</th>
                                                 <th className="align-middle text-center">Post Status</th>
                                                 <th className="align-middle text-center">Available Slots</th>
                                                 <th className="align-middle text-center">Course Name</th>
@@ -258,7 +258,7 @@ export default class MyProjectList extends React.Component {
                                         </thead>
                                         <tbody>
                                             <tr className='table-active'>
-                                                <td className="align-middle text-center">{filteredS.postName}</td>
+                                                <td className="align-middle text-center">{filteredS.postTitle}</td>
                                                 <td className="align-middle text-center">{filteredS.postStatus}</td>
                                                 <td className="align-middle text-center">{filteredS.postAvailableSlot}</td>
                                                 <td className="align-middle text-center">{filteredS.courseName}</td>
@@ -273,7 +273,7 @@ export default class MyProjectList extends React.Component {
                                                     </Link>
                                                 </td>
                                                 <td className="align-middle text-center">
-                                                    <button className="btn btn-info mb-2 mr-2 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, filteredS._id, filteredS.postName, filteredS.postStatus, filteredS.postAvailableSlot, filteredS.s1Id, filteredS.s1Name, filteredS.s2Id, filteredS.s2Name, filteredS.s3Id, filteredS.s3Name, filteredS.courseName, filteredS.semester, filteredS.scope,
+                                                    <button className="btn btn-info mb-2 mr-2 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, filteredS._id, filteredS.postTitle, filteredS.postStatus, filteredS.postAvailableSlot, filteredS.s1Id, filteredS.s1Name, filteredS.s2Id, filteredS.s2Name, filteredS.s3Id, filteredS.s3Name, filteredS.courseName, filteredS.semester, filteredS.scope,
                                                     filteredS.description, filteredS.lookingFor)}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill" viewBox="0 0 16 16">
                                                             <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>

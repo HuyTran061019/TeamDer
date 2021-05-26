@@ -17,7 +17,7 @@ export default class ProjectDetail extends React.Component {
             //Basic Info
             postId: '',
             ownerId: '',
-            postName: '',
+            postTitle: '',
             postStatus: '',
             postAvailableSlot: '',
             //StudentList
@@ -241,7 +241,7 @@ export default class ProjectDetail extends React.Component {
                                         <div className="card-body">
                                             <h3>Post Information</h3>
                                             <hr className = 'mt-0'/>
-                                            <div className="text-muted h4">Post Name: <div className='d-inline text-white h4'>{s.postName}</div></div>
+                                            <div className="text-muted h4">Post Title: <div className='d-inline text-white h4'>{s.postTitle}</div></div>
                                             <div className="text-muted h4">Posted by: <div className='d-inline text-white h4'>{s.ownerId}</div> </div>
                                             <div className="text-muted h4">Post Owner Detail: <Link className='d-inline text-white h4' to={`/StudentDetail/${s.ownerId}`}>Link</Link></div>
                                             <div className="text-muted h4">Available Slot: <div className='d-inline text-white h4'>{s.postAvailableSlot}</div></div>

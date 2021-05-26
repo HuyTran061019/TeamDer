@@ -13,7 +13,7 @@ export default class ProjectList extends React.Component {
             //Basic Info
             postId: '',
             ownerId: '',
-            postName: '',
+            postTitle: '',
             postStatus: '',
             postAvailableSlot: '',
             //StudentList
@@ -76,13 +76,13 @@ export default class ProjectList extends React.Component {
                             {/* Select to see Student List or Project List */}
                             <h2 className="card-header">Project List </h2>
                             <div>
-                            {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postName.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
+                            {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postTitle.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
                                     <div className='table-responsive' key={filteredS._id}>
-                                        <table className="table table-hover">
+                                        <table className="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th className="align-middle text-center">Owner ID</th>
-                                                    <th className="align-middle text-center">Post Name</th>
+                                                    <th className="align-middle text-center">Post Title</th>
                                                     <th className="align-middle text-center">Post Status</th>
                                                     <th className="align-middle text-center">Available Slots</th>
                                                     <th className="align-middle text-center">Course Name</th>
@@ -93,7 +93,7 @@ export default class ProjectList extends React.Component {
                                             <tbody>
                                                 <tr className='table-active'>
                                                     <td className="align-middle text-center">{filteredS.ownerId}</td>
-                                                    <td className="align-middle text-center">{filteredS.postName}</td>
+                                                    <td className="align-middle text-center">{filteredS.postTitle}</td>
                                                     <td className="align-middle text-center">{filteredS.postStatus}</td>
                                                     <td className="align-middle text-center">{filteredS.postAvailableSlot}</td>
                                                     <td className="align-middle text-center">{filteredS.courseName}</td>
