@@ -18,7 +18,6 @@ export default class Register extends React.Component {
             //Detail 
             description: '',
             specialtyExpertise: '',
-            status: '',
             birthDate: '',
             major: '',
             studyingCourse: '',

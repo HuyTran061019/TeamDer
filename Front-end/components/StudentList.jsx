@@ -17,7 +17,6 @@ export default class StudentList extends React.Component {
             //Detail 
             description: '',
             specialtyExpertise: '',
-            status: '',
             birthDate: '',
             major: '',
             studyingCourse: '',
@@ -75,7 +74,6 @@ export default class StudentList extends React.Component {
                                                     <th className="align-middle text-center">Student ID</th>
                                                     <th className="align-middle text-center">Student Name</th>
                                                     <th className="align-middle text-center">Student Year</th>
-                                                    <th className="align-middle text-center">Status</th>
                                                     <th className="align-middle text-center">Major</th>
                                                     <th className="align-middle text-center">Expertise</th>
                                                     <th className="align-middle text-center">Detail</th>
@@ -86,7 +84,6 @@ export default class StudentList extends React.Component {
                                                     <td className="align-middle text-center">{filteredS.studentId}</td>
                                                     <td className="align-middle text-center">{filteredS.studentName}</td>
                                                     <td className="align-middle text-center">{filteredS.studentYear}</td>
-                                                    <td className="align-middle text-center">{filteredS.status}</td>
                                                     <td className="align-middle text-center">{filteredS.major}</td>
                                                     <td className="align-middle text-center">{filteredS.specialtyExpertise}</td>
                                                     <td className="align-middle text-center">

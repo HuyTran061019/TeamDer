@@ -31,7 +31,6 @@ export default class Profile extends React.Component {
             //Detail 
             description: '',
             specialtyExpertise: '',
-            status: '',
             birthDate: '',
             major: '',
             studyingCourse: '',
@@ -68,9 +67,9 @@ export default class Profile extends React.Component {
         this.fetchData()
         this.fetchData2()
     }
-    edit(studentId, studentName, studentYear, contactMail, phoneNumber, description, specialtyExpertise, status, birthDate, major, studyingCourse) {
+    edit(studentId, studentName, studentYear, contactMail, phoneNumber, description, specialtyExpertise, birthDate, major, studyingCourse) {
         this.setState({
-            studentId: studentId, studentName: studentName, studentYear: studentYear, contactMail: contactMail, phoneNumber: phoneNumber, description: description, specialtyExpertise: specialtyExpertise, status: status, birthDate: birthDate, major: major, studyingCourse: studyingCourse
+            studentId: studentId, studentName: studentName, studentYear: studentYear, contactMail: contactMail, phoneNumber: phoneNumber, description: description, specialtyExpertise: specialtyExpertise, birthDate: birthDate, major: major, studyingCourse: studyingCourse
         })
     }
     delete(_id) {
@@ -91,7 +90,7 @@ export default class Profile extends React.Component {
             },
             body: JSON.stringify({
                 studentId: this.state.studentId,
-                studentName: this.state.studentName, studentYear: this.state.studentYear, contactMail: this.state.contactMail, phoneNumber: this.state.phoneNumber, description: this.state.description, specialtyExpertise: this.state.specialtyExpertise, status: this.state.status, birthDate: this.state.birthDate, major: this.state.major, studyingCourse: this.state.studyingCourse
+                studentName: this.state.studentName, studentYear: this.state.studentYear, contactMail: this.state.contactMail, phoneNumber: this.state.phoneNumber, description: this.state.description, specialtyExpertise: this.state.specialtyExpertise, birthDate: this.state.birthDate, major: this.state.major, studyingCourse: this.state.studyingCourse
             })
         }).then(res => res.json())
             .then(json => this.fetchData())
@@ -169,12 +168,11 @@ export default class Profile extends React.Component {
                                             <div className='text-muted h4'>Birth Date: <div className='d-inline h4 text-white'>{s.birthDate}</div> </div>
                                             <div className='text-muted h4'>Contact Mail: <div className='d-inline h4 text-white'>{s.contactMail}</div> </div>
                                             <div className='text-muted h4'>Phone Number: <div className='d-inline h4 text-white'>{s.phoneNumber}</div> </div>
-                                            <div className='text-muted h4'>Status: <div className='d-inline text-white h4'>{s.status} </div></div>
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
                                             <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
-                                            s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
+                                            s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>EDIT
@@ -192,7 +190,7 @@ export default class Profile extends React.Component {
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>EDIT
@@ -211,7 +209,7 @@ export default class Profile extends React.Component {
                                         </div>
                                         <hr className='m-0'/>
                                         <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.status, s.birthDate, s.major, s.studyingCourse)}>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
                                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>EDIT
@@ -243,9 +241,6 @@ export default class Profile extends React.Component {
                                                     onChange={this.handleChange.bind(this)} />
                                                 <br />
                                             Phone Number: <input className="mt-1" type="text" id="phoneNumber" name="phoneNumber" className="form-control" value={this.state.phoneNumber}
-                                                    onChange={this.handleChange.bind(this)} />
-                                                <br />
-                                            Status: <input className="mt-1" type="text" id="status" name="status" className="form-control" value={this.state.status}
                                                     onChange={this.handleChange.bind(this)} />
                                         </div>
 

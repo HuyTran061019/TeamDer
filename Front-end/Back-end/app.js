@@ -61,7 +61,6 @@ var StudentSchema = new mongoose.Schema({
 
     description: String,
     specialtyExpertise: String,
-    status: String,
     birthDate: String,
     major: String,
     studyingCourse: String,
@@ -236,8 +235,7 @@ app.delete('/students/:studentId', function (req, res) {
 
 app.put('/students/', function (req, res) {
     Student.findOneAndUpdate({ studentId: req.body.studentId }, {
-        studentName: req.body.studentName, studentYear: req.body.studentYear, contactMail: req.body.contactMail,phoneNumber: req.body.phoneNumber, description: req.body.description, specialtyExpertise: req.body.specialtyExpertise,
-        status: req.body.status, birthDate: req.body.birthDate, major: req.body.major, studyingCourse: req.body.studyingCourse
+        studentName: req.body.studentName, studentYear: req.body.studentYear, contactMail: req.body.contactMail,phoneNumber: req.body.phoneNumber, description: req.body.description, specialtyExpertise: req.body.specialtyExpertise, birthDate: req.body.birthDate, major: req.body.major, studyingCourse: req.body.studyingCourse
     }, function (err, result) {
         res.send(result)
     })
