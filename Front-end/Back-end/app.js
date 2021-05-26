@@ -202,7 +202,7 @@ app.get('/students', function (req, res) {
 
 // Get one student
 app.get('/students/:studentId', function (req, res) {
-    console.log('hoang1');
+    //console.log('hoang1');
     Student.find({ studentId: req.params.studentId }, function (err, students) {
         res.send(students)
     })
@@ -210,11 +210,11 @@ app.get('/students/:studentId', function (req, res) {
 
 // check login student
 app.post('/login', function (req, res) {
-    console.log('9999');
+    //console.log('9999');
     var stu = req.body;
     Student.find({ studentId: stu.studentId, password: stu.password }, function (err, result) {
         res.send(JSON.stringify(result));
-        console.log(JSON.stringify(result));
+        //console.log(JSON.stringify(result));
     })
 })
 

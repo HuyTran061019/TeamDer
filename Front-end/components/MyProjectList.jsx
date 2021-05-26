@@ -10,7 +10,7 @@ export default class MyProjectList extends React.Component {
         super(props)
         const token = localStorage.getItem("token")
         let check = token
-        console.log(token)
+        //console.log(token)
 
         let loggedIn = true
         if (token == null) {
