@@ -67,55 +67,40 @@ export default class ProjectList extends React.Component {
             <div>
                 <Navbar />
                 <div className="container ">
-                    <div className="row">
-                        <div className="col-md-4 mb-3">
-                            <h3>Search For Project</h3>
-                            <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Project Name or Project Owner ID" onChange={this.handleChange.bind(this)} />
+                    <div className="mb-3 mx-4">
+                        <h3>Search For Project</h3>
+                        <div>
+                            <input className="form-control form-control-lg" type="text" name='keyword' placeholder="Enter Title or Owner's ID" onChange={this.handleChange.bind(this)} />
                         </div>
-                        <div className="col-md-8 card border-success mb-3 px-0">
-                            {/* Select to see Student List or Project List */}
-                            <h2 className="card-header">Project List </h2>
-                            <div>
-                            {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postTitle.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
-                                    <div className='table-responsive' key={filteredS._id}>
-                                        <table className="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th className="align-middle text-center">Owner ID</th>
-                                                    <th className="align-middle text-center">Title</th>
-                                                    <th className="align-middle text-center">Status</th>
-                                                    <th className="align-middle text-center">Available Slots</th>
-                                                    <th className="align-middle text-center">Course Name</th>
-                                                    <th className="align-middle text-center">Requirement</th>
-                                                    <th className="align-middle text-center">Detail</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr className='table-active'>
-                                                    <td className="align-middle text-center">{filteredS.ownerId}</td>
-                                                    <td className="align-middle text-center">{filteredS.postTitle}</td>
-                                                    <td className="align-middle text-center">{filteredS.postStatus}</td>
-                                                    <td className="align-middle text-center">{filteredS.postAvailableSlot}</td>
-                                                    <td className="align-middle text-center">{filteredS.courseName}</td>
-                                                    <td className="align-middle text-center">{filteredS.requirement}</td>
-                                                    <td className="align-middle text-center">
-                                                        <Link to={`/ProjectDetail/${filteredS._id}`}>
-                                                            <button type="button" className="btn btn-success">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-lg" viewBox="0 0 16 16">
-                                                                <path d="m10.277 5.433-4.031.505-.145.67.794.145c.516.123.619.309.505.824L6.101 13.68c-.34 1.578.186 2.32 1.423 2.32.959 0 2.072-.443 2.577-1.052l.155-.732c-.35.31-.866.434-1.206.434-.485 0-.66-.34-.536-.939l1.763-8.278zm.122-3.673a1.76 1.76 0 1 1-3.52 0 1.76 1.76 0 0 1 3.52 0z"/>
-                                                            </svg>
-                                                            </button>
-                                                        </Link>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <br />
+                    </div>
+
+                    <div className='card border-secondary mx-4 mb-3'>
+                        {this.state.posts.filter(s => s.ownerId.toLowerCase().includes(this.state.keyword.toLowerCase()) || s.postTitle.toLowerCase().includes(this.state.keyword.toLowerCase())).map(filteredS =>
+                            <div className='card my-3 mx-3 text-center text-md-start' key={filteredS._id}>
+                                <div className='card-header text-dark'>
+                                    <h5>{filteredS.postTitle}</h5>
+                                </div>
+                                <div className='row card-body text-dark'>
+                                    <div className='col-md-6'>
+                                        <h5>Owner ID: {filteredS.ownerId}</h5>
+                                        <h5>Status: {filteredS.postStatus}</h5>
+                                        <h5>Available Slot: {filteredS.postAvailableSlot}</h5>
                                     </div>
-                                )}
-                                <br />
+                                    <div className='col-md-6'>
+                                        <h5>Course Name: {filteredS.courseName}</h5>
+                                        <h5>Requirement: {filteredS.requirement}</h5>
+                                        <h5>More Information: &nbsp;
+                                        <Link to={`/ProjectDetail/${filteredS._id}`}>
+                                            <button type="button" className="btn btn-success">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-lg" viewBox="0 0 16 16">
+                                                    <path d="m10.277 5.433-4.031.505-.145.67.794.145c.516.123.619.309.505.824L6.101 13.68c-.34 1.578.186 2.32 1.423 2.32.959 0 2.072-.443 2.577-1.052l.155-.732c-.35.31-.866.434-1.206.434-.485 0-.66-.34-.536-.939l1.763-8.278zm.122-3.673a1.76 1.76 0 1 1-3.52 0 1.76 1.76 0 0 1 3.52 0z"/>
+                                                </svg>
+                                            </button>
+                                        </Link></h5>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>

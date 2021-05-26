@@ -104,6 +104,74 @@ export default class Profile extends React.Component {
                 <Navbar />
                 <div className="container">
                     <div className="row">
+                        <div className="col-md-8">
+                            {this.state.students.map(s =>
+                                <div key={s.studentId} className='card border-success mb-3'>
+                                    <div className='card-header mb-3'>
+                                        <h1> My Profile </h1>
+                                    </div>
+                                    <div className="card mx-3 mb-3" >
+                                        <div className="card-body text-dark">
+                                            <h4> Student Information</h4>
+                                            <hr className = 'mt-0' />
+                                            <div className='h5'>Name: <div className='d-inline h5'>{s.studentName}</div></div>
+                                            <div className='h5'>Student ID: <div className='d-inline h5'>{s.studentId}</div></div>
+                                            <div className='h5'>Year: <div className='d-inline h5'>{s.studentYear}</div> </div>
+                                            <div className='h5'>Birth Date: <div className='d-inline h5'>{s.birthDate}</div> </div>
+                                            <div className='h5'>Contact Mail: <div className='d-inline h5'>{s.contactMail}</div> </div>
+                                            <div className='h5'>Phone Number: <div className='d-inline h5'>{s.phoneNumber}</div> </div>
+                                        </div>
+                                        <hr className='m-0'/>
+                                        <div className='text-center'>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
+                                            s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
+                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                                </svg>EDIT
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    {/* Specialty and Description info */}
+                                    <div className="card mx-3 mb-3" >
+                                        <div className="card-body text-dark" >
+                                            <h4> More Detail</h4>
+                                            <hr className='mt-0'/>
+                                            <div className="h5">Experises: <div className='d-inline h5'>{s.specialtyExpertise}</div></div>
+                                            <div className="h5">Description: <div className='d-inline h5'>{s.description}</div></div>
+                                        </div>
+                                        <hr className='m-0'/>
+                                        <div className='text-center'>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
+                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                                </svg>EDIT
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    {/* Major and course and others */}
+                        
+                                    <div className="card mx-3 mb-3" >
+                                        <div className="card-body text-dark" >
+                                            <h4> Major Detail</h4>
+                                            <hr className='mt-0'/>
+                                            <div className= 'h5'>Major Name: <div className='d-inline h5'>{s.major}</div> </div>
+                                            <div className= 'h5'>Studying Course: <div className='d-inline h5'>{s.studyingCourse}</div> </div>
+                                        </div>
+                                        <hr className='m-0'/>
+                                        <div className='text-center'>
+                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
+                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                                </svg>EDIT
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                         <div className="col-md-4">
                             <div className='card align-middle text-center mb-3'>
                                 <h4>Uploaded Posts</h4>
@@ -118,7 +186,7 @@ export default class Profile extends React.Component {
                                 </Link>
                             </div>
                             <div className='card mb-3'>
-                                <h4 className='card-header bg-warning text-center'>
+                                <h4 className='card-header bg-info text-center'>
                                     Notification
                                 </h4>
                                 <div className='card-body'>
@@ -150,75 +218,6 @@ export default class Profile extends React.Component {
                                     )}
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div className="col-md-8">
-                            {this.state.students.map(s =>
-                                <div key={s.studentId} className='card border-success'>
-                                    <div className='card-header mb-3'>
-                                        <h1> My Profile </h1>
-                                    </div>
-                                    <div className="card mx-3 mb-3" >
-                                        <div className="card-body">
-                                            <h3> Student Information</h3>
-                                            <hr className = 'mt-0' />
-                                            <div className='text-muted h4'>Name: <div className='d-inline h4 text-white'>{s.studentName}</div></div>
-                                            <div className='text-muted h4'>Student ID: <div className='d-inline h4 text-white'>{s.studentId}</div></div>
-                                            <div className='text-muted h4'>Year: <div className='d-inline h4 text-white'>{s.studentYear}</div> </div>
-                                            <div className='text-muted h4'>Birth Date: <div className='d-inline h4 text-white'>{s.birthDate}</div> </div>
-                                            <div className='text-muted h4'>Contact Mail: <div className='d-inline h4 text-white'>{s.contactMail}</div> </div>
-                                            <div className='text-muted h4'>Phone Number: <div className='d-inline h4 text-white'>{s.phoneNumber}</div> </div>
-                                        </div>
-                                        <hr className='m-0'/>
-                                        <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentInfoModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber,
-                                            s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
-                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-                                                </svg>EDIT
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                    {/* Specialty and Description info */}
-                                    <div className="card mx-3 mb-3" >
-                                        <div className="card-body" >
-                                            <h3> More Detail</h3>
-                                            <hr className='mt-0'/>
-                                            <div className="text-muted h4">Experises: <div className='d-inline h4 text-white'>{s.specialtyExpertise}</div></div>
-                                            <div className="text-muted h4">Description: <div className='d-inline h4 text-white'>{s.description}</div></div>
-                                        </div>
-                                        <hr className='m-0'/>
-                                        <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#studentDescModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
-                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-                                                </svg>EDIT
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                    {/* Major and course and others */}
-                        
-                                    <div className="card mx-3 mb-3" >
-                                        <div className="card-body" >
-                                            <h3> Major Detail</h3>
-                                            <hr className='mt-0'/>
-                                            <div className= 'text-muted h4'>Major Name: <div className='d-inline h4 text-white'>{s.major}</div> </div>
-                                            <div className= 'text-muted h4'>Studying Course: <div className='d-inline h4 text-white'>{s.studyingCourse}</div> </div>
-                                        </div>
-                                        <hr className='m-0'/>
-                                        <div className='text-center'>
-                                            <button type="button" className="btn btn-success w-30 m-1 font-weight-bold" data-toggle="modal" data-target="#majorDetailModal" onClick={this.edit.bind(this, s.studentId, s.studentName, s.studentYear, s.contactMail, s.phoneNumber, s.description, s.specialtyExpertise, s.birthDate, s.major, s.studyingCourse)}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill mr-1" viewBox="0 0 16 16">
-                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-                                                </svg>EDIT
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            )}
                         </div>
                         <div className="modal fade" id="studentInfoModal">
                             <div className="modal-dialog">
