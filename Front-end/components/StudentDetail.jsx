@@ -43,7 +43,7 @@ export default class StudentDetail extends React.Component {
                 <Navbar />
                 <div className="container ">
                     <div className='card align-middle text-center mb-3'>
-                        <h4>Back to Student List</h4>
+                        <h4>Student List</h4>
                         <Link to="/StudentList" className="nav-link">
                             <button type="button" className="btn btn-light">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16">
@@ -55,34 +55,34 @@ export default class StudentDetail extends React.Component {
                     <div>
                         {this.state.students.map(s =>
                             <div key={s.studentId} className='card border-success'>
-                                <h1 className="card-header mb-3"> Student Detail </h1>
+                                <h2 className="card-header mb-3"> Student Detail </h2>
                                 <div className='card mx-3 mb-3'>
-                                    <div className='card-body'>
-                                        <h2>Student Information</h2>
+                                    <div className='card-body text-dark'>
+                                        <h3>Student Information</h3>
                                         <hr className = 'mt-0'/>
-                                        <div className="text-muted h4">Student Name: <div className='d-inline text-white h4'>{s.studentName}</div></div>
-                                        <div className="text-muted h4">Student ID: <div className='d-inline text-white h4'>{s.studentId}</div></div>
-                                        <div className="text-muted h4">Year: <div className='d-inline text-white h4'>{s.studentYear}</div></div>
-                                        <div className="text-muted h4">Birth Date: <div className='d-inline text-white h4'>{s.birthDate}</div></div>
+                                        <div className="h5">Student Name: <div className='d-inline h5'>{s.studentName}</div></div>
+                                        <div className="h5">Student ID: <div className='d-inline h5'>{s.studentId}</div></div>
+                                        <div className="h5">Year: <div className='d-inline h5'>{s.studentYear}</div></div>
+                                        <div className="h5">Birth Date: <div className='d-inline h5'>{s.birthDate}</div></div>
                                     </div>
                                 </div>
 
                                 {/* Specialty and Description info */}
                                 <div className='card mx-3 mb-3'>
-                                    <div className='card-body'>
-                                        <h2>Description</h2>
+                                    <div className='card-body text-dark'>
+                                        <h3>Description</h3>
                                         <hr className = 'mt-0'/>
-                                        <div className="text-muted h4">Experises: <div className='d-inline text-white h4'>{s.specialtyExpertise}</div></div>
-                                        <div className="text-muted h4">Description: <div className='d-inline text-white h4'>{s.description}</div></div>
+                                        <div className="h5">Experises: <div className='d-inline h5'>{s.specialtyExpertise}</div></div>
+                                        <div className="h5">Description: <div className='d-inline h5'>{s.description}</div></div>
                                     </div>
                                 </div>
 
                                 {/* Major and course and others */}
                                 <div className='card mx-3 mb-3'>
-                                    <div className='card-body'>
-                                        <h2>Major Detail</h2>
-                                        <div className="text-muted h4">Major Name: <div className='d-inline text-white h4'>{s.major}</div></div>
-                                        <div className="text-muted h4">Studying Course: <div className='d-inline text-white h4'>{s.studyingCourse}</div></div>
+                                    <div className='card-body text-dark'>
+                                        <h3>Major Detail</h3>
+                                        <div className="h5">Major Name: <div className='d-inline h5'>{s.major}</div></div>
+                                        <div className="h5">Studying Course: <div className='d-inline h5'>{s.studyingCourse}</div></div>
                                     </div>
                                 </div>
                             </div>

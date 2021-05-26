@@ -147,7 +147,7 @@ export default class ProjectDetail extends React.Component {
                 <div className="row">
                     <div className="col-md-4">
                         <div className='card align-middle text-center mb-3'>
-                            <h4>Other's Project</h4>
+                            <h4>Project List</h4>
                             <Link to="/ProjectList" className="nav-link">
                                 <button type="button" className="btn btn-light">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
@@ -156,7 +156,7 @@ export default class ProjectDetail extends React.Component {
                             </Link>
                         </div>
                         <div className='card align-middle text-center mb-3'>
-                            <h4>My Project</h4>
+                            <h4>My Project List</h4>
                             <Link to="/MyProjectList" className="nav-link">
                                 <button type="button" className="btn btn-light">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
@@ -244,25 +244,25 @@ export default class ProjectDetail extends React.Component {
                             {this.state.posts.map(s =>
                                 <div key={s._id} className='card border-success'>
                                     <div className="card-header mb-3">
-                                        <h1>Post Detail</h1>
+                                        <h2>Post Detail</h2>
                                     </div>
                                     <div className="card mx-3 mb-3">
-                                        <div className="card-body">
-                                            <h3>Post Information</h3>
+                                        <div className="card-body text-dark">
+                                            <h4>Post Information</h4>
                                             <hr className = 'mt-0'/>
-                                            <div className="text-muted h4">Post Title: <div className='d-inline text-white h4'>{s.postTitle}</div></div>
-                                            <div className="text-muted h4">Posted by: <div className='d-inline text-white h4'>{s.ownerId}</div> </div>
-                                            <div className="text-muted h4">Post Owner Detail: <Link className='d-inline text-white h4' to={`/StudentDetail/${s.ownerId}`}>Link</Link></div>
-                                            <div className="text-muted h4">Available Slot: <div className='d-inline text-white h4'>{s.postAvailableSlot}</div></div>
+                                            <div className="h5">Post Title: <div className='d-inline h5'>{s.postTitle}</div></div>
+                                            <div className="h5">Posted by: <div className='d-inline h5'>{s.ownerId}</div> </div>
+                                            <div className="h5">Post Owner Detail: <Link className='d-inline h5 text-dark' to={`/StudentDetail/${s.ownerId}`}>Link</Link></div>
+                                            <div className="h5">Available Slot: <div className='d-inline h5'>{s.postAvailableSlot}</div></div>
                                         </div>
                                     </div>
                                     {/* List out student in Project */}
                                     <div className="card mx-3 mb-3">
-                                        <div className="card-body">
-                                        <h3>List of teammates</h3>
-                                        <table className="table table-bordered">
+                                        <div className="card-body text-dark">
+                                        <h4>List of teammates</h4>
+                                        <table className="table table-bordered text-dark">
                                             <thead>
-                                                <tr className='table-active'>
+                                                <tr className='table-active text-dark'>
                                                     <th className="align-middle text-center h5">Student ID</th>
                                                     <th className="align-middle text-center h5">Student Name</th>
                                                 </tr>
@@ -289,22 +289,22 @@ export default class ProjectDetail extends React.Component {
 
                                     {/*Project related-course Information*/}
                                     <div className="card mx-3 mb-3" >
-                                        <div className="card-body" >
-                                            <h3>Assignment Detail</h3>
+                                        <div className="card-body text-dark" >
+                                            <h4>Assignment Detail</h4>
                                             <hr className = 'mt-0'/>
-                                            <div className="text-muted h4">Course Name: <div className='d-inline text-white h4'>{s.courseName}</div></div>
-                                            <div className="text-muted h4">Semester: <div className='d-inline text-white h4'>{s.semester}</div></div>
+                                            <div className="h5">Course Name: <div className='d-inline h5'>{s.courseName}</div></div>
+                                            <div className="h5">Semester: <div className='d-inline h5'>{s.semester}</div></div>
                                         </div>
                                     </div>
 
                                     {/*Project Description*/}
                                     <div className="card mx-3 mb-3" >
-                                        <div className="card-body">
+                                        <div className="card-body text-dark">
                                             <h3>Project Description</h3>
                                             <hr className='mt-0'/>
-                                            <div className="text-muted h4">Aim For: <div className='d-inline text-white h4'>{s.aimedGrade}</div></div>
-                                            <div className="text-muted h4">Description: <div className='d-inline text-white h4'>{s.description}</div></div>
-                                            <div className="text-muted h4">Requirement: <div className='d-inline text-white h4'>{s.requirement}</div></div>
+                                            <div className="h5">Aim For: <div className='d-inline h5'>{s.aimedGrade}</div></div>
+                                            <div className="h5">Description: <div className='d-inline h5'>{s.description}</div></div>
+                                            <div className="h5">Requirement: <div className='d-inline h5'>{s.requirement}</div></div>
                                         </div>
                                     </div>
 
