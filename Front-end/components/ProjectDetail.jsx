@@ -150,7 +150,7 @@ export default class ProjectDetail extends React.Component {
                             <h4>Back to Project List</h4>
                             <Link to="/ProjectList" className="nav-link">
                                 <button type="button" className="btn btn-light">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
                                     </svg>
                                 </button>
                             </Link>
@@ -241,10 +241,10 @@ export default class ProjectDetail extends React.Component {
                                         <div className="card-body">
                                             <h3>Post Information</h3>
                                             <hr className = 'mt-0'/>
-                                            <h4 className="text-muted">Post Name: <h4 className='d-inline text-white'>{s.postName}</h4></h4>
-                                            <h4 className="text-muted">Posted by: <h4 className='d-inline text-white'>{s.ownerId}</h4> </h4>
-                                            <h4 className="text-muted">Post Owner Detail: <Link className='d-inline text-white' to={`/StudentDetail/${s.ownerId}`}>Link</Link></h4>
-                                            <h4 className="text-muted">Available Slot: <h4 className='d-inline text-white'>{s.postAvailableSlot}</h4></h4>
+                                            <div className="text-muted h4">Post Name: <div className='d-inline text-white h4'>{s.postName}</div></div>
+                                            <div className="text-muted h4">Posted by: <div className='d-inline text-white h4'>{s.ownerId}</div> </div>
+                                            <div className="text-muted h4">Post Owner Detail: <Link className='d-inline text-white h4' to={`/StudentDetail/${s.ownerId}`}>Link</Link></div>
+                                            <div className="text-muted h4">Available Slot: <div className='d-inline text-white h4'>{s.postAvailableSlot}</div></div>
                                         </div>
                                     </div>
                                     {/* List out student in Project */}
@@ -283,8 +283,8 @@ export default class ProjectDetail extends React.Component {
                                         <div className="card-body" >
                                             <h3>Assignment Detail</h3>
                                             <hr className = 'mt-0'/>
-                                            <h4 className="text-muted">Course Name: <h4 className='d-inline text-white'>{s.courseName}</h4></h4>
-                                            <h4 className="text-muted">Semester: <h4 className='d-inline text-white'>{s.semester}</h4></h4>
+                                            <div className="text-muted h4">Course Name: <div className='d-inline text-white h4'>{s.courseName}</div></div>
+                                            <div className="text-muted h4">Semester: <div className='d-inline text-white h4'>{s.semester}</div></div>
                                         </div>
                                     </div>
 
@@ -293,8 +293,8 @@ export default class ProjectDetail extends React.Component {
                                         <div className="card-body">
                                             <h3>Project Description</h3>
                                             <hr className='mt-0'/>
-                                            <h4 className="text-muted">Scope: <h4 className='d-inline text-white'>{s.scope}</h4></h4>
-                                            <h4 className="text-muted">Desciption: <h4 className='d-inline text-white'>{s.description}</h4></h4>
+                                            <div className="text-muted h4">Scope: <div className='d-inline text-white h4'>{s.scope}</div></div>
+                                            <div className="text-muted h4">Desciption: <div className='d-inline text-white h4'>{s.description}</div></div>
                                         </div>
                                     </div>
 
@@ -303,7 +303,7 @@ export default class ProjectDetail extends React.Component {
                                         <div className="card-body" >
                                             <h3>Looking For</h3>
                                             <hr className='mt-0'/>
-                                            <h4 className="text-muted">Criteria: <h4 className='d-inline text-white'>{s.lookingFor}</h4></h4>
+                                            <div className="text-muted h4">Criteria: <div className='d-inline text-white h4'>{s.lookingFor}</div></div>
                                         </div>
                                     </div>
 
