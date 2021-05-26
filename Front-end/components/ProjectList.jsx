@@ -29,9 +29,9 @@ export default class ProjectList extends React.Component {
             courseName: '',
             semester: '',
             //Other
-            scope: '',
+            aimedGrade: '',
             description: '',
-            lookingFor: '',
+            requirement: '',
             //keyword
             keyword: ''
 
@@ -82,11 +82,11 @@ export default class ProjectList extends React.Component {
                                             <thead>
                                                 <tr>
                                                     <th className="align-middle text-center">Owner ID</th>
-                                                    <th className="align-middle text-center">Post Title</th>
-                                                    <th className="align-middle text-center">Post Status</th>
+                                                    <th className="align-middle text-center">Title</th>
+                                                    <th className="align-middle text-center">Status</th>
                                                     <th className="align-middle text-center">Available Slots</th>
                                                     <th className="align-middle text-center">Course Name</th>
-                                                    <th className="align-middle text-center">Looking For</th>
+                                                    <th className="align-middle text-center">Requirement</th>
                                                     <th className="align-middle text-center">Detail</th>
                                                 </tr>
                                             </thead>
@@ -97,7 +97,7 @@ export default class ProjectList extends React.Component {
                                                     <td className="align-middle text-center">{filteredS.postStatus}</td>
                                                     <td className="align-middle text-center">{filteredS.postAvailableSlot}</td>
                                                     <td className="align-middle text-center">{filteredS.courseName}</td>
-                                                    <td className="align-middle text-center">{filteredS.lookingFor}</td>
+                                                    <td className="align-middle text-center">{filteredS.requirement}</td>
                                                     <td className="align-middle text-center">
                                                         <Link to={`/ProjectDetail/${filteredS._id}`}>
                                                             <button type="button" className="btn btn-success">

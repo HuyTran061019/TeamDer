@@ -102,7 +102,7 @@ export default class Profile extends React.Component {
         return (
             <div>
                 <Navbar />
-                <div className="container ">
+                <div className="container">
                     <div className="row">
                         <div className="col-md-4">
                             <div className='card align-middle text-center mb-3'>

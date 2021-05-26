@@ -84,9 +84,9 @@ var PostSchema = new mongoose.Schema({
 
     courseName: String,
     semester: String,
-    scope: String,
+    aimedGrade: String,
     description: String,
-    lookingFor: String,
+    requirement: String,
 
 
 })
@@ -179,7 +179,7 @@ app.delete('/posts/:postId', function (req, res) {
 
 app.put('/posts/', function (req, res) {
     Post.findByIdAndUpdate({ "_id": ObjectId(req.body.postId) }, {
-        ownerId: req.body.ownerId, postTitle: req.body.postTitle, postStatus: req.body.postStatus, postAvailableSlot: req.body.postAvailableSlot, s1Id: req.body.s1Id, s1Name: req.body.s1Name, s2Id: req.body.s2Id, s2Name: req.body.s2Name, s3Id: req.body.s3Id, s3Name: req.body.s3Name, courseName: req.body.courseName, semester: req.body.semester, scope: req.body.scope, description: req.body.description, lookingFor: req.body.lookingFor
+        ownerId: req.body.ownerId, postTitle: req.body.postTitle, postStatus: req.body.postStatus, postAvailableSlot: req.body.postAvailableSlot, s1Id: req.body.s1Id, s1Name: req.body.s1Name, s2Id: req.body.s2Id, s2Name: req.body.s2Name, s3Id: req.body.s3Id, s3Name: req.body.s3Name, courseName: req.body.courseName, semester: req.body.semester, aimedGrade: req.body.aimedGrade, description: req.body.description, requirement: req.body.requirement
     }, function (err, result) {
         res.send(result)
     })

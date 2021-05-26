@@ -40,9 +40,9 @@ export default class MyProjectList extends React.Component {
             courseName: '',
             semester: '',
             //Other
-            scope: '',
+            aimedGrade: '',
             description: '',
-            lookingFor: '',
+            requirement: '',
             //checkBooleanAdd
             addNew: true,
             //keyword
@@ -84,8 +84,8 @@ export default class MyProjectList extends React.Component {
                 },
                 body: JSON.stringify({
                     ownerId: this.state.check, postTitle: this.state.postTitle, postStatus: this.state.postStatus,
-                    postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, scope: this.state.scope,
-                    description: this.state.description, lookingFor: this.state.lookingFor
+                    postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, aimedGrade: this.state.aimedGrade,
+                    description: this.state.description, requirement: this.state.requirement
                 })
             }).then(res => res.json())
                 .then(json => this.fetchData())
@@ -98,7 +98,7 @@ export default class MyProjectList extends React.Component {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    postId: this.state.postId, ownerId: this.state.check, postTitle: this.state.postTitle, postStatus: this.state.postStatus, postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, scope: this.state.scope, description: this.state.description, lookingFor: this.state.lookingFor
+                    postId: this.state.postId, ownerId: this.state.check, postTitle: this.state.postTitle, postStatus: this.state.postStatus, postAvailableSlot: this.state.postAvailableSlot, s1Id: this.state.s1Id, s1Name: this.state.s1Name, s2Id: this.state.s2Id, s2Name: this.state.s2Name, s3Id: this.state.s3Id, s3Name: this.state.s3Name, courseName: this.state.courseName, semester: this.state.semester, aimedGrade: this.state.aimedGrade, description: this.state.description, requirement: this.state.requirement
                 })
             }).then(res => res.json())
                 .then(json => this.fetchData())
@@ -119,13 +119,13 @@ export default class MyProjectList extends React.Component {
     //Start to add
     add() {
         this.setState({
-            ownerId: this.state.check, postTitle: '', postStatus: '', postAvailableSlot: '', s1Id: '', s1Name: '', s2Id: '', s2Name: '', s3Id: '', s3Name: '', courseName: '', semester: '', scope: '', description: '', lookingFor: '', addNew: true
+            ownerId: this.state.check, postTitle: '', postStatus: '', postAvailableSlot: '', s1Id: '', s1Name: '', s2Id: '', s2Name: '', s3Id: '', s3Name: '', courseName: '', semester: '', aimedGrade: '', description: '', requirement: '', addNew: true
         })
     }
     //Start to edit
-    edit(_id, postTitle, postStatus, postAvailableSlot, s1Id, s1Name, s2Id, s2Name, s3Id, s3Name, courseName, semester, scope, description, lookingFor) {
+    edit(_id, postTitle, postStatus, postAvailableSlot, s1Id, s1Name, s2Id, s2Name, s3Id, s3Name, courseName, semester, aimedGrade, description, requirement) {
         this.setState({
-            postTitle: postTitle, postStatus: postStatus, postAvailableSlot: postAvailableSlot, s1Id: s1Id, s1Name: s1Name, s2Id: s2Id, s2Name: s2Name, s3Id: s3Id, s3Name: s3Name, courseName: courseName, semester: semester, scope: scope, description: description, lookingFor: lookingFor, addNew: false
+            postTitle: postTitle, postStatus: postStatus, postAvailableSlot: postAvailableSlot, s1Id: s1Id, s1Name: s1Name, s2Id: s2Id, s2Name: s2Name, s3Id: s3Id, s3Name: s3Name, courseName: courseName, semester: semester, aimedGrade: aimedGrade, description: description, requirement: requirement, addNew: false
         })
         this.updatePostId(_id)
     }
@@ -168,50 +168,65 @@ export default class MyProjectList extends React.Component {
                                 {/* Modeal content */}
                                 <div className="modal-content">
                                     <div className="modal-body">
-                                        <div className="card mb-4 pl-4 pr-4 pt-5 pm-5 overflow-auto" >
+                                        <div className="mb-4 pl-4 pr-4 pt-5 pm-5 overflow-auto" >
 
                                             <h3 className='text-muted'>Post Management</h3>
                                    
                                             Post Title: <input className="mt-1" type="text" id="postTitle" name="postTitle" className="form-control" value={this.state.postTitle}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Post Status: <input className="mt-1" type="text" id="postStatus" name="postStatus" className="form-control" value={this.state.postStatus}
+                                            Project Status: 
+                                                <select className="mt-1 form-select" id="postStatus" name="postStatus" value={this.state.postStatus} onChange={this.handleChange.bind(this)}>
+                                                    <option className="text-dark" value='Available'>Available</option>
+                                                    <option className="text-dark" value='Closed'>Closed</option>
+                                                </select>
+                                            <br />
+                                            Available Slot: 
+                                                <select className="mt-1 form-select" id="postAvailableSlot" name="postAvailableSlot" value={this.state.postAvailableSlot} onChange={this.handleChange.bind(this)}>
+                                                    <option className="text-dark" value='1'>1</option>
+                                                    <option className="text-dark" value='2'>2</option>
+                                                    <option className="text-dark" value='3'>3</option>
+                                                </select>
+                                            <br />
+                                            Student 1 ID: <input className="mt-1" type="text" id="s1Id" name="s1Id" className="form-control" value={this.state.s1Id}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Available Slot: <input className="mt-1" type="text" id="postAvailableSlot" name="postAvailableSlot" className="form-control" value={this.state.postAvailableSlot}
+                                            Student 1 Name: <input className="mt-1" type="text" id="s1Name" name="s1Name" className="form-control" value={this.state.s1Name}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 1 ID : <input className="mt-1" type="text" id="s1Id" name="s1Id" className="form-control" value={this.state.s1Id}
+                                            Student 2 ID: <input className="mt-1" type="text" id="s2Id" name="s2Id" className="form-control" value={this.state.s2Id}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 1 Name : <input className="mt-1" type="text" id="s1Name" name="s1Name" className="form-control" value={this.state.s1Name}
+                                            Student 2 Name: <input className="mt-1" type="text" id="s2Name" name="s2Name" className="form-control" value={this.state.s2Name}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 2 ID : <input className="mt-1" type="text" id="s2Id" name="s2Id" className="form-control" value={this.state.s2Id}
+                                            Student 3 ID: <input className="mt-1" type="text" id="s3Id" name="s3Id" className="form-control" value={this.state.s3Id}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 2 Name : <input className="mt-1" type="text" id="s2Name" name="s2Name" className="form-control" value={this.state.s2Name}
+                                            Student 3 Name: <input className="mt-1" type="text" id="s3Name" name="s3Name" className="form-control" value={this.state.s3Name}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 3 ID : <input className="mt-1" type="text" id="s3Id" name="s3Id" className="form-control" value={this.state.s3Id}
+                                            Course  Name: <input className="mt-1" type="text" id="courseName" name="courseName" className="form-control" value={this.state.courseName}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Student 3 Name : <input className="mt-1" type="text" id="s3Name" name="s3Name" className="form-control" value={this.state.s3Name}
+                                            Semester:
+                                                <select className="mt-1 form-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleChange.bind(this)}>
+                                                    <option className="text-dark" value='1'>1</option>
+                                                    <option className="text-dark" value='2'>2</option>
+                                                    <option className="text-dark" value='3'>3</option>
+                                                </select>
+                                            <br />
+                                            Aim For:
+                                                <select className="mt-1 form-select" id="aimedGrade" name="aimedGrade" value={this.state.aimedGrade} onChange={this.handleChange.bind(this)}>
+                                                    <option className="text-dark" value='HD'>HD</option>
+                                                    <option className="text-dark" value='DI'>DI</option>
+                                                    <option className="text-dark" value='CR'>CR</option>
+                                                </select>
+                                            <br />
+                                            Description: <input className="mt-1" type="text" id="description" name="description" className="form-control" value={this.state.description}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
-                                            Course  Name : <input className="mt-1" type="text" id="courseName" name="courseName" className="form-control" value={this.state.courseName}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                            Semester : <input className="mt-1" type="text" id="semester" name="semester" className="form-control" value={this.state.semester}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                            Scope : <input className="mt-1" type="text" id="scope" name="scope" className="form-control" value={this.state.scope}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                            Description : <input className="mt-1" type="text" id="description" name="description" className="form-control" value={this.state.description}
-                                                onChange={this.handleChange.bind(this)} />
-                                            <br />
-                                            Looking For : <input className="mt-1" type="text" id="lookingFor" name="lookingFor" className="form-control" value={this.state.lookingFor}
+                                            Requirement: <input className="mt-1" type="text" id="requirement" name="requirement" className="form-control" value={this.state.requirement}
                                                 onChange={this.handleChange.bind(this)} />
                                             <br />
                                         </div>
@@ -250,7 +265,7 @@ export default class MyProjectList extends React.Component {
                                                 <th className="align-middle text-center">Post Status</th>
                                                 <th className="align-middle text-center">Available Slots</th>
                                                 <th className="align-middle text-center">Course Name</th>
-                                                <th className="align-middle text-center">Looking For</th>
+                                                <th className="align-middle text-center">Requirement</th>
                                                 <th className="align-middle text-center">Detail</th>        
                                                 <th className="align-middle text-center">Edit</th>
                                                 <th className="align-middle text-center">Delete</th>
@@ -262,7 +277,7 @@ export default class MyProjectList extends React.Component {
                                                 <td className="align-middle text-center">{filteredS.postStatus}</td>
                                                 <td className="align-middle text-center">{filteredS.postAvailableSlot}</td>
                                                 <td className="align-middle text-center">{filteredS.courseName}</td>
-                                                <td className="align-middle text-center">{filteredS.lookingFor}</td>
+                                                <td className="align-middle text-center">{filteredS.requirement}</td>
                                                 <td className="align-middle text-center">
                                                     <Link to={`/ProjectDetail/${filteredS._id}`}>
                                                         <button type="button" className="btn btn-secondary mb-2 mr-2 ml-2">
@@ -273,8 +288,8 @@ export default class MyProjectList extends React.Component {
                                                     </Link>
                                                 </td>
                                                 <td className="align-middle text-center">
-                                                    <button className="btn btn-info mb-2 mr-2 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, filteredS._id, filteredS.postTitle, filteredS.postStatus, filteredS.postAvailableSlot, filteredS.s1Id, filteredS.s1Name, filteredS.s2Id, filteredS.s2Name, filteredS.s3Id, filteredS.s3Name, filteredS.courseName, filteredS.semester, filteredS.scope,
-                                                    filteredS.description, filteredS.lookingFor)}>
+                                                    <button className="btn btn-info mb-2 mr-2 ml-2" data-toggle="modal" data-target="#myModal" onClick={this.edit.bind(this, filteredS._id, filteredS.postTitle, filteredS.postStatus, filteredS.postAvailableSlot, filteredS.s1Id, filteredS.s1Name, filteredS.s2Id, filteredS.s2Name, filteredS.s3Id, filteredS.s3Name, filteredS.courseName, filteredS.semester, filteredS.aimedGrade,
+                                                    filteredS.description, filteredS.requirement)}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill" viewBox="0 0 16 16">
                                                             <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                         </svg>
