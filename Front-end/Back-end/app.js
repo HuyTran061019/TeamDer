@@ -13,11 +13,6 @@ app.use(bodyParser.json())
 
 app.use(cors())
 
-const path = require('path');
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-
 const PORT = 9000
 
 //mongoose.connect('mongodb://localhost/TeamDer')
