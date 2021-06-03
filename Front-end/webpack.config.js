@@ -1,5 +1,6 @@
 var config = {
-    entry: './main.js',
+   mode:"development",
+    entry: './src/index.js',
      
     output: {
        path:'/',
@@ -14,7 +15,7 @@ var config = {
     },
      
     module: {
-       loaders: [
+       rules: [
           {
              test: /\.jsx?$/,
              exclude: /node_modules/,
